@@ -1,0 +1,4 @@
+name: EyeStalker
+url: https://github.com/tbrouns/eyestalker/releases
+apiurl: https://api.github.com/repos/tbrouns/eyestalker/releases
+description: eyestalker   Robust video based eye tracking using recursive estimation of pupil characteristics

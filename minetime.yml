@@ -1,0 +1,4 @@
+name: MineTime
+url: https://github.com/marcoancona/MineTime/releases
+apiurl: https://api.github.com/repos/marcoancona/MineTime/releases
+description: MineTime public repository for issue tracking

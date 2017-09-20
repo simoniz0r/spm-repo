@@ -1,0 +1,4 @@
+name: Slic3r_PE
+url: https://github.com/prusa3d/Slic3r/releases
+apiurl: https://api.github.com/repos/prusa3d/Slic3r/releases
+description: Slic r   G code generator for  D printers  RepRap  Makerbot  Ultimaker etc  

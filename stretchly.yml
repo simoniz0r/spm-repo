@@ -1,0 +1,4 @@
+name: stretchly
+url: https://github.com/hovancik/stretchly/releases
+apiurl: https://api.github.com/repos/hovancik/stretchly/releases
+description: stretchly   break time reminder app

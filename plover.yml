@@ -1,0 +1,4 @@
+name: Plover
+url: https://github.com/openstenoproject/plover/releases
+apiurl: https://api.github.com/repos/openstenoproject/plover/releases
+description: plover   Open source stenotype engine

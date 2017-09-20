@@ -1,0 +1,4 @@
+name: Popcorn_Time
+url: https://github.com/amilajack/popcorn-time-desktop/releases
+apiurl: https://api.github.com/repos/amilajack/popcorn-time-desktop/releases
+description: popcorn time desktop          A Modern and Experimental Popcorn Time Client

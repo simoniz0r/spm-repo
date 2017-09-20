@@ -1,0 +1,4 @@
+name: AHGequip
+url: https://github.com/TroopTrack/AHGequip/releases
+apiurl: https://api.github.com/repos/TroopTrack/AHGequip/releases
+description: The public repository used by TroopTrack to release AHGequip

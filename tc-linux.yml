@@ -1,0 +1,4 @@
+name: tc-linux
+url: https://github.com/mccxiv/tc/releases
+apiurl: https://api.github.com/repos/mccxiv/tc/releases
+description: A desktop chat client for Twitch

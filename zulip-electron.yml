@@ -1,0 +1,4 @@
+name: zulip-electron
+url: https://github.com/zulip/zulip-electron/releases
+apiurl: https://api.github.com/repos/zulip/zulip-electron/releases
+description: zulip electron    boom  Zulip Desktop Client

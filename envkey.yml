@@ -1,0 +1,4 @@
+name: EnvKey
+url: https://github.com/envkey/envkey-ui/releases
+apiurl: https://api.github.com/repos/envkey/envkey-ui/releases
+description: Contribute to envkey ui development by creating an account on GitHub 

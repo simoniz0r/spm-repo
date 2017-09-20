@@ -1,0 +1,4 @@
+name: HomeAssistantElectron
+url: https://github.com/matthinc/HomeAssistantElectron/releases
+apiurl: https://api.github.com/repos/matthinc/HomeAssistantElectron/releases
+description: HomeAssistantElectron   Desktop app for Home Assistant based on Electron

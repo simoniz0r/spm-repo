@@ -1,0 +1,4 @@
+name: devdocs-desktop
+url: https://github.com/egoist/devdocs-desktop/releases
+apiurl: https://api.github.com/repos/egoist/devdocs-desktop/releases
+description: devdocs desktop   A full featured desktop app for DevDocs io 

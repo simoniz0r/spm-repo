@@ -1,0 +1,4 @@
+name: Stencila
+url: https://github.com/stencila/desktop/releases
+apiurl: https://api.github.com/repos/stencila/desktop/releases
+description:    Stencila on the desktop

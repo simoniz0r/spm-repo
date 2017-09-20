@@ -1,0 +1,4 @@
+name: stellar-portal
+url: https://github.com/pakokrew/stellar-portal/releases
+apiurl: https://api.github.com/repos/pakokrew/stellar-portal/releases
+description: stellar portal   Pure web client for viewing and managing Stellar accounts

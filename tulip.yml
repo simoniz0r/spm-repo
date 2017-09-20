@@ -1,0 +1,4 @@
+name: Tulip
+url: https://github.com/tulip5/tulip/releases
+apiurl: https://api.github.com/repos/tulip5/tulip/releases
+description: tulip   Large graphs analysis  drawing and visualization framework

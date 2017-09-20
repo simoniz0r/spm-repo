@@ -1,0 +1,4 @@
+name: maven
+url: https://github.com/eugenemel/maven/releases
+apiurl: https://api.github.com/repos/eugenemel/maven/releases
+description: maven   Maven GUI  Metabolomics Analysis and Visualization Engine  

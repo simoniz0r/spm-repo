@@ -1,0 +1,4 @@
+name: mycard
+url: https://github.com/moecube/moecube/releases
+apiurl: https://api.github.com/repos/moecube/moecube/releases
+description: moecube         APP  

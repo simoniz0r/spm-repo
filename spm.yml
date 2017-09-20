@@ -1,0 +1,4 @@
+name: spm
+url: https://github.com/simoniz0r/spm/releases
+apiurl: https://api.github.com/repos/simoniz0r/spm/releases
+description: spm is a simple commandline package manager that installs AppImages and precompiled tar archives  Using the lists generated from spm     s repo  spm provides a variety of AppImages and precompiled tars for install   spm is also able to manage updates for installed packages using the same lists 

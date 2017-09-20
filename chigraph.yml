@@ -1,0 +1,4 @@
+name: Chigraph
+url: https://github.com/chigraph/chigraph/releases
+apiurl: https://api.github.com/repos/chigraph/chigraph/releases
+description: chigraph   A visual systems language for beginners compiled using LLVM

@@ -1,0 +1,4 @@
+name: PowerShell
+url: https://github.com/PowerShell/PowerShell/releases
+apiurl: https://api.github.com/repos/PowerShell/PowerShell/releases
+description: PowerShell for every system 

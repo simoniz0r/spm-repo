@@ -1,0 +1,4 @@
+name: GVim
+url: https://github.com/vim/vim-appimage/releases
+apiurl: https://api.github.com/repos/vim/vim-appimage/releases
+description: vim appimage   AppImage for gVim

@@ -1,0 +1,4 @@
+name: Mitmproxy
+url: https://github.com/nandub/Mitmproxy.AppImage/releases
+apiurl: https://api.github.com/repos/nandub/Mitmproxy.AppImage/releases
+description: Mitmproxy AppImage   for creating appimage for the mitmproxy python program

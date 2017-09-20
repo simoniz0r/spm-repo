@@ -1,0 +1,4 @@
+name: StopLight
+url: https://github.com/stoplightio/desktop/releases
+apiurl: https://api.github.com/repos/stoplightio/desktop/releases
+description: The Stoplight desktop app   issues repository 

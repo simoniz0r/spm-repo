@@ -1,0 +1,4 @@
+name: CIAA_SUITE
+url: https://github.com/martinribelotta/embedded-ide-builder/releases
+apiurl: https://api.github.com/repos/martinribelotta/embedded-ide-builder/releases
+description: embedded ide builder   Embedded IDE automated build system

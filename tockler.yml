@@ -1,0 +1,4 @@
+name: Tockler
+url: https://github.com/MayGo/tockler/releases
+apiurl: https://api.github.com/repos/MayGo/tockler/releases
+description: tockler   Application that tracks your time by monitoring your active windows  only titles  and idle time 

@@ -1,0 +1,4 @@
+name: steam-rom-manager
+url: https://github.com/FrogTheFrog/steam-rom-manager/releases
+apiurl: https://api.github.com/repos/FrogTheFrog/steam-rom-manager/releases
+description: steam rom manager   An app for managing ROMs in Steam

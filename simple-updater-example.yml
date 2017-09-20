@@ -1,0 +1,4 @@
+name: simple-updater-example
+url: https://github.com/megahertz/electron-simple-updater/releases
+apiurl: https://api.github.com/repos/megahertz/electron-simple-updater/releases
+description: electron simple updater   Simple way to enable update for the electron application

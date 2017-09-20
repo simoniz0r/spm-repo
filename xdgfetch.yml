@@ -1,0 +1,4 @@
+name: xdgfetch
+url: https://github.com/simoniz0r/xdgfetch/releases
+apiurl: https://api.github.com/repos/simoniz0r/xdgfetch/releases
+description: xdgfetch   A bash script that lists system information

@@ -1,0 +1,4 @@
+name: QGroundControl
+url: https://github.com/mavlink/qgroundcontrol/releases
+apiurl: https://api.github.com/repos/mavlink/qgroundcontrol/releases
+description: qgroundcontrol   Cross platform ground control station for drones  Android  iOS  Mac OS  Linux  Windows 

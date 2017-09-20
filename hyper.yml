@@ -1,0 +1,4 @@
+name: hyper
+url: https://github.com/zeit/hyper/releases
+apiurl: https://api.github.com/repos/zeit/hyper/releases
+description: hyper   A terminal built on web technologies

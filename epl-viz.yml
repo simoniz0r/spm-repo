@@ -1,0 +1,4 @@
+name: EPL-Viz
+url: https://github.com/epl-viz/EPL-Viz/releases
+apiurl: https://api.github.com/repos/epl-viz/EPL-Viz/releases
+description: Qt Frontend for the EPL Viz project

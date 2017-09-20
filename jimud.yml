@@ -1,0 +1,4 @@
+name: jiMUD
+url: https://github.com/icewolfz/jiMUD/releases
+apiurl: https://api.github.com/repos/icewolfz/jiMUD/releases
+description: jiMUD   MUD client for ShadowMUD com  based on webclient

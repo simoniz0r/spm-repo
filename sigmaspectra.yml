@@ -1,0 +1,4 @@
+name: SigmaSpectra
+url: https://github.com/arkottke/sigmaspectra/releases
+apiurl: https://api.github.com/repos/arkottke/sigmaspectra/releases
+description: sigmaspectra   GUI application for the selection and scaling of earthquake ground motions 

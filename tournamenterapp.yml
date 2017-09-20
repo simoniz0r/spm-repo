@@ -1,0 +1,4 @@
+name: TournamenterApp
+url: https://github.com/ivanseidel/TournamenterApp/releases
+apiurl: https://api.github.com/repos/ivanseidel/TournamenterApp/releases
+description: TournamenterApp     Manage your Tournament event and show Live views to public

@@ -1,0 +1,4 @@
+name: embedded-ide
+url: https://github.com/martinribelotta/embedded-ide/releases
+apiurl: https://api.github.com/repos/martinribelotta/embedded-ide/releases
+description: embedded ide   IDE for C embedded development centered on bare metal ARM systems

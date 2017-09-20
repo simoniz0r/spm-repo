@@ -1,0 +1,4 @@
+name: linux-quiz-generator
+url: https://github.com/janekolszak/quizgenerator/releases
+apiurl: https://api.github.com/repos/janekolszak/quizgenerator/releases
+description: quizgenerator   Generator of random quizes

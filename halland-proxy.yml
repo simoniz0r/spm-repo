@@ -1,0 +1,4 @@
+name: halland-proxy
+url: https://github.com/niklasi/halland-proxy/releases
+apiurl: https://api.github.com/repos/niklasi/halland-proxy/releases
+description: halland proxy   A web debugging proxy written in javascript  Electron 

@@ -1,0 +1,4 @@
+name: FastQt
+url: https://github.com/labsquare/fastQt/releases
+apiurl: https://api.github.com/repos/labsquare/fastQt/releases
+description: FastQt   FastQC port to Qt   A quality control tool for high throughput sequence data 

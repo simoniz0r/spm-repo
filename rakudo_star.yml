@@ -1,0 +1,4 @@
+name: Rakudo_Star
+url: https://github.com/samcv/rakudo-appimage-module-test-automation/releases
+apiurl: https://api.github.com/repos/samcv/rakudo-appimage-module-test-automation/releases
+description: rakudo appimage module test automation   AppImages for Rakudo Star and Rakudo Moar Blead and Testing of Module installation and automation using the same script

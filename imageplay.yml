@@ -1,0 +1,4 @@
+name: ImagePlay
+url: https://github.com/cpvrlab/ImagePlay/releases
+apiurl: https://api.github.com/repos/cpvrlab/ImagePlay/releases
+description: ImagePlay is a rapid prototyping application for image processing

@@ -1,0 +1,4 @@
+name: Tiled
+url: https://github.com/bjorn/tiled/releases
+apiurl: https://api.github.com/repos/bjorn/tiled/releases
+description: tiled   A generic tile map editor

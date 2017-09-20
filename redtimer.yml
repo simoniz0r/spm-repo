@@ -1,0 +1,4 @@
+name: RedTimer
+url: https://github.com/fathomssen/redtimer/releases
+apiurl: https://api.github.com/repos/fathomssen/redtimer/releases
+description: redtimer   Redmine Time Tracker

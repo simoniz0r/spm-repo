@@ -1,0 +1,4 @@
+name: linuxdeployqt
+url: https://github.com/probonopd/linuxdeployqt/releases
+apiurl: https://api.github.com/repos/probonopd/linuxdeployqt/releases
+description: linuxdeployqt   Makes Linux applications self contained by copying in the Qt libraries and plugins that the application uses 

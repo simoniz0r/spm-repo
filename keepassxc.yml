@@ -1,0 +1,4 @@
+name: KeePassXC
+url: https://github.com/keepassxreboot/keepassxc/releases
+apiurl: https://api.github.com/repos/keepassxreboot/keepassxc/releases
+description: keepassxc   KeePassXC is a cross platform community driven port of the Windows application  Keepass Password Safe  

@@ -1,0 +1,4 @@
+name: Gulden
+url: https://github.com/Gulden/gulden-official/releases
+apiurl: https://api.github.com/repos/Gulden/gulden-official/releases
+description: gulden official   The official repository for Gulden core wallet  updated at each release 

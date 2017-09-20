@@ -1,0 +1,4 @@
+name: QNapi
+url: https://github.com/QNapi/qnapi/releases
+apiurl: https://api.github.com/repos/QNapi/qnapi/releases
+description: qnapi   Qt based  multi engine  multi platform subtitle downloader

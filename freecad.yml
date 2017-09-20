@@ -1,0 +1,4 @@
+name: FreeCAD
+url: https://github.com/FreeCAD/FreeCAD/releases
+apiurl: https://api.github.com/repos/FreeCAD/FreeCAD/releases
+description: This is the official source code of FreeCAD  a free and opensource multiplatform  D parametric modeler

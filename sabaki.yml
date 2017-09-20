@@ -1,0 +1,4 @@
+name: Sabaki
+url: https://github.com/yishn/Sabaki/releases
+apiurl: https://api.github.com/repos/yishn/Sabaki/releases
+description: Sabaki   An elegant Go Baduk Weiqi board and SGF editor for a more civilized age 

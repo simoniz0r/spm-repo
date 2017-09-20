@@ -1,0 +1,4 @@
+name: Emacs
+url: https://github.com/probonopd/Emacs.AppImage/releases
+apiurl: https://api.github.com/repos/probonopd/Emacs.AppImage/releases
+description: Emacs AppImage   This repository builds GNU Emacs from git on Travis CI and packages it as an AppImage 

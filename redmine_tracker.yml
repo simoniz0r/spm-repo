@@ -1,0 +1,4 @@
+name: redmine_tracker
+url: https://github.com/Strnadj/redmine_tracker/releases
+apiurl: https://api.github.com/repos/Strnadj/redmine_tracker/releases
+description: redmine tracker   Toggle clone directly connected to Redmine 

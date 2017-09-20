@@ -1,0 +1,4 @@
+name: nfeh
+url: https://github.com/fa7ad/nfeh/releases
+apiurl: https://api.github.com/repos/fa7ad/nfeh/releases
+description: nfeh   Electron based GUI for feh

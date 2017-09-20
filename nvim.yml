@@ -1,0 +1,4 @@
+name: nvim
+url: https://github.com/neovim/neovim/releases
+apiurl: https://api.github.com/repos/neovim/neovim/releases
+description: neovim   Vim fork focused on extensibility and usability
