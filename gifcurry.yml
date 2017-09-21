@@ -1,0 +1,4 @@
+name: gifcurry
+url: https://github.com/lettier/gifcurry/releases
+apiurl: https://api.github.com/repos/lettier/gifcurry/releases
+description: gifcurry   Open source video to GIF maker  written in Haskell  that allows overlaid text 
