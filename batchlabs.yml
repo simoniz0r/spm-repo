@@ -1,0 +1,4 @@
+name: BatchLabs
+url: https://github.com/Azure/BatchLabs/releases
+apiurl: https://api.github.com/repos/Azure/BatchLabs/releases
+description: BatchLabs   A client tool to help create  debug and monitor Azure Batch Applications 
