@@ -1,4 +1,4 @@
 name: RedmineTimeTracker
 url: https://github.com/ujiro99/RedmineTimeTracker/releases
 apiurl: https://api.github.com/repos/ujiro99/RedmineTimeTracker/releases
-description: RedmineTimeTracker   Chrome Electron app for tracking work time 
+description: RedmineTimeTracker  ChromeElectron app for tracking work time

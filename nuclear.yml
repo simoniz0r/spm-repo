@@ -1,4 +1,4 @@
 name: nuclear
 url: https://github.com/nukeop/nuclear/releases
 apiurl: https://api.github.com/repos/nukeop/nuclear/releases
-description: nuclear   An Electron based  multiplatform music player app that streams from multiple sources
+description: nuclear  An Electronbased multiplatform music player app that streams from multiple sources

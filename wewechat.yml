@@ -1,4 +1,4 @@
 name: weweChat
 url: https://github.com/trazyn/weweChat/releases
 apiurl: https://api.github.com/repos/trazyn/weweChat/releases
-description: weweChat     Unofficial WeChat client built with React  MobX and Electron 
+description: weweChat   Unofficial WeChat client built with React MobX and Electron

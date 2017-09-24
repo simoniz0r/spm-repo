@@ -1,4 +1,4 @@
 name: ubports-installer
 url: https://github.com/ubports/ubports-installer/releases
 apiurl: https://api.github.com/repos/ubports/ubports-installer/releases
-description: ubports installer   A simple tool to install Ubuntu Touch on UBports devices
+description: ubportsinstaller  A simple tool to install Ubuntu Touch on UBports devices

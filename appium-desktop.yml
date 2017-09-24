@@ -1,4 +1,4 @@
 name: appium-desktop
 url: https://github.com/appium/appium-desktop/releases
 apiurl: https://api.github.com/repos/appium/appium-desktop/releases
-description: appium desktop   Appium Server and Inspector in Desktop GUIs for Mac  Windows  and Linux
+description: appiumdesktop  Appium Server and Inspector in Desktop GUIs for Mac Windows and Linux

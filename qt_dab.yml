@@ -1,4 +1,4 @@
 name: Qt_DAB
 url: https://github.com/JvanKatwijk/qt-dab/releases
 apiurl: https://api.github.com/repos/JvanKatwijk/qt-dab/releases
-description: qt dab is a software dab decoder for use with a dabstick  airspy or sdrplay for RPI and PC
+description: qtdab is a software dab decoder for use with a dabstick airspy or sdrplay for RPI and PC

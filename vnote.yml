@@ -1,4 +1,4 @@
 name: VNote
 url: https://github.com/tamlok/vnote/releases
 apiurl: https://api.github.com/repos/tamlok/vnote/releases
-description: vnote   A Vim inspired note taking application  especially for Markdown 
+description: vnote  A Viminspired notetaking application especially for Markdown

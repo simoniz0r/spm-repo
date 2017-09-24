@@ -1,4 +1,4 @@
 name: Summoners.War.Exporter
 url: https://github.com/Xzandro/sw-exporter/releases
 apiurl: https://api.github.com/repos/Xzandro/sw-exporter/releases
-description: sw exporter   This tool will parse intercepted data from Summoners War and extract information on the monsters and runes of the user 
+description: swexporter  This tool will parse intercepted data from Summoners War and extract information on the monsters and runes of the user

@@ -1,4 +1,4 @@
 name: Shadowsocks
 url: https://github.com/shadowsocks/shadowsocks-qt5/releases
 apiurl: https://api.github.com/repos/shadowsocks/shadowsocks-qt5/releases
-description: shadowsocks qt    A cross platform shadowsocks GUI client
+description: shadowsocksqt5  A crossplatform shadowsocks GUI client

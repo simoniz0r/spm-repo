@@ -1,4 +1,4 @@
 name: pipam
 url: https://github.com/pipam/pipam/releases
 apiurl: https://api.github.com/repos/pipam/pipam/releases
-description: pipam   A package manager manager
+description: pipam  A package manager manager

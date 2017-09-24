@@ -1,4 +1,4 @@
 name: EncryptPad
 url: https://github.com/evpo/EncryptPad/releases
 apiurl: https://api.github.com/repos/evpo/EncryptPad/releases
-description: EncryptPad   Minimalist secure text editor and binary encryptor that implements RFC      Open PGP format  symmetrically encrypted  compressed and integrity protected  The editor can protect files with passwords  key files or both 
+description: EncryptPad  Minimalist secure text editor and binary encryptor that implements RFC 4880 Open PGP format symmetrically encrypted compressed and integrity protected The editor can protect files with passwords key files or both

@@ -1,4 +1,4 @@
 name: BotFramework-Emulator
 url: https://github.com/Microsoft/BotFramework-Emulator/releases
 apiurl: https://api.github.com/repos/Microsoft/BotFramework-Emulator/releases
-description: BotFramework Emulator   Bot Framework Emulator
+description: BotFrameworkEmulator  Bot Framework Emulator

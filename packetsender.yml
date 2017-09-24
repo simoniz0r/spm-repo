@@ -1,4 +1,4 @@
 name: PacketSender
 url: https://github.com/dannagle/PacketSender/releases
 apiurl: https://api.github.com/repos/dannagle/PacketSender/releases
-description: PacketSender   Network utility for sending   receiving TCP  UDP  SSL
+description: PacketSender  Network utility for sending  receiving TCP UDP SSL

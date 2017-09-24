@@ -1,4 +1,4 @@
 name: todo
 url: https://github.com/simoniz0r/todo/releases
 apiurl: https://api.github.com/repos/simoniz0r/todo/releases
-description: todo is a bash script for Linux that manages todo lists through the command line in an easy to use manner  Lists are stored in    todo ListName with each item in the list stored as a separate file in that directory 
+description: todo is a bash script for Linux that manages todo lists through the command line in an easy to use manner Lists are stored in todoListName with each item in the list stored as a separate file in that directory

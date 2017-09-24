@@ -1,4 +1,4 @@
 name: OpenShot
 url: http://github.com/OpenShot/openshot-qt/releases
 apiurl: https://api.github.com/repos/OpenShot/openshot-qt/releases
-description: openshot qt   This repo is the primary development home for OpenShot Video Editor  version      a PyQt video editing application which utilizes the powerful libopenshot C   library 
+description: openshotqt  This repo is the primary development home for OpenShot Video Editor version 2 a PyQt video editing application which utilizes the powerful libopenshot C library

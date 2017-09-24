@@ -1,4 +1,4 @@
 name: sACNView
 url: https://github.com/docsteer/sacnview/releases
 apiurl: https://api.github.com/repos/docsteer/sacnview/releases
-description: sacnview   sACNView provides a tool for monitoring and sending the Streaming ACN lighting control protocol used for lighting control in theatres  TV studios and architectural systems
+description: sacnview  sACNView provides a tool for monitoring and sending the Streaming ACN lighting control protocol used for lighting control in theatres TV studios and architectural systems

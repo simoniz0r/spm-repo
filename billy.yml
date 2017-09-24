@@ -1,4 +1,4 @@
 name: Billy
 url: https://github.com/haimich/billy/releases
 apiurl: https://api.github.com/repos/haimich/billy/releases
-description: billy   A simple invoice manager built with Electron 
+description: billy  A simple invoice manager built with Electron

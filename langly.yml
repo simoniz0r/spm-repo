@@ -1,4 +1,4 @@
 name: langly
 url: https://github.com/christofferok/langly/releases
 apiurl: https://api.github.com/repos/christofferok/langly/releases
-description: langly   Manage JSON language files in Laravel
+description: langly  Manage JSON language files in Laravel

@@ -1,4 +1,4 @@
 name: AppImageUpdate
 url: https://github.com/AppImage/AppImageUpdate/releases
 apiurl: https://api.github.com/repos/AppImage/AppImageUpdate/releases
-description: AppImageUpdate lets you update AppImages in a decentral way using information embedded in the AppImage itself 
+description: AppImageUpdate lets you update AppImages in a decentral way using information embedded in the AppImage itself
