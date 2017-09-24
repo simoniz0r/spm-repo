@@ -1,0 +1,4 @@
+name: padlock
+url: https://github.com/MaKleSoft/padlock/releases
+apiurl: https://api.github.com/repos/MaKleSoft/padlock/releases
+description: padlock  A minimalist open source password manager
