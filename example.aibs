@@ -1,0 +1,207 @@
+#!/bin/bash
+# Title: spm
+# Description: Downloads and installs AppImages and precompiled tar archives.  Can also upgrade and remove installed packages.
+# Dependencies: GNU coreutils, tar, wget
+# Author: simonizor
+# Website: http://www.simonizor.gq
+# License: GPL v2.0 only
+##################################################################################################
+# aibs for neofetch
+# Created by simonizor
+##################################################################################################
+# Please take your time creating an AppImage Build Script (aibs) and read the following carefully:
+#
+# Variables provided by spm:
+# $AIBSIMG - The name the aibs will have in the list and the name the AppImage will have after install
+# $AIBSIMG_BUILD_DIR - The base directory that we will be building the AppImage in
+# $AIBSIMG_SOURCE_DIR - The directory that the files from the source should be downloaded or cloned to
+# $AIBSIMG_DEPS_DIR - The directory that the deb files that are needed for dependencies should be downloaded to
+# $AIBSIMG_TEMP_DIR - Directory for extracting compressed source files and/or deb dependencies
+# spm will clean up these directories after the AppImage has been built.
+#
+##################################################################################################
+#
+# RULES!
+# aibs creators MUST maintain their aibs(s) if the aibs stops working or contains errors.
+# The aibs MUST be submitted as a Push Request to the aibs branch of spm's github repo.
+# The aibs MUST be named packagename.aibs
+# The AIBSIMG_NAME MUST be ALL lowercase and MUST start with a letter and ONLY contain letters, numbers, dashes or underscores.
+# DO NOT TOUCH ANY FILES OUTSIDE OF THE DIRECTORIES PROVIDED BY THE VARIABLES ABOVE!
+# ONLY use valid bash syntax in the aibs.
+# Do NOT execute commands outside of functions the functions provided.
+# -- The above will cause problems because spm calls the functions in the aibs in order that they need to be ran and
+# -- Adding additional commands outside of functions will cause these commands to be ran every time the aibs is sourced.
+# -- spm will be sourcing the aibs frequently to get info from it for various things.
+# Additional functions MAY be created, but they MUST be called WITHIN the functions provided in the aibs and they MUST NOT:
+# -- Additional functions MUST NOT overwrite any of spm's existing functions.
+# -- Additional functions MUST NOT be executed outside of the functions provided in the aibs.
+# ---- The above will cause problems because spm calls the functions in the aibs in order that they need to be ran and
+# ---- Adding additional commands outside of functions will cause these commands to be ran every time the aibs is sourced.
+# ---- spm will be sourcing the aibs frequently to get info from it for various things.
+# Additional variables MAY be used, but they MUST NOT override variables that are set in any of spm's functions.
+# Do NOT use any distro specific tools such as using a distro's package manager to get dependencies for a package.
+# Do NOT use any commands that would not be present on a normal Linux system by default unless building from git source
+# Check to make sure the commands needed are present by using an if check with type if possible.  See spmfunctions.sh for an example.
+# Any commands that are used to build a package from git source should be easily available in any Linux distro's repos.
+# Do NOT install any packages for users that are necessary for compiling.
+# Notify users about what packages are necessary to compile the source.
+# Try to keep packages necessary for compiling source packages as lean as possible.
+# When downloading compiled source files, ONLY use wget and avoid arguments that are not supported in wget versions that may be in older distros
+# Do NOT create any directories outside of the directories provided by the above variables.  We do not want to leave a mess on the user's system.
+# When downloading dependencies, ONLY use wget and ONLY get them from Debian or Ubuntu's website.
+# When downloading dependencies, do NOT mix packages from different distro versions or distros.  This will more than likely cause lib errors after building the AppImage.
+# ALL source packages and dependencies MUST be for the x86_64 architecture.  spm does NOT support other architectures.
+#
+##################################################################################################
+#
+# Things needed for spm to build an AppImage:
+# Give spm the author, the AppImage maintainer, description, category, and website.
+# Tell spm where the source files are coming from (Direct, Github, or git).
+# Tell spm whether the source files are compiled binary files or if they are git source files.
+# Download the compiled source binary files or use git to clone the source
+# Download any dependencies needed for the package using deb files from Debian or Ubuntu's website.
+# DO NOT MIX DISTROS OR DISTRO VERSIONS FOR DEPENDENCIES!
+# Tell spm whether or not to download the wrapper used for asking the user if they want to add the program to their menu
+# Create the folders in $AIBSIMG_BUILD_DIR that are needed for the package's files and dependencies
+# Compile the source if necessary
+# Move the package's source files and extracted dependencies to the correct paths in $AIBSIMG_BUILD_DIR
+# ALL AppImages MUST have a .desktop file and an icon even if they are launched through terminal only
+# The .desktop file MUST change the Exec= line to have the relative path to launch the program
+# -- Ex: Exec=././/share/neofetch/neofetch is acceptable, but Exec=/usr/share/neofetch/neofetch is NOT acceptable
+# The .desktop file MUST change the Icon= line to contain ONLY the base name of the icon without extension
+# -- Ex: Icon=neofetch is acceptable, but Icon=neofetch.png is NOT acceptable
+# BOTH the .desktop file and the icon MUST have the same name as the file used to execute the program
+# -- Ex: neofetch is launched by using ././/share/neofetch/neofetch, so neofetch is the exectuable file name.
+# ---- neofetch.desktop MUST be the .desktop file name and neofetch.png (or valid icon extension) MUST be the icon file name
+#
+##################################################################################################
+# Please remove lines 9 through 77 before submitting an aibs to acknowledge that you have read everything above.
+# Any commented out lines below may also be removed if desired; they are for explanation purposes.
+##################################################################################################
+#
+# The variables below are mostly used by spm to provide info to users.
+# 5 of them are used by spm for installing and maintaining the AppImage after building:
+# $AIBSIMG_NAME
+# $AIBSIMG_SOURCE
+# $AIBSIMG_SOURCE_TYPE
+# $AIBSIMG_USE_WRAPPER
+# $APIMAGE_USE_SPECIAL_INSTRUCTIONS 
+#
+# Gather info about the AppImage for use in package list.
+# The author of the source files.
+AIBSIMG_AUTHOR="dylanaraps"
+# Your name here
+AIBSIMG_MAINTAINER="simonizor"
+# Describe what the application does.  Try to keep this relatively short.
+AIBSIMG_DESCRIPTION="A fast, highly customizable system info script that supports Linux, MacOS, iOS, BSD, Solaris, Android, Haiku, GNU Hurd, MINIX, AIX, IRIX and Windows (Cygwin/MSYS2/MinGW/Windows 10 Linux subsystem)"
+# Accepted categories here: https://standards.freedesktop.org/menu-spec/latest/apas02.html
+AIBSIMG_CATEGORY="ConsoleOnly"
+# The author's website
+AIBSIMG_WEBSITE="https://github.com/dylanaraps/neofetch"
+# Tell spm what this AppImage should be named when we're all done. Use naming standards that other package managers use (lowercase, no special characters, etc).
+AIBSIMG_NAME="neofetch"
+# Tell spm where the source files are downloaded from.
+# Compiled binaries hosted on github should put "Github" here.
+# Sources to be compiled should put "git" here.
+# Any other compiled binaries should put "Direct" here.
+AIBSIMG_SOURCE="git"
+# Tell spm whether we're dealing with a compiled "Binary" or a "git" source
+AIBSIMG_SOURCE_TYPE="git"
+# Tell spm whether or not to download the wrapper file for the AppImage.
+# The wrapper provides a prompt for a .desktop file to be added to the user's menu to launch the AppImage
+# This should only be included with programs that have a GUI
+# wrapper will be placed in $AIBSIMG_BUILD_DIR
+AIBSIMG_USE_WRAPPER="FALSE"
+# If for some reason, one function is not enough for building an AppImage, set this to "TRUE" to make use of the aibsspecialfunc
+AIBSIMG_USE_SPECIAL_INSTRUCTIONS="FALSE"
+#
+##################################################################################################
+#
+# The functions below are used for building the AppImage.
+# Only 2 of these functions are optional:
+# aibsdldepsfunc - If the package has dependencies that would not be found on a normal linux system, this function MUST be used to download dependencies.
+# -- If there are no dependencies, something along the lines of 'echo "no dependencies"' is fine.
+# aibsspecialfunc - This function should not be necessary in most use cases, but is provided in case one function is not enough for building an AppImage.
+# -- To make ue of aibsspecialfunc, AIBSIMG_USE_SEPCIAL_INSTRUCTIONS must be set to "TRUE".
+#
+# If any dependencies are needed for building the AppImage that wouldn't be present on a normal Linux system, check for them here (users will install these themselves)
+aibsdepcheckfunc () {
+    if ! type git >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)git is not installed!$(tput sgr0)"
+    fi
+    if [ "$MISSING_DEPS" = "TRUE" ]; then
+        echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
+        rm -rf "$CONFDIR"/cache/*
+        exit 1
+    fi
+}
+# Check the source file version if possible using wget.
+#  git sources should use the latest commit number as the version.
+# Others can use the file name if it contains the latest version using:
+# wget -S --read-timeout=30 --spider "https://website.com/link_redirecting_to_latest_version" -o "$CONFDIR"/cache/"$AIBSIMG".latest
+# AIBSIMG_VERSION_URI="$(grep -o "Location:.*" "$CONFDIR"/cache/"$AIBSIMG".latest | cut -f2 -d" ")"
+# AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f2 -d'_')"
+# Output MUST be set to variable $AIBSIMG_VERSION
+aibsversionfunc () {
+    if [ -z "$GITHUB_TOKEN" ]; then
+        AIBSIMG_VERSION="$(wget --quiet "https://api.github.com/repos/dylanaraps/neofetch/commits/master" -O - | head -n 2 | tail -n 1 | cut -f4 -d'"')"
+    else
+        AIBSIMG_VERSION="$( wget --quiet --auth-no-challenge --header="Authorization: token "$GITHUB_TOKEN"" "https://api.github.com/repos/dylanaraps/neofetch/commits/master" -O - | head -n 2 | tail -n 1 | cut -f4 -d'"')"
+    fi
+}
+#
+# aibsdlsourcefunc:
+# Download the source files using ONLY wget or use git to clone the source
+aibsdlsourcefunc () {
+    git clone https://github.com/dylanaraps/neofetch.git "$AIBSIMG_TEMP_DIR"/neofetch
+}
+#
+# aibsdldepsfunc:
+# Download dependencies using ONLY wget if necessary.
+# Any dependency of the package that is not present on a normal Linux system by default should be included with exceptions from:
+# https://github.com/AppImage/AppImages/raw/master/excludedeblist and https://github.com/AppImage/AppImages/raw/master/excludelist
+# Please use deb files from Debian or Ubuntu's websites, but do not mix distros or distro versions!
+aibsdldepsfunc () {
+    # wget urls to debian or ubuntu website here otherwise just echo "no dependencies"
+    echo "neofetch has no dependencies; skipping dependency downloads..."
+}
+#
+# aibsbuildfunc:
+# Extract source files and dependencies if necessary
+# Create any necessary directories in $AIBSIMG_BUILD_DIR for building the AppImage
+# Move the source files and dependencies to the correct directories in $AIBSIMG_BUILD_DIR
+# Move the .desktop file and icon file to $AIBSIMG_BUILD_DIR in the base directory or create/download them if necessary
+# Edit the .desktop file to point the Exec= line to the correct path
+# Edit the .desktop file to have the Icon= line ONLY have the icon's base name without extension (Ex: Icon=discord)
+# Both the .desktop file and the icon file MUST have the same name as the executable file! (see above)
+aibsbuildfunc () {
+mkdir -p "$AIBSIMG_BUILD_DIR"/usr/share
+rm -rf "$AIBSIMG_TEMP_DIR"/neofetch/.git
+mv "$AIBSIMG_TEMP_DIR"/neofetch "$AIBSIMG_BUILD_DIR"/usr/share/
+cat >"$AIBSIMG_BUILD_DIR"/neofetch.desktop << EOL
+[Desktop Entry]
+Type=Application
+Name=neofetch
+Comment=A fast, highly customizable system info script
+Exec=././/share/neofetch/neofetch
+Icon=neofetch
+Categories=Utility;
+Terminal=true
+
+EOL
+wget --no-verbose "https://github.com/iconic/open-iconic/raw/master/png/list-rich-8x.png" -O "$AIBSIMG_BUILD_DIR"/neofetch.png
+}
+#
+# aibsspecialfunc:
+# Special build instructions.  If any of the above do not cover your needs, you can put extra commands for spm to execute here.
+if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
+    aibsspecialfunc () {
+        # put special build instructions here
+        echo "no special instructions"
+    }
+fi
+#
+##################################################################################################
+# DO NOT CALL ANY EXTRA COMMANDS OR FUNCTIONS OUTSIDE OF THE EXISTING ONES!
+##################################################################################################
