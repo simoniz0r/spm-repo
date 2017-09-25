@@ -1,0 +1,112 @@
+#!/bin/bash
+# Title: spm
+# Description: Downloads and installs AppImages and precompiled tar archives.  Can also upgrade and remove installed packages.
+# Dependencies: GNU coreutils, tar, wget
+# Author: simonizor
+# Website: http://www.simonizor.gq
+# License: GPL v2.0 only
+##################################################################################################
+# aibs for vscode
+# Created by simonizor
+##################################################################################################
+
+AIBSIMG_AUTHOR="Microsoft"
+AIBSIMG_MAINTAINER="simonizor"
+AIBSIMG_DESCRIPTION="Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux."
+AIBSIMG_CATEGORY="IDE"
+AIBSIMG_WEBSITE="https://github.com/Microsoft/vscode/"
+AIBSIMG_NAME="vscode"
+AIBSIMG_SOURCE="Direct"
+AIBSIMG_SOURCE_TYPE="Binary"
+AIBSIMG_USE_WRAPPER="TRUE"
+AIBSIMG_USE_SPECIAL_INSTRUCTIONS="FALSE"
+
+aibsdepcheckfunc () {
+    if ! type ar >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)ar (binutils) is not installed!$(tput sgr0)"
+    fi
+    if [ "$MISSING_DEPS" = "TRUE" ]; then
+        echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
+        rm -rf "$CONFDIR"/cache/*
+        exit 1
+    fi
+}
+
+aibsversionfunc () {
+    wget -S --read-timeout=30 --spider "https://go.microsoft.com/fwlink/?LinkID=620884" -o "$CONFDIR"/cache/"$AIBSIMG".latest
+    AIBSIMG_VERSION_URI="$(grep -o "Location:.*" "$CONFDIR"/cache/"$AIBSIMG".latest | cut -f2 -d" ")"
+    AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f2 -d'_')"
+}
+
+aibsdlsourcefunc () {
+    wget --no-verbose --read-timeout=30 "https://go.microsoft.com/fwlink/?LinkID=620884" -O "$AIBSIMG_SOURCE_DIR"/vscode.tar.gz
+}
+
+aibsdldepsfunc () {
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libn/libnotify/libnotify4_0.7.6-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libnotify4_0.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxkbfile/libxkbfile1_1.0.8-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxkbfile1_1.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gconf/libgconf-2-4_3.2.6-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgconf-2-4.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libs/libsecret/libsecret-1-0_0.18-1+b1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libsecret-1-0.deb
+}
+
+aibsbuildfunc () {
+mkdir "$AIBSIMG_DEPS_DIR"/debs
+cd "$AIBSIMG_DEPS_DIR"
+debextractfunc () {
+    ar x "$AIBSIMG_DEPS_DIR"/"$1"
+    rm -f "$AIBSIMG_DEPS_DIR"/control.tar.gz
+    rm -f "$AIBSIMG_DEPS_DIR"/debian-binary
+    tar -xf "$AIBSIMG_DEPS_DIR"/data.tar.* -C "$AIBSIMG_DEPS_DIR"/debs/
+    rm -f "$AIBSIMG_DEPS_DIR"/data.tar.*
+    cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
+    rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
+}
+debextractfunc "libnotify4_0.deb"
+debextractfunc "libxkbfile1_1.deb"
+debextractfunc "libgconf-2-4.deb"
+debextractfunc "libsecret-1-0.deb"
+tar -xf "$AIBSIMG_SOURCE_DIR"/vscode.tar.gz -C "$AIBSIMG_SOURCE_DIR"/
+mv "$AIBSIMG_SOURCE_DIR"/VSCode-linux-x64 "$AIBSIMG_BUILD_DIR"/usr/share/vscode
+mv "$AIBSIMG_BUILD_DIR"/vscode.wrapper "$AIBSIMG_BUILD_DIR"/usr/share/vscode/
+mv "$AIBSIMG_BUILD_DIR"/usr/share/vscode/code "$AIBSIMG_BUILD_DIR"/usr/share/vscode/vscode
+mv "$AIBSIMG_BUILD_DIR"/usr/share/vscode/resources/app/resources/linux/code.png "$AIBSIMG_BUILD_DIR"/vscode.png
+cat >"$AIBSIMG_BUILD_DIR"/vscode.desktop << EOL
+[Desktop Entry]
+Name=Visual Studio Code
+Comment=Code Editing. Redefined.
+GenericName=Text Editor
+Exec=././/share/vscode/vscode.wrapper %U
+Icon=vscode
+Type=Application
+StartupNotify=true
+StartupWMClass=Code
+Categories=Utility;TextEditor;Development;IDE;
+MimeType=text/plain;inode/directory;
+Actions=new-window;
+Keywords=vscode;
+
+X-Desktop-File-Install-Version=0.22
+
+[Desktop Action new-window]
+Name=New Window
+Name[de]=Neues Fenster
+Name[es]=Nueva ventana
+Name[fr]=Nouvelle fenêtre
+Name[it]=Nuova finestra
+Name[ja]=新規ウインドウ
+Name[ko]=새 창
+Name[ru]=Новое окно
+Name[zh_CN]=新建窗口
+Name[zh_TW]=開新視窗
+Exec=././/share/vscode/vscode.wrapper --new-window %U
+Icon=vscode
+
+EOL
+}
+
+if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
+    aibsspecialfunc () {
+        echo "no special instructions"
+    }
+fi

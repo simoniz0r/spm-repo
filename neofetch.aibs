@@ -1,0 +1,74 @@
+#!/bin/bash
+# Title: spm
+# Description: Downloads and installs AppImages and precompiled tar archives.  Can also upgrade and remove installed packages.
+# Dependencies: GNU coreutils, tar, wget
+# Author: simonizor
+# Website: http://www.simonizor.gq
+# License: GPL v2.0 only
+##################################################################################################
+# aibs for neofetch
+# Created by simonizor
+##################################################################################################
+
+AIBSIMG_AUTHOR="dylanaraps"
+AIBSIMG_MAINTAINER="simonizor"
+AIBSIMG_DESCRIPTION="A fast, highly customizable system info script that supports Linux, MacOS, iOS, BSD, Solaris, Android, Haiku, GNU Hurd, MINIX, AIX, IRIX and Windows (Cygwin/MSYS2/MinGW/Windows 10 Linux subsystem)"
+AIBSIMG_CATEGORY="ConsoleOnly"
+AIBSIMG_WEBSITE="https://github.com/dylanaraps/neofetch"
+AIBSIMG_NAME="neofetch"
+AIBSIMG_SOURCE="git"
+AIBSIMG_SOURCE_TYPE="git"
+AIBSIMG_USE_WRAPPER="FALSE"
+AIBSIMG_USE_SPECIAL_INSTRUCTIONS="FALSE"
+
+aibsdepcheckfunc () {
+    if ! type git >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)git is not installed!$(tput sgr0)"
+    fi
+    if [ "$MISSING_DEPS" = "TRUE" ]; then
+        echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
+        rm -rf "$CONFDIR"/cache/*
+        exit 1
+    fi
+}
+
+aibsversionfunc () {
+    if [ -z "$GITHUB_TOKEN" ]; then
+        AIBSIMG_VERSION="$(wget --quiet "https://api.github.com/repos/dylanaraps/neofetch/commits/master" -O - | head -n 2 | tail -n 1 | cut -f4 -d'"')"
+    else
+        AIBSIMG_VERSION="$( wget --quiet --auth-no-challenge --header="Authorization: token "$GITHUB_TOKEN"" "https://api.github.com/repos/dylanaraps/neofetch/commits/master" -O - | head -n 2 | tail -n 1 | cut -f4 -d'"')"
+    fi
+}
+
+aibsdlsourcefunc () {
+    git clone https://github.com/dylanaraps/neofetch.git "$AIBSIMG_TEMP_DIR"/neofetch
+}
+
+aibsdldepsfunc () {
+    echo "neofetch has no dependencies; skipping dependency downloads..."
+}
+
+aibsbuildfunc () {
+mkdir -p "$AIBSIMG_BUILD_DIR"/usr/share
+rm -rf "$AIBSIMG_TEMP_DIR"/neofetch/.git
+mv "$AIBSIMG_TEMP_DIR"/neofetch "$AIBSIMG_BUILD_DIR"/usr/share/
+cat >"$AIBSIMG_BUILD_DIR"/neofetch.desktop << EOL
+[Desktop Entry]
+Type=Application
+Name=neofetch
+Comment=A fast, highly customizable system info script
+Exec=././/share/neofetch/neofetch
+Icon=neofetch
+Categories=Utility;
+Terminal=true
+
+EOL
+wget --no-verbose "https://github.com/iconic/open-iconic/raw/master/png/list-rich-8x.png" -O "$AIBSIMG_BUILD_DIR"/neofetch.png
+}
+
+if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
+    aibsspecialfunc () {
+        echo "no special instructions"
+    }
+fi

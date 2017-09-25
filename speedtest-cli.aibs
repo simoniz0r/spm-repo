@@ -1,0 +1,105 @@
+#!/bin/bash
+# Title: spm
+# Description: Downloads and installs AppImages and precompiled tar archives.  Can also upgrade and remove installed packages.
+# Dependencies: GNU coreutils, tar, wget
+# Author: simonizor
+# Website: http://www.simonizor.gq
+# License: GPL v2.0 only
+##################################################################################################
+# aibs for speedtest-cli
+# Created by simonizor
+##################################################################################################
+
+AIBSIMG_AUTHOR="sivel"
+AIBSIMG_MAINTAINER="simonizor"
+AIBSIMG_DESCRIPTION="Command line interface for testing internet bandwidth using speedtest.net"
+AIBSIMG_CATEGORY="ConsoleOnly"
+AIBSIMG_WEBSITE="https://github.com/sivel/speedtest-cli"
+AIBSIMG_NAME="speedtest-cli"
+AIBSIMG_SOURCE="git"
+AIBSIMG_SOURCE_TYPE="git"
+AIBSIMG_USE_WRAPPER="FALSE"
+AIBSIMG_USE_SPECIAL_INSTRUCTIONS="FALSE"
+
+aibsdepcheckfunc () {
+    if ! type git >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)git is not installed!$(tput sgr0)"
+    fi
+    if ! type ar >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)ar (binutils) is not installed!$(tput sgr0)"
+    fi
+    if [ "$MISSING_DEPS" = "TRUE" ]; then
+        echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
+        rm -rf "$CONFDIR"/cache/*
+        exit 1
+    fi
+}
+
+aibsversionfunc () {
+    if [ -z "$GITHUB_TOKEN" ]; then
+        AIBSIMG_VERSION="$(wget --quiet "https://api.github.com/repos/sivel/speedtest-cli/commits/master" -O - | head -n 2 | tail -n 1 | cut -f4 -d'"')"
+    else
+        AIBSIMG_VERSION="$( wget --quiet --auth-no-challenge --header="Authorization: token "$GITHUB_TOKEN"" "https://api.github.com/repos/sivel/speedtest-cli/commits/master" -O - | head -n 2 | tail -n 1 | cut -f4 -d'"')"
+    fi
+}
+
+aibsdlsourcefunc () {
+    git clone https://github.com/sivel/speedtest-cli.git "$AIBSIMG_SOURCE_DIR"/speedtest-cli
+}
+
+aibsdldepsfunc () {
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/python2.7_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/python2.7.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/python2.7-minimal_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/python2.7-minimal.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7-stdlib_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7-stdlib.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7-minimal_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7-minimal.deb
+}
+
+aibsbuildfunc () {
+mkdir "$AIBSIMG_DEPS_DIR"/debs
+cd "$AIBSIMG_DEPS_DIR"
+debextractfunc () {
+    ar x "$AIBSIMG_DEPS_DIR"/"$1"
+    rm -f "$AIBSIMG_DEPS_DIR"/control.tar.gz
+    rm -f "$AIBSIMG_DEPS_DIR"/debian-binary
+    tar -xf "$AIBSIMG_DEPS_DIR"/data.tar.* -C "$AIBSIMG_DEPS_DIR"/debs/
+    rm -f "$AIBSIMG_DEPS_DIR"/data.tar.*
+    cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
+    rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
+}
+debextractfunc "python2.7.deb"
+debextractfunc "python2.7-minimal.deb"
+debextractfunc "libpython2.7.deb"
+debextractfunc "libpython2.7-stdlib.deb"
+debextractfunc "libpython2.7-minimal.deb"
+mv "$AIBSIMG_SOURCE_DIR"/speedtest-cli/speedtest.py "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli
+mv "$AIBSIMG_SOURCE_DIR"/speedtest-cli/LICENSE "$AIBSIMG_BUILD_DIR"/usr/bin/LICENSE
+chmod a+x "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli
+# wget --no-verbose "https://raw.githubusercontent.com/simoniz0r/spm/aibs/resources/speedtest-start.sh" -O "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-start.sh
+echo "#!/bin/bash" > "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
+echo 'REALPATH="$(readlink -f $0)"' >> "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
+echo 'RUNNING_DIR="$(dirname "$REALPATH")"' >> "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
+echo '"$RUNNING_DIR"/python2.7 "$RUNNING_DIR"/speedtest-cli "$@"' >> "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
+echo "exit 0" >> "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
+chmod a+x "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
+cat >"$AIBSIMG_BUILD_DIR"/speedtest-cli.desktop << EOL
+[Desktop Entry]
+Type=Application
+Name=speedtest-cli
+Comment=Command line interface for testing internet bandwidth using speedtest.net
+Exec=speedtest-cli.sh
+Icon=speedtest-cli
+Categories=Utility;
+Terminal=true
+
+EOL
+wget --no-verbose "https://github.com/iconic/open-iconic/raw/master/png/list-rich-8x.png" -O "$AIBSIMG_BUILD_DIR"/speedtest-cli.png
+}
+
+if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
+    aibsspecialfunc () {
+        echo "no special instructions"
+    }
+fi

@@ -1,0 +1,94 @@
+#!/bin/bash
+# Title: spm
+# Description: Downloads and installs AppImages and precompiled tar archives.  Can also upgrade and remove installed packages.
+# Dependencies: GNU coreutils, tar, wget
+# Author: simonizor
+# Website: http://www.simonizor.gq
+# License: GPL v2.0 only
+##################################################################################################
+# aibs for maim
+# Created by simonizor
+##################################################################################################
+
+AIBSIMG_AUTHOR="naelstrof"
+AIBSIMG_MAINTAINER="simonizor"
+AIBSIMG_DESCRIPTION="maim (make image) takes screenshots of your desktop. It has options to take only a region, and relies on another program called slop to query the user for regions using the graphical interface."
+AIBSIMG_CATEGORY="ImageProcessing"
+AIBSIMG_WEBSITE="https://github.com/naelstrof/maim"
+AIBSIMG_NAME="maim"
+AIBSIMG_SOURCE="Direct"
+AIBSIMG_SOURCE_TYPE="Binary"
+AIBSIMG_USE_WRAPPER="FALSE"
+AIBSIMG_USE_SPECIAL_INSTRUCTIONS="FALSE"
+
+aibsdepcheckfunc () {
+    if ! type ar >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)ar (binutils) is not installed!$(tput sgr0)"
+    fi
+    if [ "$MISSING_DEPS" = "TRUE" ]; then
+        echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
+        rm -rf "$CONFDIR"/cache/*
+        exit 1
+    fi
+}
+
+aibsversionfunc () {
+    # TODO: Figure out how to find latest version from Debian's website
+    AIBSIMG_VERSION="5.4.68-1.1"
+}
+
+aibsdlsourcefunc () {
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/m/maim/maim_5.4.68-1.1_amd64.deb" -O "$AIBSIMG_SOURCE_DIR"/maim.deb
+}
+
+aibsdldepsfunc () {
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/s/slop/slop_7.3.49-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/slop.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/glew/libglew2.0_2.0.0-3+b1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libglew.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.5.1-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libjpeg.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libp/libpng1.6/libpng16-16_1.6.28-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpng.deb
+}
+
+aibsbuildfunc () {
+mkdir "$AIBSIMG_DEPS_DIR"/debs
+cd "$AIBSIMG_DEPS_DIR"
+debextractfunc () {
+    ar x "$AIBSIMG_DEPS_DIR"/"$1"
+    rm -f "$AIBSIMG_DEPS_DIR"/control.tar.gz
+    rm -f "$AIBSIMG_DEPS_DIR"/debian-binary
+    tar -xf "$AIBSIMG_DEPS_DIR"/data.tar.* -C "$AIBSIMG_DEPS_DIR"/debs/
+    rm -f "$AIBSIMG_DEPS_DIR"/data.tar.*
+    cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
+    rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
+}
+debextractfunc "slop.deb"
+debextractfunc "libglew.deb"
+debextractfunc "libjpeg.deb"
+debextractfunc "libpng.deb"
+cd "$AIBSIMG_SOURCE_DIR"
+ar x "$AIBSIMG_SOURCE_DIR"/maim.deb
+rm -f "$AIBSIMG_SOURCE_DIR"/maim.deb
+rm -f "$AIBSIMG_SOURCE_DIR"/control.tar.gz
+rm -f "$AIBSIMG_SOURCE_DIR"/debian-binary
+tar -xf "$AIBSIMG_SOURCE_DIR"/data.tar.* -C "$AIBSIMG_SOURCE_DIR"/
+rm -f "$AIBSIMG_SOURCE_DIR"/data.tar.*
+cp -r "$AIBSIMG_SOURCE_DIR"/* "$AIBSIMG_BUILD_DIR"/
+cat >"$AIBSIMG_BUILD_DIR"/maim.desktop << EOL
+[Desktop Entry]
+Type=Application
+Name=maim
+Comment=maim (make image) takes screenshots of your desktop.
+Exec=maim
+Icon=maim
+Categories=Utility;
+Terminal=true
+
+EOL
+wget --no-verbose "https://github.com/iconic/open-iconic/raw/master/png/list-rich-8x.png" -O "$AIBSIMG_BUILD_DIR"/maim.png
+}
+
+if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
+    aibsspecialfunc () {
+        echo "no special instructions"
+    }
+fi
