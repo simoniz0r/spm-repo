@@ -1,0 +1,4 @@
+name: lftp
+url: https://github.com/lavv17/lftp/releases
+apiurl: https://api.github.com/repos/lavv17/lftp/releases
+description: lftp  sophisticated command line file transfer program ftp http sftp fish torrent
