@@ -36,7 +36,7 @@ aibsdepcheckfunc () {
 aibsversionfunc () {
     wget -S --read-timeout=30 --spider "https://discordapp.com/api/download/canary?platform=linux&format=tar.gz" -o "$CONFDIR"/cache/"$AIBSIMG".latest
     AIBSIMG_VERSION_URI="$(grep -o "Location:.*" "$CONFDIR"/cache/"$AIBSIMG".latest | cut -f2 -d" ")"
-    AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f2 -d'_')"
+    AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f2 -d'-' | cut -f-3 -d'.')"
 }
 
 aibsdlsourcefunc () {
@@ -64,7 +64,7 @@ debextractfunc () {
     rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
 }
 debextractfunc "libc++.deb"
-debextractfunc "libnotify4.deb"
+debextractfunc "libnotify.deb"
 debextractfunc "libgconf.deb"
 debextractfunc "libxss.deb"
 debextractfunc "libxtst.deb"
