@@ -5,3 +5,5 @@ changelog:
     - Convert Changelog to yaml
   date: Wed Sep 27 00:36:31 CDT 2017
     - Add discord-canary.aibs
+  date: Thu Sep 28 01:14:14 CDT 2017
+    - Add lftp.aibs
