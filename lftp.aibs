@@ -39,7 +39,7 @@ aibsversionfunc () {
 }
 
 aibsdlsourcefunc () {
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/l/lftp/lftp_4.8.1-1_amd64.deb" -O "$AIBSIMG_SOURCE_DIR"/lftp.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/l/lftp/lftp_4.8.1-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/lftp.deb
 }
 
 aibsdldepsfunc () {
