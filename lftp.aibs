@@ -1,0 +1,80 @@
+#!/bin/bash
+# Title: spm
+# Description: Downloads and installs AppImages and precompiled tar archives.  Can also upgrade and remove installed packages.
+# Dependencies: GNU coreutils, tar, wget
+# Author: simonizor
+# Website: http://www.simonizor.gq
+# License: GPL v2.0 only
+##################################################################################################
+# aibs for lftp
+# Created by simonizor
+##################################################################################################
+
+AIBSIMG_AUTHOR="lavv17"
+AIBSIMG_MAINTAINER="simonizor"
+AIBSIMG_DESCRIPTION="sophisticated command line file transfer program (ftp, http, sftp, fish, torrent)"
+AIBSIMG_CATEGORY="FileTransfer"
+AIBSIMG_WEBSITE="http://lftp.yar.ru/"
+AIBSIMG_NAME="lftp"
+AIBSIMG_SOURCE="Direct"
+AIBSIMG_SOURCE_TYPE="Binary"
+AIBSIMG_USE_WRAPPER="FALSE"
+AIBSIMG_USE_SPECIAL_INSTRUCTIONS="FALSE"
+
+aibsdepcheckfunc () {
+    if ! type ar >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)ar (binutils) is not installed!$(tput sgr0)"
+    fi
+    if [ "$MISSING_DEPS" = "TRUE" ]; then
+        echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
+        rm -rf "$CONFDIR"/cache/*
+        exit 1
+    fi
+}
+
+aibsversionfunc () {
+    # TODO: Figure out how to find latest version from Debian's website
+    AIBSIMG_VERSION="4.8.1-1"
+}
+
+aibsdlsourcefunc () {
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/l/lftp/lftp_4.8.1-1_amd64.deb" -O "$AIBSIMG_SOURCE_DIR"/lftp.deb
+}
+
+aibsdldepsfunc () {
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gnutls28/libgnutls30_3.5.8-5+deb9u2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgnutls30.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libi/libidn2-0/libidn2-0_0.16-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libidn2.deb
+}
+
+aibsbuildfunc () {
+mkdir "$AIBSIMG_DEPS_DIR"/debs
+cd "$AIBSIMG_DEPS_DIR"
+debextractfunc () {
+    ar x "$AIBSIMG_DEPS_DIR"/"$1"
+    rm -f "$AIBSIMG_DEPS_DIR"/control.tar.gz
+    rm -f "$AIBSIMG_DEPS_DIR"/debian-binary
+    tar -xf "$AIBSIMG_DEPS_DIR"/data.tar.* -C "$AIBSIMG_DEPS_DIR"/debs/
+    rm -f "$AIBSIMG_DEPS_DIR"/data.tar.*
+    cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
+    rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
+}
+debextractfunc "libgnutls30.deb"
+debextractfunc "libidn2.deb"
+cd "$AIBSIMG_SOURCE_DIR"
+ar x "$AIBSIMG_SOURCE_DIR"/lftp.deb
+rm -f "$AIBSIMG_SOURCE_DIR"/lftp.deb
+rm -f "$AIBSIMG_SOURCE_DIR"/control.tar.gz
+rm -f "$AIBSIMG_SOURCE_DIR"/debian-binary
+tar -xf "$AIBSIMG_SOURCE_DIR"/data.tar.* -C "$AIBSIMG_SOURCE_DIR"/
+rm -f "$AIBSIMG_SOURCE_DIR"/data.tar.*
+cp -r "$AIBSIMG_SOURCE_DIR"/* "$AIBSIMG_BUILD_DIR"/
+cp "$AIBSIMG_BUILD_DIR"/usr/bin/share/applications/lftp.desktop "$AIBSIMG_BUILD_DIR"/
+cp "$AIBSIMG_BUILD_DIR"/usr/bin/share/icons/hicolor/48x48/apps/lftp-icon.png "$AIBSIMG_BUILD_DIR"/
+}
+
+if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
+    aibsspecialfunc () {
+        echo "no special instructions"
+    }
+fi
