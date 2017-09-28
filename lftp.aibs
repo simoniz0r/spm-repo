@@ -45,6 +45,7 @@ aibsdlsourcefunc () {
 aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gnutls28/libgnutls30_3.5.8-5+deb9u2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgnutls30.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libi/libidn2-0/libidn2-0_0.16-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libidn2.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/r/readline/libreadline7_7.0-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libreadline7.deb
 }
 
 aibsbuildfunc () {
@@ -61,6 +62,7 @@ debextractfunc () {
 }
 debextractfunc "libgnutls30.deb"
 debextractfunc "libidn2.deb"
+debextractfunc "libreadline7.deb"
 cd "$AIBSIMG_SOURCE_DIR"
 ar x "$AIBSIMG_SOURCE_DIR"/lftp.deb
 rm -f "$AIBSIMG_SOURCE_DIR"/lftp.deb
