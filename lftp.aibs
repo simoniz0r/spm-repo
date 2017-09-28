@@ -43,9 +43,10 @@ aibsdlsourcefunc () {
 }
 
 aibsdldepsfunc () {
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gnutls28/libgnutls30_3.5.8-5+deb9u2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgnutls30.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libi/libidn2-0/libidn2-0_0.16-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libidn2.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/r/readline/libreadline7_7.0-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libreadline7.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gnutls28/libgnutls30_3.5.8-5+deb9u2_amd64.deb" -O "$BUILD_DIR"/deps/libgnutls30.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libi/libidn2-0/libidn2-0_2.0.2-5_amd64.deb" -O "$BUILD_DIR"/deps/libidn2.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/r/readline/libreadline7_7.0-3_amd64.deb" -O "$BUILD_DIR"/deps/libreadline7.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libu/libunistring/libunistring2_0.9.7-2_amd64.deb" -O "$BUILD_DIR"/deps/libunistring2.deb
 }
 
 aibsbuildfunc () {
@@ -60,17 +61,11 @@ debextractfunc () {
     cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
     rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
 }
+debextractfunc "lftp.deb"
 debextractfunc "libgnutls30.deb"
 debextractfunc "libidn2.deb"
 debextractfunc "libreadline7.deb"
-cd "$AIBSIMG_SOURCE_DIR"
-ar x "$AIBSIMG_SOURCE_DIR"/lftp.deb
-rm -f "$AIBSIMG_SOURCE_DIR"/lftp.deb
-rm -f "$AIBSIMG_SOURCE_DIR"/control.tar.gz
-rm -f "$AIBSIMG_SOURCE_DIR"/debian-binary
-tar -xf "$AIBSIMG_SOURCE_DIR"/data.tar.* -C "$AIBSIMG_SOURCE_DIR"/
-rm -f "$AIBSIMG_SOURCE_DIR"/data.tar.*
-cp -r "$AIBSIMG_SOURCE_DIR"/* "$AIBSIMG_BUILD_DIR"/
+debextractfunc "libunistring2.deb"
 cp "$AIBSIMG_BUILD_DIR"/usr/share/applications/lftp.desktop "$AIBSIMG_BUILD_DIR"/
 cp "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/48x48/apps/lftp-icon.png "$AIBSIMG_BUILD_DIR"/
 }
