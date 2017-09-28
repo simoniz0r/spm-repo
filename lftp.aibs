@@ -69,8 +69,8 @@ rm -f "$AIBSIMG_SOURCE_DIR"/debian-binary
 tar -xf "$AIBSIMG_SOURCE_DIR"/data.tar.* -C "$AIBSIMG_SOURCE_DIR"/
 rm -f "$AIBSIMG_SOURCE_DIR"/data.tar.*
 cp -r "$AIBSIMG_SOURCE_DIR"/* "$AIBSIMG_BUILD_DIR"/
-cp "$AIBSIMG_BUILD_DIR"/usr/bin/share/applications/lftp.desktop "$AIBSIMG_BUILD_DIR"/
-cp "$AIBSIMG_BUILD_DIR"/usr/bin/share/icons/hicolor/48x48/apps/lftp-icon.png "$AIBSIMG_BUILD_DIR"/
+cp "$AIBSIMG_BUILD_DIR"/usr/share/applications/lftp.desktop "$AIBSIMG_BUILD_DIR"/
+cp "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/48x48/apps/lftp-icon.png "$AIBSIMG_BUILD_DIR"/
 }
 
 if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
