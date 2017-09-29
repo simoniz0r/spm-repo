@@ -9,3 +9,5 @@ changelog:
     - Add lftp.aibs
   date: Thu Sep 28 22:27:30 CDT 2017
     - Add yadshot to AppImages-github
+  date: Fri Sep 29 01:09:33 CDT 2017
+    - Add yad-twitch-streamlink to AppImages-github
