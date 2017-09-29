@@ -92,9 +92,9 @@ mv "$AIBSIMG_BUILD_DIR"/yadshot.wrapper "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot.wra
 cat >"$AIBSIMG_BUILD_DIR"/yadshot.desktop << EOL
 [Desktop Entry]
 Type=Application
-Name=yadshot.wrapper
+Name=yadshot
 Comment=yadshot provides a GUI for using maim/slop that can also upload pictures to imgur.
-Exec=yadshot
+Exec=yadshot.wrapper
 Icon=yadshot
 Categories=Utility;
 Terminal=false
