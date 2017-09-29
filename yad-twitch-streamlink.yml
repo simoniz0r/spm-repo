@@ -1,0 +1,4 @@
+name: yad-twitch-streamlink
+url: https://github.com/simoniz0r/yad-twitch-streamlink/releases
+apiurl: https://api.github.com/repos/simoniz0r/yad-twitch-streamlink/releases
+description: yadtwitchstreamlink is a bash script using yad for a GUI that lists your live followed streamers from Twitch for playback using Streamlink After selecting a stream yadtwitchstreamlink opens Streamlink with the configured player and also opens the configured chat program
