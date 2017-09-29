@@ -53,7 +53,7 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libp/libpng1.6/libpng16-16_1.6.28-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpng.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/y/yad/yad_0.38.2-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/yad.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/c/cairo/libcairo2_1.14.8-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libcairo2.deb
-    # wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/c/cairo/libcairo-gobject2_1.14.8-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libcairo-gobject2.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/c/cairo/libcairo-gobject2_1.14.8-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libcairo-gobject2.deb
     wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/g/gdk-pixbuf/libgdk-pixbuf2.0-0_2.36.5-2+deb9u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgdk-pixbuf2.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpango-1.0-0_1.40.5-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpango.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpangocairo-1.0-0_1.40.5-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpangocairo.deb
@@ -80,12 +80,13 @@ debextractfunc "libjpeg.deb"
 debextractfunc "libpng.deb"
 debextractfunc "yad.deb"
 debextractfunc "libcairo2.deb"
-# debextractfunc "libcairo-gobject2.deb"
+debextractfunc "libcairo-gobject2.deb"
 debextractfunc "libgdk-pixbuf2.deb"
 debextractfunc "libpango.deb"
 debextractfunc "libpangocairo.deb"
 debextractfunc "libatk.deb"
 debextractfunc "libgtk3.deb"
+chmod a+x "$AIBSIMG_SOURCE_DIR"/yadshot
 mv "$AIBSIMG_SOURCE_DIR"/yadshot "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot
 mv "$AIBSIMG_BUILD_DIR"/yadshot.wrapper "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot.wrapper
 cat >"$AIBSIMG_BUILD_DIR"/yadshot.desktop << EOL
