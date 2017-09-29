@@ -92,7 +92,7 @@ cat >"$AIBSIMG_BUILD_DIR"/yadshot.desktop << EOL
 [Desktop Entry]
 Type=Application
 Name=yadshot.wrapper
-Comment=maim (make image) takes screenshots of your desktop.
+Comment=yadshot provides a GUI for using maim/slop that can also upload pictures to imgur.
 Exec=yadshot
 Icon=yadshot
 Categories=Utility;
