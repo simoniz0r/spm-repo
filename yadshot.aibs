@@ -37,7 +37,7 @@ aibsversionfunc () {
     if [ -z "$GITHUB_TOKEN" ]; then
         AIBSIMG_VERSION="$(wget --quiet "https://api.github.com/repos/simoniz0r/yadshot/releases" -O - | jq -r ".[].assets[].updated_at")"
     else
-        AIBSIMG_VERSION="$(wget --quiet --auth-no-challenge --header="Authorization: token "$GITHUB_TOKEN"" "https://github.com/simoniz0r/yadshot/releases" -O - | jq -r ".[].assets[].updated_at")"
+        AIBSIMG_VERSION="$(wget --quiet --auth-no-challenge --header="Authorization: token "$GITHUB_TOKEN"" "https://api.github.com/repos/simoniz0r/yadshot/releases" -O - | jq -r ".[].assets[].updated_at")"
     fi
 }
 
