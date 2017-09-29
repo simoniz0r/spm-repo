@@ -61,6 +61,7 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7-stdlib_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7-stdlib.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7-minimal_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7-minimal.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python-setuptools/python-pkg-resources_5.5.1-1_all.deb" -O "$AIBSIMG_DEPS_DIR"/python-pkg-resources.deb
 }
 
 aibsbuildfunc () {
@@ -90,6 +91,7 @@ debextractfunc "python2.7-minimal.deb"
 debextractfunc "libpython2.7.deb"
 debextractfunc "libpython2.7-stdlib.deb"
 debextractfunc "libpython2.7-minimal.deb"
+debextractfunc "python-pkg-resources.deb"
 wget --no-verbose "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64" -O "$AIBSIMG_BUILD_DIR"/usr/bin/jq
 chmod a+x "$AIBSIMG_BUILD_DIR"/usr/bin/jq
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yad-twitch-streamlink
@@ -98,9 +100,9 @@ mv "$AIBSIMG_BUILD_DIR"/yad-twitch-streamlink.wrapper "$AIBSIMG_BUILD_DIR"/usr/b
 cat >"$AIBSIMG_BUILD_DIR"/yad-twitch-streamlink.desktop << EOL
 [Desktop Entry]
 Type=Application
-Name=yad-twitch-streamlink.wrapper
+Name=yad-twitch-streamlink
 Comment=yad-twitch-streamlink is a bash script using yad for a GUI that lists your live followed streamers from Twitch for playback using Streamlink.
-Exec=yad-twitch-streamlink
+Exec=yad-twitch-streamlink.wrapper
 Icon=yad-twitch-streamlink
 Categories=Utility;
 Terminal=false
