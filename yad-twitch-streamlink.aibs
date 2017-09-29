@@ -70,11 +70,8 @@ debextractfunc () {
     cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
     rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
 }
-debextractfunc "maim.deb"
-debextractfunc "slop.deb"
-debextractfunc "libglew.deb"
-debextractfunc "libjpeg.deb"
-debextractfunc "libpng.deb"
+debextractfunc "python-streamlink.deb"
+debextractfunc "streamlink.deb"
 debextractfunc "yad.deb"
 debextractfunc "libcairo2.deb"
 debextractfunc "libcairo-gobject2.deb"
@@ -90,14 +87,14 @@ cat >"$AIBSIMG_BUILD_DIR"/yad-twitch-streamlink.desktop << EOL
 [Desktop Entry]
 Type=Application
 Name=yad-twitch-streamlink.wrapper
-Comment=yad-twitch-streamlink provides a GUI for using maim/slop that can also upload pictures to imgur.
+Comment=yad-twitch-streamlink is a bash script using yad for a GUI that lists your live followed streamers from Twitch for playback using Streamlink.
 Exec=yad-twitch-streamlink
 Icon=yad-twitch-streamlink
 Categories=Utility;
 Terminal=false
 
 EOL
-wget --no-verbose "https://github.com/simoniz0r/yad-twitch-streamlink/raw/master/yad-twitch-streamlink.png" -O "$AIBSIMG_BUILD_DIR"/yad-twitch-streamlink.png
+wget --no-verbose "https://github.com/simoniz0r/yad-twitch-streamlink/raw/master/ytsicon.png" -O "$AIBSIMG_BUILD_DIR"/yad-twitch-streamlink.png
 }
 
 if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
