@@ -56,7 +56,7 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpango-1.0-0_1.40.5-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpango.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpangocairo-1.0-0_1.40.5-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpangocairo.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/a/atk1.0/libatk1.0-0_2.22.0-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libatk.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gtk+3.0/libgtk-3-0_3.22.11-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgtk3.deb
+    # wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gtk+3.0/libgtk-3-0_3.22.11-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgtk3.deb
 }
 
 aibsbuildfunc () {
@@ -81,7 +81,7 @@ debextractfunc "libgdk-pixbuf2.deb"
 debextractfunc "libpango.deb"
 debextractfunc "libpangocairo.deb"
 debextractfunc "libatk.deb"
-debextractfunc "libgtk3.deb"
+# debextractfunc "libgtk3.deb"
 wget --no-verbose "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64" -O "$AIBSIMG_BUILD_DIR"/usr/bin/jq
 chmod a+x "$AIBSIMG_BUILD_DIR"/usr/bin/jq
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yad-twitch-streamlink
