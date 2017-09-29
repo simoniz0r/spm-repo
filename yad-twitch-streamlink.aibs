@@ -62,6 +62,12 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7-stdlib_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7-stdlib.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7-minimal_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7-minimal.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python-setuptools/python-pkg-resources_5.5.1-1_all.deb" -O "$AIBSIMG_DEPS_DIR"/python-pkg-resources.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/w/wget/wget_1.16-1+deb8u2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/wget.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gnutls28/libgnutls-deb0-28_3.3.8-6+deb8u7_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgnutls.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/n/nettle/libnettle4_2.7.1-5+deb8u2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libnettle.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libp/libpsl/libpsl0_0.5.1-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpsl.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/i/icu/libicu52_52.1-8+deb8u5_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libicu.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/n/nettle/libhogweed2_2.7.1-5+deb8u2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libhogweed.deb
 }
 
 aibsbuildfunc () {
@@ -92,6 +98,12 @@ debextractfunc "libpython2.7.deb"
 debextractfunc "libpython2.7-stdlib.deb"
 debextractfunc "libpython2.7-minimal.deb"
 debextractfunc "python-pkg-resources.deb"
+debextractfunc "wget.deb"
+debextractfunc "libgnutls.deb"
+debextractfunc "libnettle.deb"
+debextractfunc "libpsl.deb"
+debextractfunc "libicu.deb"
+debextractfunc "libhogweed.deb"
 wget --no-verbose "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64" -O "$AIBSIMG_BUILD_DIR"/usr/bin/jq
 chmod a+x "$AIBSIMG_BUILD_DIR"/usr/bin/jq
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yad-twitch-streamlink
