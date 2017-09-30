@@ -11,3 +11,5 @@ changelog:
     - Add yadshot to AppImages-github
   date: Fri Sep 29 01:09:33 CDT 2017
     - Add yad-twitch-streamlink to AppImages-github
+  date: Fri Sep 29 22:08:10 CDT 2017
+    - Add ao to AppImages-github
