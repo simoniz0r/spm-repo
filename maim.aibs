@@ -47,6 +47,7 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/glew/libglew2.0_2.0.0-3+b1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libglew.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.5.1-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libjpeg.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libp/libpng1.6/libpng16-16_1.6.28-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpng.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libg/libglu/libglu1-mesa_9.0.0-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libglu.deb
 }
 
 aibsbuildfunc () {
@@ -66,6 +67,7 @@ debextractfunc "slop.deb"
 debextractfunc "libglew.deb"
 debextractfunc "libjpeg.deb"
 debextractfunc "libpng.deb"
+debextractfunc "libglu.deb"
 cat >"$AIBSIMG_BUILD_DIR"/maim.desktop << EOL
 [Desktop Entry]
 Type=Application
