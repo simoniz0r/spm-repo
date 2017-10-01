@@ -13,3 +13,5 @@ changelog:
     - Add yad-twitch-streamlink to AppImages-github
   date: Fri Sep 29 22:08:10 CDT 2017
     - Add ao to AppImages-github
+  date: Sun Oct  1 13:59:08 CDT 2017
+    - Add gimp to AppImages-github
