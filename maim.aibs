@@ -39,7 +39,7 @@ aibsversionfunc () {
 }
 
 aibsdlsourcefunc () {
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/m/maim/maim_5.4.68-1.1_amd64.deb" -O "$AIBSIMG_SOURCE_DIR"/maim.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/m/maim/maim_5.4.68-1.1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/maim.deb
 }
 
 aibsdldepsfunc () {
@@ -61,18 +61,11 @@ debextractfunc () {
     cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
     rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
 }
+debextractfunc "maim.deb"
 debextractfunc "slop.deb"
 debextractfunc "libglew.deb"
 debextractfunc "libjpeg.deb"
 debextractfunc "libpng.deb"
-cd "$AIBSIMG_SOURCE_DIR"
-ar x "$AIBSIMG_SOURCE_DIR"/maim.deb
-rm -f "$AIBSIMG_SOURCE_DIR"/maim.deb
-rm -f "$AIBSIMG_SOURCE_DIR"/control.tar.gz
-rm -f "$AIBSIMG_SOURCE_DIR"/debian-binary
-tar -xf "$AIBSIMG_SOURCE_DIR"/data.tar.* -C "$AIBSIMG_SOURCE_DIR"/
-rm -f "$AIBSIMG_SOURCE_DIR"/data.tar.*
-cp -r "$AIBSIMG_SOURCE_DIR"/* "$AIBSIMG_BUILD_DIR"/
 cat >"$AIBSIMG_BUILD_DIR"/maim.desktop << EOL
 [Desktop Entry]
 Type=Application
