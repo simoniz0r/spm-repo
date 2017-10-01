@@ -1,0 +1,4 @@
+name: gimp
+url: https://github.com/aferrero2707/gimp-appimage/releases
+apiurl: https://api.github.com/repos/aferrero2707/gimp-appimage/releases
+description: The Free and Open Source Image Editor
