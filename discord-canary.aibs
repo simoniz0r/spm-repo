@@ -12,8 +12,8 @@
 
 AIBSIMG_AUTHOR="Discord"
 AIBSIMG_MAINTAINER="simonizor"
-AIBSIMG_DESCRIPTION="Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux."
-AIBSIMG_CATEGORY="IDE"
+AIBSIMG_DESCRIPTION="All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone"
+AIBSIMG_CATEGORY="Chat"
 AIBSIMG_WEBSITE="https://discordapp.com"
 AIBSIMG_NAME="discord-canary"
 AIBSIMG_SOURCE="Direct"
