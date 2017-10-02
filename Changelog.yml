@@ -18,3 +18,4 @@ changelog:
   date: Mon Oct  2 18:14:11 CDT 2017
     - Update otter-browser link in AppImages-other
     - Add barnacal to AppImages-github
+    - Add githoard to AppImages-github
