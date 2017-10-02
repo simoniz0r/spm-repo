@@ -1,0 +1,4 @@
+name: barnacal
+url: https://github.com/mike-engel/Barnacal/releases
+apiurl: https://api.github.com/repos/mike-engel/Barnacal/releases
+description: Barnacal  A simple menu bar app for viewing a calendar
