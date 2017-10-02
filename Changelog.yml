@@ -15,3 +15,6 @@ changelog:
     - Add ao to AppImages-github
   date: Sun Oct  1 13:59:08 CDT 2017
     - Add gimp to AppImages-github
+  date: Mon Oct  2 18:14:11 CDT 2017
+    - Update otter-browser link in AppImages-other
+    - Add barnacal to AppImages-github
