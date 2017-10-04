@@ -58,6 +58,7 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/g/gdk-pixbuf/libgdk-pixbuf2.0-common_2.31.1-2+deb8u6_all.deb" -O "$AIBSIMG_DEPS_DIR"/libgdk-pixbuf2-common.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpango-1.0-0_1.36.8-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpango.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpangocairo-1.0-0_1.36.8-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpangocairo.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpangoft2-1.0-0_1.36.8-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpangoft.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/a/atk1.0/libatk1.0-0_2.14.0-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libatk.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libg/libglu/libglu1-mesa_9.0.0-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libglu.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/x/xclip/xclip_0.12+svn84-4_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/xclip.deb
@@ -88,6 +89,7 @@ debextractfunc "libgdk-pixbuf2.deb"
 debextractfunc "libgdk-pixbuf2-common.deb"
 debextractfunc "libpango.deb"
 debextractfunc "libpangocairo.deb"
+debextractfunc "libpangoft.deb"
 debextractfunc "libatk.deb"
 debextractfunc "libglu.deb"
 debextractfunc "xclip.deb"
