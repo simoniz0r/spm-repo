@@ -1,0 +1,4 @@
+name: BitShares
+url: https://github.com/bitshares/bitshares-ui/releases
+apiurl: https://api.github.com/repos/bitshares/bitshares-ui/releases
+description: bitshares-ui - Graphical User Interface for Bitshares

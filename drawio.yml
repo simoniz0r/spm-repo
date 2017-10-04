@@ -1,0 +1,4 @@
+name: draw
+url: https://github.com/jgraph/drawio-desktop/releases
+apiurl: https://api.github.com/repos/jgraph/drawio-desktop/releases
+description: drawio-desktop - Official electron build of drawio

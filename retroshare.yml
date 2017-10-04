@@ -1,0 +1,4 @@
+name: RetroShare
+url: https://github.com/RetroShare/RetroShare/releases
+apiurl: https://api.github.com/repos/RetroShare/RetroShare/releases
+description: RetroShare is a Free and Open Source cross-platform Friend-2-Friend and secure decentralised communication platform upstream Repository
