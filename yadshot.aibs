@@ -61,7 +61,7 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/a/atk1.0/libatk1.0-0_2.14.0-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libatk.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libg/libglu/libglu1-mesa_9.0.0-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libglu.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/x/xclip/xclip_0.12+svn84-4_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/xclip.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gcc-4.9/libstdc++6_4.9.2-10_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libstdc++.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gcc-6/libstdc++6_6.3.0-18_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libstdc++.deb
 }
 
 aibsbuildfunc () {
@@ -85,6 +85,7 @@ debextractfunc "yad.deb"
 debextractfunc "libcairo2.deb"
 debextractfunc "libcairo-gobject2.deb"
 debextractfunc "libgdk-pixbuf2.deb"
+debextractfunc "libgdk-pixbuf2-common.deb"
 debextractfunc "libpango.deb"
 debextractfunc "libpangocairo.deb"
 debextractfunc "libatk.deb"
