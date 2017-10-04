@@ -23,4 +23,6 @@ changelog:
     - Add drawio, seqplots, retroshare, mkvtoolnix, malice, and bitshares to AppImages-github
     - Add appimaged to AppImages-github
     - Add hotspot to AppImages-github
-    
+  date: Wed Oct  4 00:27:50 CDT 2017
+    - Remove cantata from AppImages-other
+    - Add cantata to AppImages-github
