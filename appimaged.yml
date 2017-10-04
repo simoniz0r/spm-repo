@@ -1,4 +1,4 @@
 name: appimaged
 url: https://github.com/AppImage/AppImageKit/releases
 apiurl: https://api.github.com/repos/AppImage/AppImageKit/releases
-description: AppImageKit - Package desktop applications as AppImages that run on common Linux-based operating systems such as RHEL CentOS openSUSE SLED Ubuntu Fedora debian and derivatives Join AppImage on ircfreenodenet
+description: An optional daemon that integrates AppImages into the system (e.g., menus, icons, file formats).
