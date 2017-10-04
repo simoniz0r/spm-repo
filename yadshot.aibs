@@ -52,14 +52,16 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.5.1-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libjpeg.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libp/libpng1.6/libpng16-16_1.6.28-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpng.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/y/yad/yad_0.38.2-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/yad.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/c/cairo/libcairo2_1.14.8-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libcairo2.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/c/cairo/libcairo-gobject2_1.14.8-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libcairo-gobject2.deb
-    wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/g/gdk-pixbuf/libgdk-pixbuf2.0-0_2.36.5-2+deb9u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgdk-pixbuf2.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpango-1.0-0_1.40.5-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpango.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpangocairo-1.0-0_1.40.5-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpangocairo.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/a/atk1.0/libatk1.0-0_2.22.0-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libatk.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/c/cairo/libcairo2_1.14.0-2.1+deb8u2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libcairo2.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/c/cairo/libcairo-gobject2_1.14.0-2.1+deb8u2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libcairo-gobject2.deb
+    wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/g/gdk-pixbuf/libgdk-pixbuf2.0-0_2.31.1-2+deb8u6_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgdk-pixbuf2.deb
+    wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/g/gdk-pixbuf/libgdk-pixbuf2.0-common_2.31.1-2+deb8u6_all.deb" -O "$AIBSIMG_DEPS_DIR"/libgdk-pixbuf2-common.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpango-1.0-0_1.36.8-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpango.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/pango1.0/libpangocairo-1.0-0_1.36.8-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpangocairo.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/a/atk1.0/libatk1.0-0_2.14.0-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libatk.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libg/libglu/libglu1-mesa_9.0.0-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libglu.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/x/xclip/xclip_0.12+svn84-4_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/xclip.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gcc-4.9/libstdc++6_4.9.2-10_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libstdc++.deb
 }
 
 aibsbuildfunc () {
@@ -88,6 +90,7 @@ debextractfunc "libpangocairo.deb"
 debextractfunc "libatk.deb"
 debextractfunc "libglu.deb"
 debextractfunc "xclip.deb"
+debextractfunc "libstdc++.deb"
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yadshot
 mv "$AIBSIMG_SOURCE_DIR"/yadshot "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot
 mv "$AIBSIMG_BUILD_DIR"/yadshot.wrapper "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot.wrapper
@@ -103,6 +106,9 @@ Terminal=false
 
 EOL
 wget --no-verbose "https://github.com/simoniz0r/yadshot/raw/master/yadshot.png" -O "$AIBSIMG_BUILD_DIR"/yadshot.png
+rm -f "$AIBSIMG_BUILD_DIR"/AppRun
+wget --no-verbose --read-timeout=30 "https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64" -O "$AIBSIMG_BUILD_DIR"/AppRun
+chmod a+x "$AIBSIMG_BUILD_DIR"/AppRun
 }
 
 if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
