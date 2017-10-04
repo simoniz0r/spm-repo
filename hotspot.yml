@@ -1,0 +1,4 @@
+name: hotspot
+url: https://github.com/KDAB/hotspot/releases
+apiurl: https://api.github.com/repos/KDAB/hotspot/releases
+description: hotspot - The Linux perf GUI for performance analysis
