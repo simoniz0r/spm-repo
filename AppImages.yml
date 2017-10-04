@@ -18,6 +18,7 @@ barnacal: AppImages-github
 batchlabs: AppImages-github
 belle: AppImages-github
 billy: AppImages-github
+bitshares: AppImages-github
 blink1control2: AppImages-github
 blubvolley: AppImages-other
 bnb: AppImages-github
@@ -56,6 +57,7 @@ discord-stable: AppImages-github
 discord-toolbox: AppImages-github
 donut: AppImages-github
 dragoman: AppImages-github
+drawio: AppImages-github
 drawpile: AppImages-other
 easeldriver: AppImages-other
 electorrent: AppImages-github
@@ -128,6 +130,7 @@ linux-quiz-generator: AppImages-github
 lisk-nano: AppImages-github
 livezilla: AppImages-other
 maim: AppImages-github
+malice: AppImages-github
 mandelbulber2: AppImages-other
 marlin-conf: AppImages-github
 maven: AppImages-github
@@ -141,6 +144,7 @@ mirtk: AppImages-other
 misrcon: AppImages-github
 mitmproxy: AppImages-github
 mki3dgame: AppImages-github
+mkvtoolnix: AppImages-github
 mockoon: AppImages-other
 mrwriter: AppImages-other
 ms-teams-capsule: AppImages-other
@@ -210,6 +214,7 @@ redmine_tracker: AppImages-github
 redtimer: AppImages-github
 reliefvalve: AppImages-github
 repetier-host: AppImages-other
+retroshare: AppImages-github
 ricin: AppImages-other
 riot: AppImages-other
 rpcs3: AppImages-other
@@ -218,6 +223,7 @@ sacnview: AppImages-github
 sciencefair: AppImages-github
 screencloud: AppImages-other
 scribus: AppImages-other
+seqplots: AppImages-github
 serialplot: AppImages-other
 shadowsocks: AppImages-github
 sharexin: AppImages-github

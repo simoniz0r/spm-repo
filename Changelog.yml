@@ -19,3 +19,5 @@ changelog:
     - Update otter-browser link in AppImages-other
     - Add barnacal to AppImages-github
     - Add githoard to AppImages-github
+  date: Tue Oct  3 19:56:42 CDT 2017
+    - Add drawio, seqplots, retroshare, mkvtoolnix, malice, and bitshares
