@@ -67,18 +67,15 @@ debextractfunc "libnotify4_0.deb"
 debextractfunc "libxkbfile1_1.deb"
 debextractfunc "libgconf-2-4.deb"
 debextractfunc "libsecret-1-0.deb"
-tar -xf "$AIBSIMG_SOURCE_DIR"/vscode.tar.gz -C "$AIBSIMG_SOURCE_DIR"/
-mv "$AIBSIMG_SOURCE_DIR"/VSCode-linux-x64 "$AIBSIMG_BUILD_DIR"/usr/share/vscode
-mv "$AIBSIMG_BUILD_DIR"/vscode.wrapper "$AIBSIMG_BUILD_DIR"/usr/share/vscode/
-mv "$AIBSIMG_BUILD_DIR"/usr/share/vscode/code "$AIBSIMG_BUILD_DIR"/usr/share/vscode/vscode
-mv "$AIBSIMG_BUILD_DIR"/usr/share/vscode/resources/app/resources/linux/code.png "$AIBSIMG_BUILD_DIR"/vscode.png
-cat >"$AIBSIMG_BUILD_DIR"/vscode.desktop << EOL
+mv "$AIBSIMG_BUILD_DIR"/vscode.wrapper "$AIBSIMG_BUILD_DIR"/usr/share/code/bin/code.wrapper
+cp "$AIBSIMG_BUILD_DIR"/usr/share/code/resources/app/resources/linux/code.png "$AIBSIMG_BUILD_DIR"/code.png
+cat >"$AIBSIMG_BUILD_DIR"/code.desktop << EOL
 [Desktop Entry]
 Name=Visual Studio Code
 Comment=Code Editing. Redefined.
 GenericName=Text Editor
-Exec=././/share/vscode/vscode.wrapper %U
-Icon=vscode
+Exec=././/share/code/bin/code.wrapper %U
+Icon=code
 Type=Application
 StartupNotify=true
 StartupWMClass=Code
@@ -100,8 +97,8 @@ Name[ko]=새 창
 Name[ru]=Новое окно
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=././/share/vscode/vscode.wrapper --new-window %U
-Icon=vscode
+Exec=././/share/code/bin/code --new-window %U
+Icon=code
 
 EOL
 }
