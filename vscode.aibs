@@ -67,14 +67,14 @@ debextractfunc "libnotify4_0.deb"
 debextractfunc "libxkbfile1_1.deb"
 debextractfunc "libgconf-2-4.deb"
 debextractfunc "libsecret-1-0.deb"
-mv "$AIBSIMG_BUILD_DIR"/vscode.wrapper "$AIBSIMG_BUILD_DIR"/usr/share/code/bin/code.wrapper
+mv "$AIBSIMG_BUILD_DIR"/vscode.wrapper "$AIBSIMG_BUILD_DIR"/usr/share/code/code.wrapper
 cp "$AIBSIMG_BUILD_DIR"/usr/share/code/resources/app/resources/linux/code.png "$AIBSIMG_BUILD_DIR"/code.png
 cat >"$AIBSIMG_BUILD_DIR"/code.desktop << EOL
 [Desktop Entry]
 Name=Visual Studio Code
 Comment=Code Editing. Redefined.
 GenericName=Text Editor
-Exec=././/share/code/bin/code.wrapper %U
+Exec=././/share/code/code.wrapper %U
 Icon=code
 Type=Application
 StartupNotify=true
@@ -97,7 +97,7 @@ Name[ko]=새 창
 Name[ru]=Новое окно
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=././/share/code/bin/code --new-window %U
+Exec=././/share/code/code --new-window %U
 Icon=code
 
 EOL
