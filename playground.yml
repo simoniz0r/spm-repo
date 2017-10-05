@@ -1,0 +1,4 @@
+name: playground
+url: https://github.com/graphcool/graphql-playground/releases
+apiurl: https://api.github.com/repos/graphcool/graphql-playground/releases
+description: graphql-playground - GraphQL IDE for better development workflows GraphQL Subscriptions interactive docs amp collaboration
