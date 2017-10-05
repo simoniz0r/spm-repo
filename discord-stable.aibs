@@ -1,0 +1,95 @@
+#!/bin/bash
+# Title: spm
+# Description: Downloads and installs AppImages and precompiled tar archives.  Can also upgrade and remove installed packages.
+# Dependencies: GNU coreutils, tar, wget
+# Author: simonizor
+# Website: http://www.simonizor.gq
+# License: GPL v2.0 only
+##################################################################################################
+# aibs for discord-stable
+# Created by simonizor
+##################################################################################################
+
+AIBSIMG_AUTHOR="Discord"
+AIBSIMG_MAINTAINER="simonizor"
+AIBSIMG_DESCRIPTION="All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone"
+AIBSIMG_CATEGORY="Chat"
+AIBSIMG_WEBSITE="https://discordapp.com"
+AIBSIMG_NAME="discord-stable"
+AIBSIMG_SOURCE="Direct"
+AIBSIMG_SOURCE_TYPE="Binary"
+AIBSIMG_USE_WRAPPER="TRUE"
+AIBSIMG_USE_SPECIAL_INSTRUCTIONS="FALSE"
+
+aibsdepcheckfunc () {
+    if ! type ar >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)ar (binutils) is not installed!$(tput sgr0)"
+    fi
+    if [ "$MISSING_DEPS" = "TRUE" ]; then
+        echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
+        rm -rf "$CONFDIR"/cache/*
+        exit 1
+    fi
+}
+
+aibsversionfunc () {
+    wget -S --read-timeout=30 --spider "https://discordapp.com/api/download?platform=linux&format=tar.gz" -o "$CONFDIR"/cache/"$AIBSIMG".latest
+    AIBSIMG_VERSION_URI="$(grep -o "Location:.*" "$CONFDIR"/cache/"$AIBSIMG".latest | cut -f2 -d" ")"
+    AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f3 -d'-' | cut -f-3 -d'.')"
+}
+
+aibsdlsourcefunc () {
+    wget --no-verbose --read-timeout=30 "https://discordapp.com/api/download?platform=linux&format=tar.gz" -O "$AIBSIMG_SOURCE_DIR"/discord-stable.tar.gz
+}
+
+aibsdldepsfunc () {
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libc/libc++/libc++1_3.5-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libc++.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libn/libnotify/libnotify4_0.7.6-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libnotify.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gconf/libgconf-2-4_3.2.6-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgconf.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxss/libxss1_1.2.2-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxss.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxtst/libxtst6_1.2.2-1+b1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxtst.deb
+}
+
+aibsbuildfunc () {
+mkdir "$AIBSIMG_DEPS_DIR"/debs
+cd "$AIBSIMG_DEPS_DIR"
+debextractfunc () {
+    ar x "$AIBSIMG_DEPS_DIR"/"$1"
+    rm -f "$AIBSIMG_DEPS_DIR"/control.tar.gz
+    rm -f "$AIBSIMG_DEPS_DIR"/debian-binary
+    tar -xf "$AIBSIMG_DEPS_DIR"/data.tar.* -C "$AIBSIMG_DEPS_DIR"/debs/
+    rm -f "$AIBSIMG_DEPS_DIR"/data.tar.*
+    cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
+    rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
+}
+debextractfunc "libc++.deb"
+debextractfunc "libnotify.deb"
+debextractfunc "libgconf.deb"
+debextractfunc "libxss.deb"
+debextractfunc "libxtst.deb"
+tar -xf "$AIBSIMG_SOURCE_DIR"/discord-stable.tar.gz -C "$AIBSIMG_SOURCE_DIR"/
+mv "$AIBSIMG_SOURCE_DIR"/Discord "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable
+mv "$AIBSIMG_BUILD_DIR"/discord-stable.wrapper "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/
+mv "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/Discord "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/discord-stable
+cp "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/discord.png "$AIBSIMG_BUILD_DIR"/discord-stable.png
+cat >"$AIBSIMG_BUILD_DIR"/discord-stable.desktop << EOL
+[Desktop Entry]
+Name=Discord PTB
+StartupWMClass=discord
+Comment=All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.
+GenericName=Internet Messenger
+Exec=././/share/discord-stable/discord-stable.wrapper
+Icon=discord-stable
+Type=Application
+StartupNotify=false
+Categories=Network;InstantMessaging;
+
+EOL
+}
+
+if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
+    aibsspecialfunc () {
+        echo "no special instructions"
+    }
+fi
