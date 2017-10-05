@@ -40,7 +40,7 @@ aibsversionfunc () {
 }
 
 aibsdlsourcefunc () {
-    wget --no-verbose --read-timeout=30 "https://go.microsoft.com/fwlink/?LinkID=620884" -O "$AIBSIMG_SOURCE_DIR"/vscode.tar.gz
+    wget --no-verbose --read-timeout=30 "https://go.microsoft.com/fwlink/?LinkID=760868" -O "$AIBSIMG_DEPS_DIR"/vscode.deb
 }
 
 aibsdldepsfunc () {
@@ -62,6 +62,7 @@ debextractfunc () {
     cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
     rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
 }
+debextractfunc "vscode.deb"
 debextractfunc "libnotify4_0.deb"
 debextractfunc "libxkbfile1_1.deb"
 debextractfunc "libgconf-2-4.deb"
