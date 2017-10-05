@@ -27,3 +27,5 @@ changelog:
     - Remove cantata from AppImages-other
     - Add cantata to AppImages-github
     - Update ocsstore version
+  date: Wed Oct  4 22:17:40 CDT 2017
+    - Add graphql-playground to AppImages-github
