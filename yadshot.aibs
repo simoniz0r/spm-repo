@@ -67,6 +67,7 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/i/imagemagick/imagemagick-6.q16_6.8.9.9-5+deb8u10_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/imagemagick-6.q16.deb
     wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/i/imagemagick/libmagickcore-6.q16-2_6.8.9.9-5+deb8u10_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libmagickcore-6.q16.deb
     wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/i/imagemagick/libmagickwand-6.q16-2_6.8.9.9-5+deb8u10_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libmagickwand.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libl/liblqr/liblqr-1-0_0.4.2-2_amd64.deb" "$AIBSIMG_DEPS_DIR"/liblqr.deb
 }
 
 aibsbuildfunc () {
@@ -102,6 +103,7 @@ debextractfunc "libgtk-3.deb"
 debextractfunc "imagemagick-6.q16.deb"
 debextractfunc "libmagickcore-6.q16.deb"
 debextractfunc "libmagickwand.deb"
+debextractfunc "liblqr.deb"
 cp "$AIBSIMG_BUILD_DIR"/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/convert "$AIBSIMG_BUILD_DIR"/usr/bin/convert
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yadshot
 mv "$AIBSIMG_SOURCE_DIR"/yadshot "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot
