@@ -1,0 +1,4 @@
+name: protonmail-desktop
+url: https://github.com/protonmail-desktop/application/releases
+apiurl: https://api.github.com/repos/protonmail-desktop/application/releases
+description: Unofficial electron wrapper for protonmail
