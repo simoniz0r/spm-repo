@@ -30,3 +30,5 @@ changelog:
   date: Wed Oct  4 22:17:40 CDT 2017
     - Add graphql-playground to AppImages-github
     - Add vscode to AppImages-github
+  date: Sat Oct  7 20:07:11 CDT 2017
+    - Add protonmail to AppImages-github
