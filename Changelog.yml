@@ -36,3 +36,5 @@ changelog:
     - Add peek to AppImages-github
   date: Sun Oct  8 21:02:44 CDT 2017
     - Add fd to tar-github
+  date: Mon Oct  9 01:05:49 CDT 2017
+    - Add planetblupi to AppImages-github
