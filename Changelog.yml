@@ -41,3 +41,5 @@ changelog:
   date: Mon Oct  9 08:55:20 CDT 2017
     - Fix kdevelop link in AppImages-other
     - Add speedtest-cli to AppImages-github
+  date: Mon Oct  9 17:12:02 CDT 2017
+    - Remove lftp from AppImages-github (broken AppImage, no new AppImage release)
