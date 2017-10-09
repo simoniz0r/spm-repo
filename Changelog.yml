@@ -38,3 +38,5 @@ changelog:
     - Add fd to tar-github
   date: Mon Oct  9 01:05:49 CDT 2017
     - Add planetblupi to AppImages-github
+  date: Mon Oct  9 08:55:20 CDT 2017
+    - Fix kdevelop link in AppImages-other
