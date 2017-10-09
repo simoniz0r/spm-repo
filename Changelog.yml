@@ -34,3 +34,5 @@ changelog:
     - Add protonmail to AppImages-github
   date: Sun Oct  8 13:59:15 CDT 2017
     - Add peek to AppImages-github
+  date: Sun Oct  8 21:02:44 CDT 2017
+    - Add fd to tar-github
