@@ -1,0 +1,10 @@
+name: pydialog
+instdir: /opt/pydialog
+taruri: https://dl.opendesktop.org/api/files/download/id/1507589828/pydialog-0.6.tar.xz
+desktop_file_path: NONE
+icon_file_path: NONE
+executable_file_path: /opt/pydialog/pydialog
+bin_path: /usr/local/bin/pydialog
+config_path:
+description: PyDialog is a PyQt5 alternative to kdialog
+dependencies: python3-pyqt5
