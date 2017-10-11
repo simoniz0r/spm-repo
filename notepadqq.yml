@@ -1,0 +1,4 @@
+name: notepadqq
+url: https://github.com/notepadqq/notepadqq/releases
+apiurl: https://api.github.com/repos/notepadqq/notepadqq/releases
+description: Notepad++-like editor for Linux
