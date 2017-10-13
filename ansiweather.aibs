@@ -34,7 +34,7 @@ aibsdepcheckfunc () {
 }
 
 aibsversionfunc () {
-    AIBSIMG_VERSION="$(wget -qO - "https://github.com/fcambus/ansiweather.git/info/refs?service=git-upload-pack" | cut -f1 -d' ' | cut -c5- | tac | head -n 2 | tail -n 1)-x86_64"
+    AIBSIMG_VERSION="$(wget -qO - "https://github.com/fcambus/ansiweather.git/info/refs?service=git-upload-pack" | grep -a 'refs/heads/master' | tail -n 1 | cut -f1 -d' ' | cut -c5-)-x86_64"
 }
 
 aibsdlsourcefunc () {
