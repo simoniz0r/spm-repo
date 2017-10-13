@@ -48,3 +48,5 @@ changelog:
     - Add notepadqq to AppImages-github
   date: Thu Oct 12 19:26:37 CDT 2017
     - Update skycoin link in AppImages-other
+    - Add ansiweather aibs
+    - Add ansiweather to AppImages-github
