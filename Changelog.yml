@@ -46,3 +46,5 @@ changelog:
     - Remove kaku from AppImages-github (no new AppImage release for over a year)
   date: Tue Oct 10 19:08:27 CDT 2017
     - Add notepadqq to AppImages-github
+  date: Thu Oct 12 19:26:37 CDT 2017
+    - Update skycoin link in AppImages-other
