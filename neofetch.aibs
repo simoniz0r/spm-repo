@@ -34,11 +34,7 @@ aibsdepcheckfunc () {
 }
 
 aibsversionfunc () {
-    if [ -z "$GITHUB_TOKEN" ]; then
-        AIBSIMG_VERSION="$(wget --quiet "https://api.github.com/repos/dylanaraps/neofetch/commits/master" -O - | head -n 2 | tail -n 1 | cut -f4 -d'"')"
-    else
-        AIBSIMG_VERSION="$( wget --quiet --auth-no-challenge --header="Authorization: token "$GITHUB_TOKEN"" "https://api.github.com/repos/dylanaraps/neofetch/commits/master" -O - | head -n 2 | tail -n 1 | cut -f4 -d'"')"
-    fi
+    AIBSIMG_VERSION="$(wget -qO - "https://github.com/dylanaraps/neofetch.git/info/refs?service=git-upload-pack" | grep -a 'refs/heads/master' | tail -n 1 | cut -f1 -d' ' | cut -c5-)"
 }
 
 aibsdlsourcefunc () {
