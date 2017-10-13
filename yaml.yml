@@ -1,0 +1,4 @@
+name: yaml_linux_amd64
+url: https://github.com/mikefarah/yaml/releases
+apiurl: https://api.github.com/repos/mikefarah/yaml/releases
+description: yaml is a portable command-line YAML processor
