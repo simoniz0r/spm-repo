@@ -50,3 +50,5 @@ changelog:
     - Update skycoin link in AppImages-other
     - Add ansiweather aibs
     - Add ansiweather to AppImages-github
+  date: Fri Oct 13 02:11:32 CDT 2017
+    - Add yaml and jq to AppImages-github

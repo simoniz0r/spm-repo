@@ -111,6 +111,7 @@ ipe: AppImages-other
 irccloud-desktop: AppImages-github
 i-score: AppImages-github
 jimud: AppImages-github
+jq: AppImages-github
 jumpfm: AppImages-github
 kate: AppImages-other
 kate_pdf_converter: AppImages-github
@@ -312,4 +313,5 @@ xlights: AppImages-other
 xnviewmp: AppImages-other
 yadshot: AppImages-github
 yad-twitch-streamlink: AppImages-github
+yaml: AppImages-github
 zulip-electron: AppImages-github
