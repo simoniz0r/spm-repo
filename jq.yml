@@ -1,0 +1,4 @@
+name: jq-linux64
+url: https://github.com/stedolan/jq/releases
+apiurl: https://api.github.com/repos/stedolan/jq/releases
+description: jq - Command-line JSON processor
