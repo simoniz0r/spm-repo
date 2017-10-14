@@ -112,7 +112,7 @@ chmod a+x "$AIBSIMG_SOURCE_DIR"/yadshot
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yadshot-tray.sh
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yadshot-capture.sh
 chmod a+x "$AIBSIMG_SOURCE_DIR"/teknik.sh
-mv "$AIBSIMG_SOURCE_DIR"/yadshot "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot
+mv "$AIBSIMG_SOURCE_DIR"/yadshot "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot.sh
 mv "$AIBSIMG_SOURCE_DIR"/yadshot-tray.sh "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot-tray.sh
 mv "$AIBSIMG_SOURCE_DIR"/yadshot-capture.sh "$AIBSIMG_BUILD_DIR"/usr/bin/yadshot-capture.sh
 mv "$AIBSIMG_SOURCE_DIR"/teknik.sh "$AIBSIMG_BUILD_DIR"/usr/bin/teknik.sh
@@ -122,7 +122,7 @@ cat >"$AIBSIMG_BUILD_DIR"/yadshot.desktop << EOL
 Type=Application
 Name=yadshot
 Comment=yadshot provides a GUI for using maim/slop that can also upload pictures to imgur.
-Exec=yadshot.wrapper
+Exec=yadshot.wrapper %U
 Icon=yadshot
 Categories=Utility;
 Terminal=false
