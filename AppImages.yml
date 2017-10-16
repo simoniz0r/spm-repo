@@ -93,6 +93,7 @@ grandview: AppImages-github
 gulden: AppImages-github
 gvim: AppImages-github
 halland-proxy: AppImages-github
+harmony: AppImages-github
 homeassistantelectron: AppImages-github
 hotspot: AppImages-github
 hyper: AppImages-github
@@ -119,6 +120,7 @@ kawanime: AppImages-github
 kdenlive: AppImages-other
 kdevelop: AppImages-other
 keepassxc: AppImages-github
+kevedit: AppImages-github
 krita: AppImages-other
 ktube-media-downloader: AppImages-github
 labpowerqt: AppImages-github
@@ -210,6 +212,7 @@ qsynth: AppImages-other
 qt_dab: AppImages-github
 qtractor: AppImages-other
 quarkshell: AppImages-github
+quickviewer: AppImages-github
 qupzilla: AppImages-other
 qxgedit: AppImages-other
 rakudo_star: AppImages-github
@@ -225,6 +228,7 @@ retroshare: AppImages-github
 ricin: AppImages-other
 riot: AppImages-other
 rpcs3: AppImages-other
+rssguard: AppImages-github
 sabaki: AppImages-github
 sacnview: AppImages-github
 sciencefair: AppImages-github

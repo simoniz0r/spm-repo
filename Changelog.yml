@@ -52,3 +52,5 @@ changelog:
     - Add ansiweather to AppImages-github
   date: Fri Oct 13 02:11:32 CDT 2017
     - Add yaml and jq to AppImages-github
+  date: Mon Oct 16 16:05:32 CDT 2017
+    - Add harmony, QuickViewr, rssguard, and kevedit to AppImages-github
