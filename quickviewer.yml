@@ -1,0 +1,4 @@
+name: QuickViewer
+url: https://github.com/kanryu/quickviewer/releases
+apiurl: https://api.github.com/repos/kanryu/quickviewer/releases
+description: quickviewer - A imagecomic viewer application for Windows and Linux it can show images very fast
