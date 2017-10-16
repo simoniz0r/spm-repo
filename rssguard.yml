@@ -1,0 +1,4 @@
+name: rssguard
+url: https://github.com/martinrotter/rssguard/releases
+apiurl: https://api.github.com/repos/martinrotter/rssguard/releases
+description: rssguard - RSS Guard is simple yet powerful feed reader This is the official project repository
