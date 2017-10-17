@@ -36,7 +36,7 @@ aibsdepcheckfunc () {
 aibsversionfunc () {
     wget -S --read-timeout=30 --spider "https://go.microsoft.com/fwlink/?LinkID=620884" -o "$CONFDIR"/cache/"$AIBSIMG".latest
     AIBSIMG_VERSION_URI="$(grep -o "Location:.*" "$CONFDIR"/cache/"$AIBSIMG".latest | cut -f2 -d" ")"
-    AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f2 -d'_')"
+    AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f2 -d'_')-x86_64"
 }
 
 aibsdlsourcefunc () {
