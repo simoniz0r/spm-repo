@@ -17,7 +17,7 @@ nvim: tar-github
 openrct2: tar-github
 openttd: tar-other
 rambox: tar-github
-ripgrep: tar-github
+rp: tar-github
 spm: tar-github
 todo: tar-github
 vscode: tar-other
