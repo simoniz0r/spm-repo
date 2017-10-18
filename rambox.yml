@@ -1,4 +1,4 @@
-name: rambox
+name: x64.tar
 instdir: /opt/rambox
 taruri: https://github.com/saenzramiro/rambox/releases
 apiuri: https://api.github.com/repos/saenzramiro/rambox/releases
