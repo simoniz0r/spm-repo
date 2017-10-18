@@ -56,3 +56,5 @@ changelog:
     - Add harmony, QuickViewr, rssguard, and kevedit to AppImages-github
   date: Mon Oct 16 19:46:17 CDT 2017
     - Remove spotifywebplayer from AppImages-github (no longer working or maintained)
+  date: Tue Oct 17 23:32:13 CDT 2017
+    - Add rg (ripgrep) to tar-github
