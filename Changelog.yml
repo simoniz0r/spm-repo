@@ -58,3 +58,5 @@ changelog:
     - Remove spotifywebplayer from AppImages-github (no longer working or maintained)
   date: Tue Oct 17 23:32:13 CDT 2017
     - Add rg (ripgrep) to tar-github
+  date: Thu Oct 19 21:45:05 CDT 2017
+    - Add tokei to tar-github

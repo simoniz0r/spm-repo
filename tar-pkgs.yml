@@ -20,6 +20,7 @@ rambox: tar-github
 rg: tar-github
 spm: tar-github
 todo: tar-github
+tokei: tar-github
 vscode: tar-other
 wavebox: tar-github
 xdgfetch: tar-github
