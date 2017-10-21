@@ -50,8 +50,6 @@ aibsdlsourcefunc () {
 }
 
 aibsdldepsfunc () {
-    # wget --no-verbose --read-timeout=30 "http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu/pool/main/s/streamlink/streamlink_0.8.1-1~webupd8~xenial0_all.deb" -O "$AIBSIMG_DEPS_DIR"/streamlink.deb
-    # wget --no-verbose --read-timeout=30 "http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu/pool/main/s/streamlink/python-streamlink_0.8.1-1~webupd8~xenial0_all.deb" -O "$AIBSIMG_DEPS_DIR"/python-streamlink.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/y/yad/yad_0.38.2-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/yad.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libp/libpng1.6/libpng16-16_1.6.28-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpng.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/c/cairo/libcairo2_1.14.8-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libcairo2.deb
@@ -85,8 +83,6 @@ debextractfunc () {
     cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
     rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
 }
-# debextractfunc "python-streamlink.deb"
-# debextractfunc "streamlink.deb"
 debextractfunc "yad.deb"
 debextractfunc "libpng.deb"
 debextractfunc "libcairo2.deb"
@@ -106,7 +102,7 @@ debextractfunc "libgnutls.deb"
 debextractfunc "libgcrypt11.deb"
 debextractfunc "libtasn.deb"
 debextractfunc "libidn11.deb"
-python -m pip install --prefix "$AIBSIMG_TEMP_DIR" streamlink
+python -m pip install --ignore-installed --prefix "$AIBSIMG_TEMP_DIR" streamlink
 mv "$AIBSIMG_TEMP_DIR"/lib/python2.7/site-packages "$AIBSIMG_TEMP_DIR"/lib/python2.7/dist-packages
 cp -r "$AIBSIMG_TEMP_DIR"/* "$AIBSIMG_BUILD_DIR"/usr/
 wget --no-verbose "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64" -O "$AIBSIMG_BUILD_DIR"/usr/bin/jq
