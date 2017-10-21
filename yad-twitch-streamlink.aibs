@@ -26,6 +26,10 @@ aibsdepcheckfunc () {
         MISSING_DEPS="TRUE"
         echo "$(tput setaf 1)ar (binutils) is not installed!$(tput sgr0)"
     fi
+    if ! type python >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)python is not installed!$(tput sgr0)"
+    fi
     if [ "$MISSING_DEPS" = "TRUE" ]; then
         echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
         rm -rf "$CONFDIR"/cache/*
@@ -46,8 +50,8 @@ aibsdlsourcefunc () {
 }
 
 aibsdldepsfunc () {
-    wget --no-verbose --read-timeout=30 "http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu/pool/main/s/streamlink/streamlink_0.8.1-1~webupd8~xenial0_all.deb" -O "$AIBSIMG_DEPS_DIR"/streamlink.deb
-    wget --no-verbose --read-timeout=30 "http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu/pool/main/s/streamlink/python-streamlink_0.8.1-1~webupd8~xenial0_all.deb" -O "$AIBSIMG_DEPS_DIR"/python-streamlink.deb
+    # wget --no-verbose --read-timeout=30 "http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu/pool/main/s/streamlink/streamlink_0.8.1-1~webupd8~xenial0_all.deb" -O "$AIBSIMG_DEPS_DIR"/streamlink.deb
+    # wget --no-verbose --read-timeout=30 "http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu/pool/main/s/streamlink/python-streamlink_0.8.1-1~webupd8~xenial0_all.deb" -O "$AIBSIMG_DEPS_DIR"/python-streamlink.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/y/yad/yad_0.38.2-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/yad.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libp/libpng1.6/libpng16-16_1.6.28-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpng.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/c/cairo/libcairo2_1.14.8-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libcairo2.deb
@@ -81,8 +85,8 @@ debextractfunc () {
     cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
     rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
 }
-debextractfunc "python-streamlink.deb"
-debextractfunc "streamlink.deb"
+# debextractfunc "python-streamlink.deb"
+# debextractfunc "streamlink.deb"
 debextractfunc "yad.deb"
 debextractfunc "libpng.deb"
 debextractfunc "libcairo2.deb"
@@ -102,6 +106,7 @@ debextractfunc "libgnutls.deb"
 debextractfunc "libgcrypt11.deb"
 debextractfunc "libtasn.deb"
 debextractfunc "libidn11.deb"
+python -m pip install --prefix "$AIBSIMG_BUILD_DIR"/usr streamlink
 wget --no-verbose "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64" -O "$AIBSIMG_BUILD_DIR"/usr/bin/jq
 chmod a+x "$AIBSIMG_BUILD_DIR"/usr/bin/jq
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yad-twitch-streamlink
