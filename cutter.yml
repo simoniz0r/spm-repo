@@ -1,0 +1,4 @@
+name: Cutter
+url: https://github.com/radareorg/cutter/releases
+apiurl: https://api.github.com/repos/radareorg/cutter/releases
+description: cutter - A Qt and C GUI for radare2 reverse engineering framework
