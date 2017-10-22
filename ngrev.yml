@@ -1,0 +1,4 @@
+name: ngrev
+url: https://github.com/mgechev/ngrev/releases
+apiurl: https://api.github.com/repos/mgechev/ngrev/releases
+description: ngrev - Tool for reverse engineering of Angular applications
