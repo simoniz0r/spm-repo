@@ -113,7 +113,9 @@ debextractfunc "libmagickwand.deb"
 debextractfunc "liblqr.deb"
 debextractfunc "libpng12.deb"
 debextractfunc "zlib1g.deb"
-cp "$AIBSIMG_BUILD_DIR"/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/convert "$AIBSIMG_BUILD_DIR"/usr/bin/convert
+for file in $(ls "$AIBSIMG_BUILD_DIR"/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/); do
+    ln -s "$AIBSIMG_BUILD_DIR"/usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/"$file" "$AIBSIMG_BUILD_DIR"/usr/bin/"$file"
+done
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yadshot
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yadshot-tray.sh
 chmod a+x "$AIBSIMG_SOURCE_DIR"/yadshot-capture.sh
