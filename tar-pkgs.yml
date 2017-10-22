@@ -16,6 +16,7 @@ kpassman: tar-github
 nvim: tar-github
 openrct2: tar-github
 openttd: tar-other
+pydialog: tar-github
 rambox: tar-github
 rg: tar-github
 spm: tar-github
