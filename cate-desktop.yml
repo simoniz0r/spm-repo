@@ -1,0 +1,4 @@
+name: cate-desktop
+url: https://github.com/CCI-Tools/cate/releases
+apiurl: https://api.github.com/repos/CCI-Tools/cate/releases
+description: cate - ESA CCI Toolbox Cate
