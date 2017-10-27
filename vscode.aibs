@@ -101,6 +101,9 @@ Exec=././/share/code/code --new-window %U
 Icon=code
 
 EOL
+rm -f "$AIBSIMG_BUILD_DIR"/AppRun
+wget --no-verbose --read-timeout=30 "https://raw.githubusercontent.com/simoniz0r/spm-repo/aibs/resources/vscode-AppRun" -O "$AIBSIMG_BUILD_DIR"/AppRun
+chmod a+x "$AIBSIMG_BUILD_DIR"/AppRun
 }
 
 if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
