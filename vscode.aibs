@@ -44,10 +44,14 @@ aibsdlsourcefunc () {
 }
 
 aibsdldepsfunc () {
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libn/libnotify/libnotify4_0.7.6-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libnotify4_0.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxkbfile/libxkbfile1_1.0.8-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxkbfile1_1.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gconf/libgconf-2-4_3.2.6-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgconf-2-4.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libs/libsecret/libsecret-1-0_0.18-1+b1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libsecret-1-0.deb
+    LIBNOTIFY4_LATEST_DEB="$(wget "https://packages.debian.org/jessie/amd64/libnotify4/download" -qO - | grep '<li>*..*amd64.deb' | cut -f2 -d'"' | head -n 1)"
+    wget --no-verbose --read-timeout=30 "$LIBNOTIFY4_LATEST_DEB" -O "$AIBSIMG_DEPS_DIR"/libnotify4_0.deb
+    LIBXKBFILE1_LATEST_DEB="$(wget "https://packages.debian.org/jessie/amd64/libxkbfile1/download" -qO - | grep '<li>*..*amd64.deb' | cut -f2 -d'"' | head -n 1)"
+    wget --no-verbose --read-timeout=30 "$LIBXKBFILE1_LATEST_DEB" -O "$AIBSIMG_DEPS_DIR"/libxkbfile1_1.deb
+    LIBGCONF_LATEST_DEB="$(wget "https://packages.debian.org/jessie/amd64/libgconf-2-4/download" -qO - | grep '<li>*..*amd64.deb' | cut -f2 -d'"' | head -n 1)"
+    wget --no-verbose --read-timeout=30 "$LIBGCONF_LATEST_DEB" -O "$AIBSIMG_DEPS_DIR"/libgconf-2-4.deb
+    LIBSECRET_LATEST_DEB="$(wget "https://packages.debian.org/jessie/amd64/libsecret-1-0/download" -qO - | grep '<li>*..*amd64.deb' | cut -f2 -d'"' | head -n 1)"
+    wget --no-verbose --read-timeout=30 "$LIBSECRET_LATEST_DEB" -O "$AIBSIMG_DEPS_DIR"/libsecret-1-0.deb
 }
 
 aibsbuildfunc () {
