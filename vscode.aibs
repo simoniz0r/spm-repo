@@ -102,7 +102,18 @@ Icon=code
 
 EOL
 rm -f "$AIBSIMG_BUILD_DIR"/AppRun
-wget --no-verbose --read-timeout=30 "https://raw.githubusercontent.com/simoniz0r/spm-repo/aibs/resources/vscode-AppRun" -O "$AIBSIMG_BUILD_DIR"/AppRun
+cat >"$AIBSIMG_BUILD_DIR"/AppRun.conf << EOL
+APPRUN_SET_PATH="TRUE"
+APPRUN_SET_LD_LIBRARY_PATH="TRUE"
+APPRUN_SET_PYTHONPATH="FALSE"
+APPRUN_SET_XDG_DATA_DIRS="FALSE"
+APPRUN_SET_PERLLIB="FALSE"
+APPRUN_SET_GSETTINGS_SCHEMA_DIR="FALSE"
+APPRUN_SET_QT_PLUGIN_PATH="FALSE"
+APPRUN_EXEC="./usr/share/code/code.wrapper"
+
+EOL
+wget --no-verbose --read-timeout=30 "https://raw.githubusercontent.com/simoniz0r/spm-repo/aibs/resources/AppRun" -O "$AIBSIMG_BUILD_DIR"/AppRun
 chmod a+x "$AIBSIMG_BUILD_DIR"/AppRun
 }
 
