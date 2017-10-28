@@ -1,0 +1,10 @@
+name: ocsstore
+instdir: /opt/ocsstore
+taruri: https://dl.opendesktop.org/api/files/download/id/1506729906/ocsstore-2.2.1-1-x86_64.pkg.tar.xz
+desktop_file_path: /opt/ocsstore/share/applications/occstore.desktop
+icon_file_path: /opt/ocsstore/share/icons/hicolor/scalable/apps/ocsstore.svg
+executable_file_path: /opt/ocsstore/bin/ocsstore
+bin_path: /usr/local/bin/ocsstore
+config_path:
+description: OCS-compatible App as Electron-based frontend.  Download and install themes, icons, and more.
+dependencies: gconf libxss qt5-base>=5.3.0 qt5-websockets>=5.3.0
