@@ -1,7 +1,7 @@
 name: ocsstore
 instdir: /opt/ocsstore
 taruri: https://dl.opendesktop.org/api/files/download/id/1506729906/ocsstore-2.2.1-1-x86_64.pkg.tar.xz
-desktop_file_path: /opt/ocsstore/share/applications/occstore.desktop
+desktop_file_path: /opt/ocsstore/share/applications/ocsstore.desktop
 icon_file_path: /opt/ocsstore/share/icons/hicolor/scalable/apps/ocsstore.svg
 executable_file_path: /opt/ocsstore/bin/ocsstore
 bin_path: /usr/local/bin/ocsstore
