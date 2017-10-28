@@ -63,3 +63,5 @@ changelog:
   date: Sun Oct 22 12:13:35 CDT 2017
     - Add cate-desktop, cutter, iease-music, jaxx, laserweb, and ngrev to AppImages-github
     - Add yakyak to tar-github
+  date: Sat Oct 28 02:13:52 CDT 2017
+    - Add wrapt to tar-github

@@ -24,6 +24,7 @@ todo: tar-github
 tokei: tar-github
 vscode: tar-other
 wavebox: tar-github
+wrapt: tar-github
 xdgfetch: tar-github
 yad-mpv: tar-github
 yadshot: tar-github
