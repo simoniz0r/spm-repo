@@ -65,3 +65,5 @@ changelog:
     - Add yakyak to tar-github
   date: Sat Oct 28 02:13:52 CDT 2017
     - Add wrapt to tar-github
+  date: Sat Oct 28 16:14:26 CDT 2017
+    - Add ocsstore to tar-other
