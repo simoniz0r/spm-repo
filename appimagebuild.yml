@@ -1,0 +1,4 @@
+name: appimagebuild
+url: https://github.com/simoniz0r/spm-repo/releases
+apiurl: https://api.github.com/repos/simoniz0r/spm-repo/releases
+description: appimagebuild builds AppImages using AppImage Build Scripts from spm-repo's aibs branch or using locally sourced scripts.
