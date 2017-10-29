@@ -1,0 +1,4 @@
+name: movie-monad
+url: https://github.com/lettier/movie-monad/releases
+apiurl: https://api.github.com/repos/lettier/movie-monad/releases
+description: movie-monad - A desktop video player built with Haskell that uses GStreamer and GTK
