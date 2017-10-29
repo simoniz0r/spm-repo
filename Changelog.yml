@@ -71,3 +71,5 @@ changelog:
     - Add bunqdesktop, movie-monad, and sleep-timer to AppImages-github
     - Add geometrize to AppImages-other
     - Add CARTA and Arizen to AppImages-github
+  date: Sun Oct 29 15:24:36 CDT 2017
+    - Add ai-bot-workspace to AppImages-github
