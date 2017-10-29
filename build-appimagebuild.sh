@@ -5,7 +5,7 @@
 # Author: simonizor
 # Website: http://www.simonizor.gq
 # License: GPL v2.0 only
-# Script for building releases of spm
+# Script for building releases of appimagebuild
 
 BUILD_DIR="/media/simonizor/0d208b29-3b29-4ffc-99be-1043b9f3c258/github/spm_repo"
 VERSION="0.0.1"
@@ -67,11 +67,11 @@ rm -rf "$BUILD_DIR"/deps
 mkdir -p "$BUILD_DIR"/appimagebuild.AppDir/usr/share/appimagebuild
 mkdir -p "$BUILD_DIR"/appimagebuild.AppDir/usr/bin
 #### This script is for the aibs_testing branch
-cp ~/github/spm/appimagebuild.sh "$BUILD_DIR"/appimagebuild.AppDir/usr/bin/appimagebuild
-cp ~/github/spm/LICENSE "$BUILD_DIR"/appimagebuild.AppDir/usr/share/appimagebuild/
-cp ~/github/spm/jq "$BUILD_DIR"/appimagebuild.AppDir/usr/bin/
-cp ~/github/spm/yaml "$BUILD_DIR"/appimagebuild.AppDir/usr/bin/
-cp ~/github/spm/spm.png "$BUILD_DIR"/appimagebuild.AppDir/appimagebuild.png
+cp ~/github/spm_repo/appimagebuild.sh "$BUILD_DIR"/appimagebuild.AppDir/usr/bin/appimagebuild
+cp ~/github/spm_repo/LICENSE "$BUILD_DIR"/appimagebuild.AppDir/usr/share/appimagebuild/
+cp ~/github/spm_repo/jq "$BUILD_DIR"/appimagebuild.AppDir/usr/bin/
+cp ~/github/spm_repo/yaml "$BUILD_DIR"/appimagebuild.AppDir/usr/bin/
+cp ~/github/spm_repo/spm.png "$BUILD_DIR"/appimagebuild.AppDir/appimagebuild.png
 cat >"$BUILD_DIR"/appimagebuild.AppDir/appimagebuild.desktop << EOL
 [Desktop Entry]
 Type=Application

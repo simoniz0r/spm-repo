@@ -10,6 +10,10 @@ X="0.0.1"
 # Set appimagebuild version
 CONFDIR="$HOME/.config/spm"
 
+if [ ! -d "$CONFDIR" ]; then
+    mkdir "$CONFDIR"
+fi
+
 if [ -f ~/.config/spm/spm.conf ]; then
     . ~/.config/spm/spm.conf
 fi
@@ -85,19 +89,29 @@ AIBSIMG="$1"
 case $AIBSIMG in
     -l*)
         AIBSIMG="$2"
+        if [ -z "$4" ]; then
+            OUTPUT_DIR="$HOME/Downloads"
+        else
+            OUTPUT_DIR="$4"
+        fi
         echo "Using local script $3 to build AppImage for $2..."
         cp "$3" "$CONFDIR"/cache/"$AIBSIMG".aibs || { echo "aibs copy failed; exiting..."; rm -rf "$CONFDIR"/cache/*; exit 1; }
         ;;
     *)
+        if [ -z "$2" ]; then
+            OUTPUT_DIR="$HOME/Downloads"
+        else
+            OUTPUT_DIR="$2"
+        fi
         echo "Downloading aibs for $(tput setaf 4)$AIBSIMG$(tput sgr0)..."
         aibsdlfunc || { echo "aibs download failed; exiting..."; rm -rf "$CONFDIR"/cache/*; exit 1; }
         ;;
 esac
 aibsbuildfunc || { echo "AppImage build failed; exiting..."; rm -rf "$CONFDIR"/cache/*; exit 1; }
 if [ -f "$CONFDIR/cache/$AIBSIMG_NAME-$AIBSIMG_VERSION.AppImage" ]; then
-    echo "Moving $(tput setaf 4)$AIBSIMG$(tput sgr0) AppImage to $HOME/Downloads (temp dir for testing)"
-    mv "$CONFDIR"/cache/"$AIBSIMG_NAME"-"$AIBSIMG_VERSION".AppImage "$HOME"/Downloads/ || { echo "$(tput setaf 1)Failed!$(tput sgr0)"; rm -rf "$CONFDIR"/cache/*; exit 1; }
-    echo "$(tput setaf 4)$AIBSIMG$(tput sgr0) AppImage moved to $HOME/Downloads/$(tput setaf 4)$AIBSIMG$(tput sgr0)-"$AIBSIMG_VERSION".AppImage!"
+    echo "Moving $(tput setaf 4)$AIBSIMG$(tput sgr0) AppImage to $OUTPUT_DIR"
+    mv "$CONFDIR"/cache/"$AIBSIMG_NAME"-"$AIBSIMG_VERSION".AppImage "$OUTPUT_DIR"/ || { echo "$(tput setaf 1)Failed!$(tput sgr0)"; rm -rf "$CONFDIR"/cache/*; exit 1; }
+    echo "$(tput setaf 4)$AIBSIMG$(tput sgr0) AppImage moved to $OUTPUT_DIR/$(tput setaf 4)$AIBSIMG$(tput sgr0)-"$AIBSIMG_VERSION".AppImage!"
 else
     echo "$(tput setaf 1)$AIBSIMG-"$AIBSIMG_VERSION".AppImage not found!  Build failed!$(tput sgr0)"
     rm -rf "$CONFDIR"/cache/*
