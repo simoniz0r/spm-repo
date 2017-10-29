@@ -1,6 +1,6 @@
 name: vscode
 instdir: /opt/vscode
-taruri: https://go.microsoft.com/fwlink/?LinkID=620884
+taruri: https://vscode-update.azurewebsites.net/latest/linux-x64/stable
 desktop_file_path: DOWNLOAD
 icon_file_path: /opt/vscode/resources/app/resources/linux/code.png
 executable_file_path: /opt/vscode/code
