@@ -1,0 +1,4 @@
+name: Arizen
+url: https://github.com/ZencashOfficial/arizen/releases
+apiurl: https://api.github.com/repos/ZencashOfficial/arizen/releases
+description: arizen - Arizen is new API wallet for Zencash with encrypted locally stored files
