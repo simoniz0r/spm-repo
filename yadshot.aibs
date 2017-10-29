@@ -136,6 +136,19 @@ Categories=Utility;
 Terminal=false
 
 EOL
+cat >"$AIBSIMG_BUILD_DIR"/AppRun.conf << EOL
+APPRUN_SET_PATH="TRUE"
+APPRUN_SET_LD_LIBRARY_PATH="TRUE"
+APPRUN_SET_PYTHONPATH="TRUE"
+APPRUN_SET_PYTHONHOME="TRUE"
+APPRUN_SET_PYTHONDONTWRITEBYTECODE="TRUE"
+APPRUN_SET_XDG_DATA_DIRS="TRUE"
+APPRUN_SET_PERLLIB="TRUE"
+APPRUN_SET_GSETTINGS_SCHEMA_DIR="TRUE"
+APPRUN_SET_QT_PLUGIN_PATH="TRUE"
+APPRUN_EXEC="./usr/bin/yadshot.sh.wrapper"
+
+EOL
 wget --no-verbose "https://github.com/simoniz0r/yadshot/raw/master/yadshot.png" -O "$AIBSIMG_BUILD_DIR"/yadshot.png
 rm -f "$AIBSIMG_BUILD_DIR"/AppRun
 wget --no-verbose --read-timeout=30 "https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64" -O "$AIBSIMG_BUILD_DIR"/AppRun
