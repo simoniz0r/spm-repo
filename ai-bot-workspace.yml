@@ -1,0 +1,4 @@
+name: ai-bot-workspace
+url: https://github.com/jmerle/ai-bot-workspace/releases
+apiurl: https://api.github.com/repos/jmerle/ai-bot-workspace/releases
+description: ai-bot-workspace - An Electron application which includes testing workspaces for some Riddlesio competitions
