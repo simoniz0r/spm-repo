@@ -8,4 +8,4 @@ executable_file_path: /opt/kpassman/kpassman
 bin_path: /usr/local/bin/kpassman
 config_path: 
 description: A password manager that uses gpg to encrypt and decrypt stored passwords and uses kdialog to provide a GUI.
-dependencies: gpg xclip kdialog apg (optional - used for generating passwords)
+dependencies: gpg xclip kdialog or python3-pyqt5 apg (optional - used for generating passwords)
