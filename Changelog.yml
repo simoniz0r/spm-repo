@@ -73,3 +73,5 @@ changelog:
     - Add CARTA and Arizen to AppImages-github
   date: Sun Oct 29 15:24:36 CDT 2017
     - Add ai-bot-workspace to AppImages-github
+    - Update vscode link in tar-other
+  
