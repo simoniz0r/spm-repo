@@ -1,0 +1,4 @@
+name: bunqdesktop
+url: https://github.com/BunqCommunity/BunqDesktop/releases
+apiurl: https://api.github.com/repos/BunqCommunity/BunqDesktop/releases
+description: BunqDesktop - An electron desktop app for Bunq
