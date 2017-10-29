@@ -27,6 +27,7 @@ bnb: AppImages-github
 botframework-emulator: AppImages-github
 brackets: AppImages-github
 bscc: AppImages-other
+bunqdesktop: AppImages-github
 buttercup: AppImages-github
 calculist: AppImages-github
 cantata: AppImages-github
@@ -155,6 +156,7 @@ mitmproxy: AppImages-github
 mki3dgame: AppImages-github
 mkvtoolnix: AppImages-github
 mockoon: AppImages-other
+movie-monad: AppImages-github
 mrwriter: AppImages-other
 ms-teams-capsule: AppImages-other
 multidir: AppImages-github
@@ -252,6 +254,7 @@ simple-updater-example: AppImages-github
 skrifa: AppImages-github
 sky: AppImages-other
 skycoin: AppImages-other
+sleep-timer: AppImages-github
 slic3r_pe: AppImages-github
 snoost: AppImages-other
 spectrum-editor: AppImages-github

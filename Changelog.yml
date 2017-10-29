@@ -67,3 +67,5 @@ changelog:
     - Add wrapt to tar-github
   date: Sat Oct 28 16:14:26 CDT 2017
     - Add ocsstore to tar-other
+  date: Sun Oct 29 11:56:23 CDT 2017
+    - Add bunqdesktop, movie-monad, and sleep-timer to AppImages-github
