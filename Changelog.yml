@@ -70,3 +70,4 @@ changelog:
   date: Sun Oct 29 11:56:23 CDT 2017
     - Add bunqdesktop, movie-monad, and sleep-timer to AppImages-github
     - Add geometrize to AppImages-other
+    - Add CARTA and Arizen to AppImages-github
