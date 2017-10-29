@@ -1,0 +1,84 @@
+#!/bin/bash
+# Title: spm
+# Description: Downloads and installs AppImages and precompiled tar archives.  Can also upgrade and remove installed packages.
+# Dependencies: GNU coreutils, tar, wget
+# Author: simonizor
+# Website: http://www.simonizor.gq
+# License: GPL v2.0 only
+##################################################################################################
+# aibs for inxi
+# Created by simonizor
+##################################################################################################
+
+AIBSIMG_AUTHOR="smxi"
+AIBSIMG_MAINTAINER="simonizor"
+AIBSIMG_DESCRIPTION="inxi is a full featured CLI system information tool. It is available in most Linux distribution repositories, and also runs somewhat on BSDs."
+AIBSIMG_CATEGORY="ConsoleOnly"
+AIBSIMG_WEBSITE="http://smxi.org/docs/inxi.htm"
+AIBSIMG_NAME="inxi"
+AIBSIMG_SOURCE="git"
+AIBSIMG_SOURCE_TYPE="git"
+AIBSIMG_USE_WRAPPER="FALSE"
+AIBSIMG_USE_SPECIAL_INSTRUCTIONS="FALSE"
+
+aibsdepcheckfunc () {
+    if ! type git >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)git is not installed!$(tput sgr0)"
+    fi
+    if [ "$MISSING_DEPS" = "TRUE" ]; then
+        echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
+        rm -rf "$CONFDIR"/cache/*
+        exit 1
+    fi
+}
+
+aibsversionfunc () {
+    AIBSIMG_VERSION="$(wget -qO - "https://github.com/smxi/inxi.git/info/refs?service=git-upload-pack" | grep -am1 'refs/heads/master' | cut -f1 -d' ' | cut -c9-)"
+}
+
+aibsdlsourcefunc () {
+    git clone https://github.com/smxi/inxi.git "$AIBSIMG_TEMP_DIR"/inxi
+}
+
+aibsdldepsfunc () {
+    echo "inxi has no dependencies; skipping dependency downloads..."
+}
+
+aibsbuildfunc () {
+mkdir -p "$AIBSIMG_BUILD_DIR"/usr/share
+rm -rf "$AIBSIMG_TEMP_DIR"/inxi/.git
+rm -rf "$AIBSIMG_TEMP_DIR"/inxi/inxi.tar.gz
+mv "$AIBSIMG_TEMP_DIR"/inxi "$AIBSIMG_BUILD_DIR"/usr/share/
+cat >"$AIBSIMG_BUILD_DIR"/inxi.desktop << EOL
+[Desktop Entry]
+Type=Application
+Name=inxi
+Comment=inxi is a full featured CLI system information tool
+Exec=././/share/inxi/inxi
+Icon=inxi
+Categories=Utility;
+Terminal=true
+
+EOL
+cat >"$AIBSIMG_BUILD_DIR"/AppRun.conf << EOL
+APPRUN_SET_PATH="TRUE"
+APPRUN_SET_LD_LIBRARY_PATH="FALSE"
+APPRUN_SET_PYTHONPATH="FALSE"
+APPRUN_SET_PYTHONHOME="FALSE"
+APPRUN_SET_PYTHONDONTWRITEBYTECODE="FALSE"
+APPRUN_SET_XDG_DATA_DIRS="FALSE"
+APPRUN_SET_PERLLIB="FALSE"
+APPRUN_SET_GSETTINGS_SCHEMA_DIR="FALSE"
+APPRUN_SET_QT_PLUGIN_PATH="FALSE"
+APPRUN_EXEC="./usr/share/inxi/inxi"
+
+EOL
+wget --no-verbose "https://github.com/iconic/open-iconic/raw/master/png/list-rich-8x.png" -O "$AIBSIMG_BUILD_DIR"/inxi.png
+}
+
+if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
+    aibsspecialfunc () {
+        echo "no special instructions"
+    }
+fi
