@@ -1,6 +1,0 @@
-#!/bin/bash
-REALPATH="$(readlink -f $0)"
-RUNNING_DIR="$(dirname "$REALPATH")"
-export PATH="$RUNNING_DIR"/usr/bin/:"$RUNNING_DIR"/usr/sbin/:"$RUNNING_DIR"/usr/games/:"$RUNNING_DIR"/bin/:"$RUNNING_DIR"/sbin/:"${PATH}"
-export LD_LIBRARY_PATH="$RUNNING_DIR"/usr/lib/:"$RUNNING_DIR"/usr/lib/i386-linux-gnu/:"$RUNNING_DIR"/usr/lib/x86_64-linux-gnu/:"$RUNNING_DIR"/usr/lib32/:"$RUNNING_DIR"/usr/lib64/:"$RUNNING_DIR"/lib/:"$RUNNING_DIR"/lib/i386-linux-gnu/:"$RUNNING_DIR"/lib/x86_64-linux-gnu/:"$RUNNING_DIR"/lib32/:"$RUNNING_DIR"/lib64/:"${LD_LIBRARY_PATH}"
-exec "$RUNNING_DIR"/usr/share/code/code "$@"
