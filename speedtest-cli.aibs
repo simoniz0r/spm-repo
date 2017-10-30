@@ -79,7 +79,7 @@ cat >"$AIBSIMG_BUILD_DIR"/speedtest-cli.desktop << EOL
 Type=Application
 Name=speedtest-cli
 Comment=Command line interface for testing internet bandwidth using speedtest.net
-Exec=speedtest-cli.sh
+Exec=speedtest-cli
 Icon=speedtest-cli
 Categories=Utility;
 Terminal=true
