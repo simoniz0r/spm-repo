@@ -72,14 +72,8 @@ debextractfunc "libpython2.7-stdlib.deb"
 debextractfunc "libpython2.7-minimal.deb"
 mv "$AIBSIMG_SOURCE_DIR"/speedtest-cli/speedtest.py "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli
 mv "$AIBSIMG_SOURCE_DIR"/speedtest-cli/LICENSE "$AIBSIMG_BUILD_DIR"/usr/bin/LICENSE
+sed -i '1s%.*%#!./usr/bin/python2.7%' "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli
 chmod a+x "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli
-# wget --no-verbose "https://raw.githubusercontent.com/simoniz0r/spm/aibs/resources/speedtest-start.sh" -O "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-start.sh
-echo "#!/bin/bash" > "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
-echo 'REALPATH="$(readlink -f $0)"' >> "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
-echo 'RUNNING_DIR="$(dirname "$REALPATH")"' >> "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
-echo '"$RUNNING_DIR"/python2.7 "$RUNNING_DIR"/speedtest-cli "$@"' >> "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
-echo "exit 0" >> "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
-chmod a+x "$AIBSIMG_BUILD_DIR"/usr/bin/speedtest-cli.sh
 cat >"$AIBSIMG_BUILD_DIR"/speedtest-cli.desktop << EOL
 [Desktop Entry]
 Type=Application
