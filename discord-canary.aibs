@@ -47,8 +47,8 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libc/libc++/libc++1_3.5-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libc++.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libn/libnotify/libnotify4_0.7.6-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libnotify.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gconf/libgconf-2-4_3.2.6-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgconf.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxss/libxss1_1.2.2-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxss.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxtst/libxtst6_1.2.2-1+b1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxtst.deb
+    # wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxss/libxss1_1.2.2-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxss.deb
+    # wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxtst/libxtst6_1.2.2-1+b1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxtst.deb
 }
 
 aibsbuildfunc () {
@@ -66,8 +66,8 @@ debextractfunc () {
 debextractfunc "libc++.deb"
 debextractfunc "libnotify.deb"
 debextractfunc "libgconf.deb"
-debextractfunc "libxss.deb"
-debextractfunc "libxtst.deb"
+# debextractfunc "libxss.deb"
+# debextractfunc "libxtst.deb"
 tar -xf "$AIBSIMG_SOURCE_DIR"/discord-canary.tar.gz -C "$AIBSIMG_SOURCE_DIR"/
 mv "$AIBSIMG_SOURCE_DIR"/DiscordCanary "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary
 mv "$AIBSIMG_BUILD_DIR"/discord-canary.wrapper "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/
