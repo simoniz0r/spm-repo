@@ -81,6 +81,19 @@ Categories=Utility;
 Terminal=true
 
 EOL
+cat >"$AIBSIMG_BUILD_DIR"/AppRun.conf << EOL
+APPRUN_SET_PATH="TRUE"
+APPRUN_SET_LD_LIBRARY_PATH="TRUE"
+APPRUN_SET_PYTHONPATH="TRUE"
+APPRUN_SET_PYTHONHOME="FALSE"
+APPRUN_SET_PYTHONDONTWRITEBYTECODE="FALSE"
+APPRUN_SET_XDG_DATA_DIRS="TRUE"
+APPRUN_SET_PERLLIB="TRUE"
+APPRUN_SET_GSETTINGS_SCHEMA_DIR="TRUE"
+APPRUN_SET_QT_PLUGIN_PATH="TRUE"
+APPRUN_EXEC="./usr/bin/maim"
+
+EOL
 wget --no-verbose "https://github.com/iconic/open-iconic/raw/master/png/list-rich-8x.png" -O "$AIBSIMG_BUILD_DIR"/maim.png
 rm -f "$AIBSIMG_BUILD_DIR"/AppRun
 wget --no-verbose --read-timeout=30 "https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64" -O "$AIBSIMG_BUILD_DIR"/AppRun
