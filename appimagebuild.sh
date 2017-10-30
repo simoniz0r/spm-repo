@@ -15,7 +15,7 @@ if [ ! -d "$CONFDIR" ]; then
     mkdir -p "$CONFDIR"/cache
 fi
 
-if [ -f ~/.config/spm/spm.conf ]; then
+if [ -f ~/.config/appimagebuild/appimagebuild.conf ]; then
     . ~/.config/appimagebuild/appimagebuild.conf
 fi
 
