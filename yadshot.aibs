@@ -35,9 +35,9 @@ aibsdepcheckfunc () {
 
 aibsversionfunc () {
     if [ -z "$GITHUB_TOKEN" ]; then
-        AIBSIMG_VERSION="$(wget --quiet "https://api.github.com/repos/simoniz0r/yadshot/releases" -O - | "$RUNNING_DIR"/jq -r ".[].assets[].updated_at" | head -n 1)"
+        AIBSIMG_VERSION="$(wget --quiet "https://api.github.com/repos/simoniz0r/yadshot/releases" -O - | jq -r ".[].assets[].updated_at" | head -n 1)"
     else
-        AIBSIMG_VERSION="$(wget --quiet --auth-no-challenge --header="Authorization: token "$GITHUB_TOKEN"" "https://api.github.com/repos/simoniz0r/yadshot/releases" -O - | "$RUNNING_DIR"/jq -r ".[].assets[].updated_at" | head -n 1)"
+        AIBSIMG_VERSION="$(wget --quiet --auth-no-challenge --header="Authorization: token "$GITHUB_TOKEN"" "https://api.github.com/repos/simoniz0r/yadshot/releases" -O - | jq -r ".[].assets[].updated_at" | head -n 1)"
     fi
 }
 
