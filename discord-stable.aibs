@@ -34,9 +34,7 @@ aibsdepcheckfunc () {
 }
 
 aibsversionfunc () {
-    wget -S --read-timeout=30 --spider "https://discordapp.com/api/download?platform=linux&format=tar.gz" -o "$CONFDIR"/cache/"$AIBSIMG".latest
-    AIBSIMG_VERSION_URI="$(grep -o "Location:.*" "$CONFDIR"/cache/"$AIBSIMG".latest | cut -f2 -d" ")"
-    AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f3 -d'-' | cut -f-3 -d'.')"
+    AIBSIMG_VERSION="$(wget -S --read-timeout=30 --spider "https://discordapp.com/api/download?platform=linux&format=tar.gz" 2>&1 | grep -om1 "Location:.*" | cut -f2 -d" " | cut -f2 -d'-' | cut -f-3 -d'.')"
 }
 
 aibsdlsourcefunc () {
