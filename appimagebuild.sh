@@ -1,7 +1,8 @@
 #!/bin/bash
 # Title: appinagebuild
 # Description: Builds AppImages using AppImage Build Scripts
-# Dependencies: GNU coreutils, tar, wget
+# Dependencies: coreutils, wget
+# Dependencies that may be used during builds: binutils, git, tar
 # Author: simonizor
 # Website: http://www.simonizor.gq
 # License: GPL v2.0 only
