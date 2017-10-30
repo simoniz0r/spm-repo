@@ -2,7 +2,7 @@
 # Title: appinagebuild
 # Description: Builds AppImages using AppImage Build Scripts
 # Dependencies: coreutils, wget
-# Dependencies that may be used during builds: binutils, git, tar
+# Dependencies that may be used during builds: binutils, git, jq, tar, yaml
 # Author: simonizor
 # Website: http://www.simonizor.gq
 # License: GPL v2.0 only
@@ -22,14 +22,6 @@ fi
 if ! type wget >/dev/null 2>&1; then
     MISSING_DEPS="TRUE"
     echo "$(tput setaf 1)wget is not installed!$(tput sgr0)"
-fi
-if ! type yaml >/dev/null 2>&1; then
-    MISSING_DEPS="TRUE"
-    echo "$(tput setaf 1)yaml is not installed!$(tput sgr0)"
-fi
-if ! type jq >/dev/null 2>&1; then
-    MISSING_DEPS="TRUE"
-    echo "$(tput setaf 1)jq is not installed!$(tput sgr0)"
 fi
 if [ "$MISSING_DEPS" = "TRUE" ]; then
     echo "$(tput setaf 1)Missing one or more packages required to run; exiting...$(tput sgr0)"
