@@ -8,14 +8,14 @@
 
 X="0.0.1"
 # Set appimagebuild version
-CONFDIR="$HOME/.config/spm"
+CONFDIR="$HOME/.config/appimagebuild"
 
 if [ ! -d "$CONFDIR" ]; then
-    mkdir "$CONFDIR"
+    mkdir -p "$CONFDIR"/cache
 fi
 
 if [ -f ~/.config/spm/spm.conf ]; then
-    . ~/.config/spm/spm.conf
+    . ~/.config/appimagebuild/appimagebuild.conf
 fi
 
 if ! type wget >/dev/null 2>&1; then
