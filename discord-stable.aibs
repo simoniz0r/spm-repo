@@ -34,7 +34,7 @@ aibsdepcheckfunc () {
 }
 
 aibsversionfunc () {
-    AIBSIMG_VERSION="$(wget -S --read-timeout=30 --spider "https://discordapp.com/api/download?platform=linux&format=tar.gz" 2>&1 | grep -om1 "Location:.*" | cut -f2 -d" " | cut -f2 -d'-' | cut -f-3 -d'.')"
+    AIBSIMG_VERSION="$(wget -S --read-timeout=30 --spider "https://discordapp.com/api/download?platform=linux&format=tar.gz" 2>&1 | grep -om1 "Location:.*" | cut -f2 -d" " | cut -f2 -d'-' | cut -f-3 -d'.')-x86_64"
 }
 
 aibsdlsourcefunc () {
@@ -73,11 +73,11 @@ mv "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/Discord "$AIBSIMG_BUILD_DIR"/us
 cp "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/discord.png "$AIBSIMG_BUILD_DIR"/discord-stable.png
 cat >"$AIBSIMG_BUILD_DIR"/discord-stable.desktop << EOL
 [Desktop Entry]
-Name=Discord PTB
+Name=Discord
 StartupWMClass=discord
 Comment=All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.
 GenericName=Internet Messenger
-Exec=././/share/discord-stable/discord-stable.wrapper
+Exec=././/share/discord-stable/discord-stable.sh
 Icon=discord-stable
 Type=Application
 StartupNotify=false
@@ -94,9 +94,12 @@ APPRUN_SET_XDG_DATA_DIRS="TRUE"
 APPRUN_SET_PERLLIB="FALSE"
 APPRUN_SET_GSETTINGS_SCHEMA_DIR="FALSE"
 APPRUN_SET_QT_PLUGIN_PATH="FALSE"
-APPRUN_EXEC="./usr/share/discord-stable/discord-stable.wrapper"
+APPRUN_EXEC="./usr/share/discord-stable/discord-stable.sh"
 
 EOL
+echo '#!/bin/bash' >> "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/discord-stable.sh
+echo './usr/share/discord-stable/discord-stable.wrapper && sleep 15' >> "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/discord-stable.sh
+chmod a+x "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/discord-stable.sh
 }
 
 if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then

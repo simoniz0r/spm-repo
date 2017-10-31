@@ -36,7 +36,7 @@ aibsdepcheckfunc () {
 aibsversionfunc () {
     wget -S --read-timeout=30 --spider "https://discordapp.com/api/download/canary?platform=linux&format=tar.gz" -o "$CONFDIR"/cache/"$AIBSIMG".latest
     AIBSIMG_VERSION_URI="$(grep -o "Location:.*" "$CONFDIR"/cache/"$AIBSIMG".latest | cut -f2 -d" ")"
-    AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f3 -d'-' | cut -f-3 -d'.')"
+    AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f3 -d'-' | cut -f-3 -d'.')-x86_64"
 }
 
 aibsdlsourcefunc () {
@@ -79,7 +79,7 @@ Name=Discord Canary
 StartupWMClass=discord
 Comment=All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.
 GenericName=Internet Messenger
-Exec=././/share/discord-canary/discord-canary.wrapper
+Exec=././/share/discord-canary/discord-canary.sh
 Icon=discord-canary
 Type=Application
 StartupNotify=false
@@ -96,9 +96,12 @@ APPRUN_SET_XDG_DATA_DIRS="TRUE"
 APPRUN_SET_PERLLIB="FALSE"
 APPRUN_SET_GSETTINGS_SCHEMA_DIR="FALSE"
 APPRUN_SET_QT_PLUGIN_PATH="FALSE"
-APPRUN_EXEC="./usr/share/discord-canary/discord-canary.wrapper"
+APPRUN_EXEC="./usr/share/discord-canary/discord-canary.sh"
 
 EOL
+echo '#!/bin/bash' >> "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/discord-canary.sh
+echo './usr/share/discord-canary/discord-canary.wrapper && sleep 15' >> "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/discord-canary.sh
+chmod a+x "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/discord-canary.sh
 }
 
 if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
