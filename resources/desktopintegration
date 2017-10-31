@@ -57,7 +57,7 @@ find-up () {
 }
 
 REALPATH="$(readlink -f $0)"
-APPDIR="$(dirname "$REALPATH" | cut -f3 -d'/')"
+APPDIR="$(dirname "$REALPATH" | cut -f-3 -d'/')"
 
 FILENAME="$(readlink -f "${THIS}")"
 DIRNAME=$(dirname $FILENAME)
