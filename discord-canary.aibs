@@ -34,13 +34,13 @@ aibsdepcheckfunc () {
 }
 
 aibsversionfunc () {
-    wget -S --read-timeout=30 --spider "https://discordapp.com/api/download/canary?platform=linux&format=tar.gz" -o "$CONFDIR"/cache/"$AIBSIMG".latest
+    wget -S --read-timeout=30 --spider "https://discordapp.com/api/download/canary?platform=linux&format=deb" -o "$CONFDIR"/cache/"$AIBSIMG".latest
     AIBSIMG_VERSION_URI="$(grep -o "Location:.*" "$CONFDIR"/cache/"$AIBSIMG".latest | cut -f2 -d" ")"
     AIBSIMG_VERSION="$(echo "${AIBSIMG_VERSION_URI##*/}" | cut -f3 -d'-' | cut -f-3 -d'.')-x86_64"
 }
 
 aibsdlsourcefunc () {
-    wget --no-verbose --read-timeout=30 "https://discordapp.com/api/download/canary?platform=linux&format=tar.gz" -O "$AIBSIMG_SOURCE_DIR"/discord-canary.tar.gz
+    wget --no-verbose --read-timeout=30 "https://discordapp.com/api/download/canary?platform=linux&format=deb" -O "$AIBSIMG_DEPS_DIR"/discord-canary.deb
 }
 
 aibsdldepsfunc () {
@@ -63,15 +63,13 @@ debextractfunc () {
     cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
     rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
 }
+debextractfunc "discord-canary.deb"
 debextractfunc "libc++.deb"
 debextractfunc "libnotify.deb"
 debextractfunc "libgconf.deb"
 # debextractfunc "libxss.deb"
 # debextractfunc "libxtst.deb"
-tar -xf "$AIBSIMG_SOURCE_DIR"/discord-canary.tar.gz -C "$AIBSIMG_SOURCE_DIR"/
-mv "$AIBSIMG_SOURCE_DIR"/DiscordCanary "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary
-mv "$AIBSIMG_BUILD_DIR"/discord-canary.wrapper "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/
-mv "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/DiscordCanary "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/discord-canary
+mv "$AIBSIMG_BUILD_DIR"/discord-canary.wrapper "$AIBSIMG_BUILD_DIR"/usr/bin/
 cp "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/discord.png "$AIBSIMG_BUILD_DIR"/discord-canary.png
 cat >"$AIBSIMG_BUILD_DIR"/discord-canary.desktop << EOL
 [Desktop Entry]
@@ -79,7 +77,7 @@ Name=Discord Canary
 StartupWMClass=discord
 Comment=All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.
 GenericName=Internet Messenger
-Exec=././/share/discord-canary/discord-canary.sh
+Exec=././/bin/discord-canary.sh
 Icon=discord-canary
 Type=Application
 StartupNotify=false
@@ -96,12 +94,12 @@ APPRUN_SET_XDG_DATA_DIRS="TRUE"
 APPRUN_SET_PERLLIB="FALSE"
 APPRUN_SET_GSETTINGS_SCHEMA_DIR="FALSE"
 APPRUN_SET_QT_PLUGIN_PATH="FALSE"
-APPRUN_EXEC="./usr/share/discord-canary/discord-canary.sh"
+APPRUN_EXEC="./usr/bin/discord-canary.sh"
 
 EOL
-echo '#!/bin/bash' >> "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/discord-canary.sh
-echo './usr/share/discord-canary/discord-canary.wrapper && sleep 15' >> "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/discord-canary.sh
-chmod a+x "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/discord-canary.sh
+echo '#!/bin/bash' >> "$AIBSIMG_BUILD_DIR"/usr/bin/discord-canary.sh
+echo './usr/bin/discord-canary.wrapper && sleep 15' >> "$AIBSIMG_BUILD_DIR"/usr/bin/discord-canary.sh
+chmod a+x "$AIBSIMG_BUILD_DIR"/usr/bin/discord-canary.sh
 }
 
 if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
