@@ -56,13 +56,8 @@ find-up () {
   echo -n "$path" # Needs to return something
 }
 
-if [ -z $APPDIR ] ; then
-  # Find the AppDir. It is the directory that contains AppRun.
-  # This assumes that this script resides inside the AppDir or a subdirectory.
-  # If this script is run inside an AppImage, then the AppImage runtime
-  # likely has already set $APPDIR
-  APPDIR=$(find-up "AppRun")
-fi
+REALPATH="$(readlink -f $0)"
+APPDIR="$(dirname "$REALPATH" | cut -f3 -d'/')"
 
 FILENAME="$(readlink -f "${THIS}")"
 DIRNAME=$(dirname $FILENAME)
