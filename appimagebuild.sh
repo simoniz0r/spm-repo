@@ -51,7 +51,7 @@ aibsbuildfunc () { # Builds specified AppImage using instructions from the aibs
     chmod a+x "$AIBSIMG_BUILD_DIR"/AppRun
     if [ "$AIBSIMG_USE_WRAPPER" = "TRUE" ]; then
         echo "Downloading wrapper for $(tput setaf 4)$AIBSIMG$(tput sgr0)..."
-        wget --no-verbose "https://raw.githubusercontent.com/AppImage/AppImageKit/master/desktopintegration" -O "$AIBSIMG_BUILD_DIR"/"$AIBSIMG_NAME".wrapper
+        wget --no-verbose "https://raw.githubusercontent.com/simoniz0r/spm-repo/aibs/resources/desktopintegration" -O "$AIBSIMG_BUILD_DIR"/"$AIBSIMG_NAME".wrapper
         chmod a+x "$AIBSIMG_BUILD_DIR"/"$AIBSIMG_NAME".wrapper
     fi
     echo "Downloading source files for $(tput setaf 4)$AIBSIMG$(tput sgr0)..."
