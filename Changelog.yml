@@ -74,4 +74,7 @@ changelog:
   date: Sun Oct 29 15:24:36 CDT 2017
     - Add ai-bot-workspace to AppImages-github
     - Update vscode link in tar-other
-    -Add appimagebuild to AppImages-github
+    - Add appimagebuild to AppImages-github
+  date: Sat Nov  4 14:13:22 CDT 2017
+    - Add streamlink-twitch-gui to tar-github
+    

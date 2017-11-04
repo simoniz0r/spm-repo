@@ -21,6 +21,7 @@ pydialog: tar-github
 rambox: tar-github
 rg: tar-github
 spm: tar-github
+streamlink-twitch-gui: tar-github
 todo: tar-github
 tokei: tar-github
 vscode: tar-other
