@@ -69,7 +69,7 @@ aibsbuildfunc () { # Builds specified AppImage using instructions from the aibs
     wget --no-verbose "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" -O "$CONFDIR"/cache/appimagetool
     chmod a+x "$CONFDIR"/cache/appimagetool
     echo "Using appimagetool to build AppImage for $(tput setaf 4)$AIBSIMG$(tput sgr0) using files in $(tput setaf 4)$AIBSIMG$(tput sgr0).AppDir..."
-    ARCH="x86_64" "$CONFDIR"/cache/appimagetool "$AIBSIMG_BUILD_DIR" "$CONFDIR"/cache/"$AIBSIMG_NAME"-"$AIBSIMG_VERSION".AppImage || { echo "$(tput setaf 1)appimagetool failed to build AppImage for $AIBSIMG; exiting...$(tput sgr0)"; rm -rf "$CONFDIR"/cache/*; exit 1; }
+    ARCH="x86_64" "$CONFDIR"/cache/appimagetool -n "$AIBSIMG_BUILD_DIR" "$CONFDIR"/cache/"$AIBSIMG_NAME"-"$AIBSIMG_VERSION".AppImage || { echo "$(tput setaf 1)appimagetool failed to build AppImage for $AIBSIMG; exiting...$(tput sgr0)"; rm -rf "$CONFDIR"/cache/*; exit 1; }
     echo "AppImage for $(tput setaf 4)$AIBSIMG$(tput sgr0) has been built!"
 }
 
