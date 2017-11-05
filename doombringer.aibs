@@ -1,0 +1,124 @@
+#!/bin/bash
+# Title: spm
+# Description: Downloads and installs AppImages and precompiled tar archives.  Can also upgrade and remove installed packages.
+# Dependencies: GNU coreutils, tar, wget
+# Author: simonizor
+# Website: http://www.simonizor.gq
+# License: GPL v2.0 only
+##################################################################################################
+# aibs for doombringer
+# Created by simonizor
+##################################################################################################
+
+AIBSIMG_AUTHOR="doombringer"
+AIBSIMG_MAINTAINER="simonizor"
+AIBSIMG_DESCRIPTION="Doombringer is a game project aimed to create a single player game experience with inspirations taken from Quake Live and Doom 2."
+AIBSIMG_CATEGORY="Game"
+AIBSIMG_WEBSITE="http://www.doombringer.eu"
+AIBSIMG_NAME="doombringer"
+AIBSIMG_SOURCE="Direct"
+AIBSIMG_SOURCE_TYPE="Binary"
+AIBSIMG_USE_WRAPPER="TRUE"
+AIBSIMG_USE_SPECIAL_INSTRUCTIONS="FALSE"
+
+aibsdepcheckfunc () {
+    if ! type ar >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)ar (binutils) is not installed!$(tput sgr0)"
+    fi
+    if ! type unzip >/dev/null 2>&1; then
+        MISSING_DEPS="TRUE"
+        echo "$(tput setaf 1)unzip is not installed!$(tput sgr0)"
+    fi
+    if [ "$MISSING_DEPS" = "TRUE" ]; then
+        echo "$(tput setaf 1)Missing one or more packages required to build $AIBSIMG_NAME; exiting...$(tput sgr0)"
+        rm -rf "$CONFDIR"/cache/*
+        exit 1
+    fi
+}
+
+aibsversionfunc () {
+    # TODO: Figure out how to find latest version
+    AIBSIMG_VERSION="0.19_alpha-x86_64"
+}
+
+aibsdlsourcefunc () {
+    wget --read-timeout=30 "http://www.doombringer.eu/files/Doombringer_v0.19_alpha_HD.zip" -O "$AIBSIMG_SOURCE_DIR"/doombringer.zip
+}
+
+aibsdldepsfunc () {
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/glew/libglew2.0_2.0.0-3+b1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libglew.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.5.1-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libjpeg.deb
+    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libp/libpng1.6/libpng16-16_1.6.28-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpng.deb
+}
+
+aibsbuildfunc () {
+mkdir "$AIBSIMG_DEPS_DIR"/debs
+cd "$AIBSIMG_DEPS_DIR"
+debextractfunc () {
+    ar x "$AIBSIMG_DEPS_DIR"/"$1"
+    rm -f "$AIBSIMG_DEPS_DIR"/control.tar.gz
+    rm -f "$AIBSIMG_DEPS_DIR"/debian-binary
+    tar -xf "$AIBSIMG_DEPS_DIR"/data.tar.* -C "$AIBSIMG_DEPS_DIR"/debs/
+    rm -f "$AIBSIMG_DEPS_DIR"/data.tar.*
+    cp -r "$AIBSIMG_DEPS_DIR"/debs/* "$AIBSIMG_BUILD_DIR"/
+    rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
+}
+debextractfunc "libglew.deb"
+debextractfunc "libjpeg.deb"
+debextractfunc "libpng.deb"
+
+cd "$AIBSIMG_SOURCE_DIR"
+unzip "$AIBSIMG_SOURCE_DIR"/doombringer.zip
+rm "$AIBSIMG_SOURCE_DIR"/doombringer.zip
+mv "$AIBSIMG_SOURCE_DIR"/Doombringer_v0.19_alpha_HD "$AIBSIMG_BUILD_DIR"/Doombringer
+
+cat >"$AIBSIMG_BUILD_DIR"/doombringer.desktop << EOL
+[Desktop Entry]
+Type=Application
+Name=Doombringer
+Comment=Doombringer is a game project aimed to create a single player game experience with inspirations taken from Quake Live and Doom 2.
+Exec=./doombringer.wrapper
+Icon=doombringer
+Categories=GTK;
+
+EOL
+
+echo '#!/bin/bash' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo 'case $1 in' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo '    -glx*)' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo '        ./Doombringer/resources/darkplaces-linux-x86_64-glx -customgamename Doombringer -basedir ./Doombringer/resources/ -customgamenetworkfiltername Doombringer -customgamedirname1 dbdata $*' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo '        ;;' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo '    -server|-dedicated)' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo '        ./Doombringer/resources/darkplaces-linux-x86_64-dedicated -customgamename Doombringer -basedir ./Doombringer/resources/ -customgamenetworkfiltername Doombringer -customgamedirname1 dbdata -condebug -dedicated 8 +exec "configs/server_ger.cfg" +map duel1' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo '        ;;' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo '    -sdl*|*)' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo '        ./Doombringer/resources/darkplaces-linux-x86_64-sdl -customgamename Doombringer -basedir ./Doombringer/resources/ -customgamenetworkfiltername Doombringer -customgamedirname1 dbdata $*' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo '        ;;' >> "$AIBSIMG_BUILD_DIR"/doombringer
+echo 'esac' >> "$AIBSIMG_BUILD_DIR"/doombringer
+chmod a+x "$AIBSIMG_BUILD_DIR"/doombringer
+chmod a+x "$AIBSIMG_BUILD_DIR"/Doombringer/resources/darkplaces-linux-x86_64-dedicated
+chmod a+x "$AIBSIMG_BUILD_DIR"/Doombringer/resources/darkplaces-linux-x86_64-glx
+chmod a+x "$AIBSIMG_BUILD_DIR"/Doombringer/resources/darkplaces-linux-x86_64-sdl
+
+cat >"$AIBSIMG_BUILD_DIR"/AppRun.conf << EOL
+APPRUN_SET_PATH="TRUE"
+APPRUN_SET_LD_LIBRARY_PATH="TRUE"
+APPRUN_SET_PYTHONPATH="FALSE"
+APPRUN_SET_PYTHONHOME="FALSE"
+APPRUN_SET_PYTHONDONTWRITEBYTECODE="FALSE"
+APPRUN_SET_XDG_DATA_DIRS="TRUE"
+APPRUN_SET_PERLLIB="FALSE"
+APPRUN_SET_GSETTINGS_SCHEMA_DIR="FALSE"
+APPRUN_SET_QT_PLUGIN_PATH="FALSE"
+APPRUN_EXEC="./doombringer.wrapper"
+
+EOL
+wget --no-verbose "https://u.teknik.io/H4lBk.png" -O "$AIBSIMG_BUILD_DIR"/doombringer.png
+}
+
+if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then
+    aibsspecialfunc () {
+        echo "no special instructions"
+    }
+fi
