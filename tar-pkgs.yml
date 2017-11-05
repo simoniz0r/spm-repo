@@ -14,7 +14,6 @@ imagewriter: tar-other
 kaku: tar-github
 kpassman: tar-github
 nvim: tar-github
-ocsstore: tar-other
 openrct2: tar-github
 openttd: tar-other
 pydialog: tar-github
