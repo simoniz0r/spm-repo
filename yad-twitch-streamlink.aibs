@@ -64,7 +64,7 @@ aibsdldepsfunc () {
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7-stdlib_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7-stdlib.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python2.7/libpython2.7-minimal_2.7.9-2+deb8u1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libpython2.7-minimal.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/p/python-setuptools/python-pkg-resources_5.5.1-1_all.deb" -O "$AIBSIMG_DEPS_DIR"/python-pkg-resources.deb
-    wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/w/wget/wget_1.13.4-3+deb7u4_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/wget.deb
+    wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/w/wget/wget_1.13.4-3+deb7u5_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/wget.deb
     wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/libg/libgcrypt11/libgcrypt11_1.5.0-5+deb7u6_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgcrypt11.deb
     wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gnutls26/libgnutls26_2.12.20-8+deb7u5_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgnutls.deb
     wget --no-verbose --read-timeout=30 "http://security.debian.org/debian-security/pool/updates/main/libt/libtasn1-3/libtasn1-3_2.13-2+deb7u5_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libtasn.deb
@@ -137,6 +137,8 @@ APPRUN_EXEC="./usr/bin/yad-twitch-streamlink.wrapper"
 
 EOL
 wget --no-verbose "https://github.com/simoniz0r/yad-twitch-streamlink/raw/master/ytsicon.png" -O "$AIBSIMG_BUILD_DIR"/yad-twitch-streamlink.png
+mkdir -p "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/64x64/apps
+cp "$AIBSIMG_BUILD_DIR"/yad-twitch-streamlink.png "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/64x64/apps/
 }
 
 if [ "$AIBSIMG_USE_SEPCIAL_INSTRUCTIONS" = "TRUE" ]; then

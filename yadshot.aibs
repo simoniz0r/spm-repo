@@ -149,7 +149,10 @@ APPRUN_SET_QT_PLUGIN_PATH="TRUE"
 APPRUN_EXEC="./usr/bin/yadshot.sh.wrapper"
 
 EOL
-wget --no-verbose "https://github.com/simoniz0r/yadshot/raw/master/yadshot.png" -O "$AIBSIMG_BUILD_DIR"/yadshot.png
+wget --no-verbose "https://a.fsdn.com/allura/p/opencamera/icon?1509129032" -O "$AIBSIMG_BUILD_DIR"/yadshot.png
+mkdir -p "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/48x48/apps
+cp "$AIBSIMG_BUILD_DIR"/yadshot.png "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/48x48/apps/
+
 rm -f "$AIBSIMG_BUILD_DIR"/AppRun
 wget --no-verbose --read-timeout=30 "https://github.com/darealshinji/AppImageKit-checkrt/releases/download/continuous/AppRun-patched-x86_64" -O "$AIBSIMG_BUILD_DIR"/AppRun
 chmod a+x "$AIBSIMG_BUILD_DIR"/AppRun
