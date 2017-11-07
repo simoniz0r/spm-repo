@@ -71,6 +71,8 @@ debextractfunc "libgconf.deb"
 # debextractfunc "libxtst.deb"
 mv "$AIBSIMG_BUILD_DIR"/discord-canary.wrapper "$AIBSIMG_BUILD_DIR"/usr/bin/
 cp "$AIBSIMG_BUILD_DIR"/usr/share/discord-canary/discord.png "$AIBSIMG_BUILD_DIR"/discord-canary.png
+mkdir -p "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/256x256/apps
+cp "$AIBSIMG_BUILD_DIR"/discord-canary.png "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/256x256/apps/
 cat >"$AIBSIMG_BUILD_DIR"/discord-canary.desktop << EOL
 [Desktop Entry]
 Name=Discord Canary

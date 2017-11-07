@@ -68,7 +68,9 @@ debextractfunc "libgconf.deb"
 # debextractfunc "libxss.deb"
 # debextractfunc "libxtst.deb"
 mv "$AIBSIMG_BUILD_DIR"/discord-stable.wrapper "$AIBSIMG_BUILD_DIR"/usr/bin/
-cp "$AIBSIMG_BUILD_DIR"/usr/share/discord-stable/discord.png "$AIBSIMG_BUILD_DIR"/discord-stable.png
+cp "$AIBSIMG_BUILD_DIR"/usr/share/discord/discord.png "$AIBSIMG_BUILD_DIR"/discord-stable.png
+mkdir -p "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/256x256/apps
+cp "$AIBSIMG_BUILD_DIR"/discord-stable.png "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/256x256/apps/
 cat >"$AIBSIMG_BUILD_DIR"/discord-stable.desktop << EOL
 [Desktop Entry]
 Name=Discord

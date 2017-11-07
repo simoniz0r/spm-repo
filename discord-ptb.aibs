@@ -71,6 +71,8 @@ debextractfunc "libgconf.deb"
 # debextractfunc "libxtst.deb"
 mv "$AIBSIMG_BUILD_DIR"/discord-ptb.wrapper "$AIBSIMG_BUILD_DIR"/usr/bin/
 cp "$AIBSIMG_BUILD_DIR"/usr/share/discord-ptb/discord.png "$AIBSIMG_BUILD_DIR"/discord-ptb.png
+mkdir -p "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/256x256/apps
+cp "$AIBSIMG_BUILD_DIR"/discord-ptb.png "$AIBSIMG_BUILD_DIR"/usr/share/icons/hicolor/256x256/apps/
 cat >"$AIBSIMG_BUILD_DIR"/discord-ptb.desktop << EOL
 [Desktop Entry]
 Name=Discord PTB
