@@ -1,0 +1,4 @@
+name: nheko
+url: https://github.com/mujx/nheko/releases
+apiurl: https://api.github.com/repos/mujx/nheko/releases
+description: nheko - Desktop client for the Matrix protocol
