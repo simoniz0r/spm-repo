@@ -17,6 +17,7 @@ appium-desktop: AppImages-github
 aria2: AppImages-other
 arizen: AppImages-github
 arkona2: AppImages-github
+auryo: AppImages-github
 avidemux: AppImages-other
 baijimangaviewer: AppImages-github
 barnacal: AppImages-github
@@ -86,6 +87,7 @@ fifa-autobuyer: AppImages-github
 filmulator: AppImages-github
 flatsitebuilder: AppImages-github
 flexvdi: AppImages-other
+franz: AppImages-github
 freecad: AppImages-github
 freeter: AppImages-other
 fulcrum: AppImages-github
@@ -277,7 +279,7 @@ stopgo: AppImages-other
 stoplight: AppImages-github
 stremio: AppImages-other
 stretchly: AppImages-github
-subsurface: AppImages-other
+subsurface: AppImages-github
 subvertise: AppImages-github
 summonerswarexporter: AppImages-github
 superproductivity: AppImages-other
