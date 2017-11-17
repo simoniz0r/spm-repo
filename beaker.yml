@@ -1,0 +1,4 @@
+name: beaker
+url: https://github.com/beakerbrowser/beaker/releases
+apiurl: https://api.github.com/repos/beakerbrowser/beaker/releases
+description: beaker - A peer-to-peer Web browser

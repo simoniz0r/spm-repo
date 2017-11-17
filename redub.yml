@@ -1,0 +1,4 @@
+name: Redub
+url: https://github.com/azlyth/redub/releases
+apiurl: https://api.github.com/repos/azlyth/redub/releases
+description: A program that allows for easily redubbing the audio in a video

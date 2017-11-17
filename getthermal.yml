@@ -1,0 +1,4 @@
+name: GetThermal
+url: https://github.com/groupgets/GetThermal/releases
+apiurl: https://api.github.com/repos/groupgets/GetThermal/releases
+description: GetThermal - Cross-platform USB thermal camera viewer

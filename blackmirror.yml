@@ -1,0 +1,4 @@
+name: blackmirror
+url: https://github.com/sorentycho/blackmirror/releases
+apiurl: https://api.github.com/repos/sorentycho/blackmirror/releases
+description: blackmirror - Multi-party automatic writing tool

@@ -1,0 +1,4 @@
+name: MasterVyrn
+url: https://github.com/LightouchDev/MasterVyrn/releases
+apiurl: https://api.github.com/repos/LightouchDev/MasterVyrn/releases
+description: MasterVyrn is a clean dedicated GBF loader build on top of electron

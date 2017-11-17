@@ -1,0 +1,4 @@
+name: lmms
+url: https://github.com/tresf/lmms/releases
+apiurl: https://api.github.com/repos/tresf/lmms/releases
+description: lmms - cross-platform music production software
