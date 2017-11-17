@@ -14,17 +14,23 @@ appimaged: AppImages-github
 appimagetool: AppImages-github
 appimageupdate: AppImages-github
 appium-desktop: AppImages-github
+arbore: AppImages-github
 aria2: AppImages-other
 arizen: AppImages-github
 arkona2: AppImages-github
+atcore: AppImages-github
 auryo: AppImages-github
 avidemux: AppImages-other
 baijimangaviewer: AppImages-github
 barnacal: AppImages-github
+barter-dex: AppImages-github
 batchlabs: AppImages-github
+beaker: AppImages-github
 belle: AppImages-github
 billy: AppImages-github
 bitshares: AppImages-github
+black_chocobo: AppImages-github
+blackmirror: AppImages-github
 blink1control2: AppImages-github
 blubvolley: AppImages-other
 bnb: AppImages-github
@@ -91,7 +97,9 @@ franz: AppImages-github
 freecad: AppImages-github
 freeter: AppImages-other
 fulcrum: AppImages-github
+ganache: AppImages-github
 geometrize: AppImages-other
+getthermal: AppImages-github
 gggrotto: AppImages-github
 gifcurry: AppImages-github
 gimp: AppImages-github
@@ -146,10 +154,13 @@ linuxdeployqt: AppImages-github
 linux-quiz-generator: AppImages-github
 lisk-nano: AppImages-github
 livezilla: AppImages-other
+lmms: AppImages-github
+magicfountain: AppImages-github
 maim: AppImages-github
 malice: AppImages-github
 mandelbulber2: AppImages-other
 marlin-conf: AppImages-github
+mastervyrn: AppImages-github
 maven: AppImages-github
 mead: AppImages-github
 media_mate: AppImages-github
@@ -162,6 +173,7 @@ misrcon: AppImages-github
 mitmproxy: AppImages-github
 mki3dgame: AppImages-github
 mkvtoolnix: AppImages-github
+mlv-app: AppImages-github
 mockoon: AppImages-other
 movie-monad: AppImages-github
 mrwriter: AppImages-other
@@ -208,6 +220,7 @@ pixivdeck: AppImages-github
 pixsrt: AppImages-github
 planetblupi: AppImages-github
 playground: AppImages-github
+plex: AppImages-other
 plover: AppImages-github
 pokenurse: AppImages-github
 pomello: AppImages-other
@@ -238,6 +251,7 @@ red_eclipse-stable: AppImages-other
 redminetimetracker: AppImages-github
 redmine_tracker: AppImages-github
 redtimer: AppImages-github
+redub: AppImages-github
 reliefvalve: AppImages-github
 repetier-host: AppImages-other
 retroshare: AppImages-github
@@ -284,6 +298,7 @@ subvertise: AppImages-github
 summonerswarexporter: AppImages-github
 superproductivity: AppImages-other
 sylk: AppImages-other
+symphytum: AppImages-github
 synfigstudio: AppImages-other
 tagflow: AppImages-other
 tagtime-desktop: AppImages-github
@@ -324,6 +339,7 @@ wewechat: AppImages-github
 whatsdesktop: AppImages-github
 whiteboard: AppImages-github
 wire: AppImages-github
+woke: AppImages-github
 workflowy: AppImages-github
 x32-mute-matrix: AppImages-github
 xchat: AppImages-other
