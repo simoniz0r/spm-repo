@@ -1,6 +1,6 @@
 name: firefox-beta
 instdir: /opt/firefox-beta
-taruri: https://download.mozilla.org/?product=firefox-57.0b3-SSL&os=linux64&lang=en-US
+taruri: https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=en-US
 desktop_file_path: DOWNLOAD
 icon_file_path: /opt/firefox-beta/browser/icons/mozicon128.png
 executable_file_path: /opt/firefox-beta/firefox
