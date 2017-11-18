@@ -23,6 +23,7 @@ spm: tar-github
 streamlink-twitch-gui: tar-github
 todo: tar-github
 tokei: tar-github
+utox: tar-other
 vscode: tar-other
 wavebox: tar-github
 wrapt: tar-github
