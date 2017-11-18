@@ -1,0 +1,4 @@
+name: Joplin
+url: https://github.com/laurent22/joplin/releases
+apiurl: https://api.github.com/repos/laurent22/joplin/releases
+description: joplin - Joplin a free open source note taking and to-do application
