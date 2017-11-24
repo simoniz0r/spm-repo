@@ -44,9 +44,16 @@ aibsdlsourcefunc () {
 }
 
 aibsdldepsfunc () {
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libc/libc++/libc++1_3.5-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libc++.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libn/libnotify/libnotify4_0.7.6-2_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libnotify.deb
-    wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/g/gconf/libgconf-2-4_3.2.6-3_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libgconf.deb
+    debiangetlatestdebfunc () {
+        DEB_RELEASE="$1"
+        DEB_NAME="$2"
+        LATEST_DEB_URL="$(wget "https://packages.debian.org/$DEB_RELEASE/amd64/$DEB_NAME/download" -qO - | grep '<li>*..*amd64.deb' | cut -f2 -d'"' | head -n 1)"
+        wget --no-verbose --read-timeout=30 "$LATEST_DEB_URL" -O "$AIBSIMG_DEPS_DIR"/"$DEB_NAME".deb
+    }
+    debiangetlatestdebfunc "jessie" "libc++1"
+    debiangetlatestdebfunc "jessie" "libnotify4"
+    debiangetlatestdebfunc "jessie" "libgconf-2-4"
+    debiangetlatestdebfunc "jessie" "libatomic1"
     # wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxss/libxss1_1.2.2-1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxss.deb
     # wget --no-verbose --read-timeout=30 "http://ftp.us.debian.org/debian/pool/main/libx/libxtst/libxtst6_1.2.2-1+b1_amd64.deb" -O "$AIBSIMG_DEPS_DIR"/libxtst.deb
 }
@@ -64,9 +71,10 @@ debextractfunc () {
     rm -rf "$AIBSIMG_DEPS_DIR"/debs/*
 }
 debextractfunc "discord-ptb.deb"
-debextractfunc "libc++.deb"
-debextractfunc "libnotify.deb"
-debextractfunc "libgconf.deb"
+debextractfunc "libc++1.deb"
+debextractfunc "libnotify4.deb"
+debextractfunc "libgconf-2-4.deb"
+debextractfunc "libatomic1.deb"
 # debextractfunc "libxss.deb"
 # debextractfunc "libxtst.deb"
 mv "$AIBSIMG_BUILD_DIR"/discord-ptb.wrapper "$AIBSIMG_BUILD_DIR"/usr/bin/
