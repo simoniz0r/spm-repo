@@ -1,0 +1,4 @@
+name: Kaidan
+url: https://github.com/KaidanIM/Kaidan/releases
+apiurl: https://api.github.com/repos/KaidanIM/Kaidan/releases
+description: Main repository of Kaidan the simple and user-friendly JabberXMPP client for every device
