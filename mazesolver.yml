@@ -1,0 +1,4 @@
+name: MazeSolver
+url: https://github.com/Arquanite/MazeSolver/releases
+apiurl: https://api.github.com/repos/Arquanite/MazeSolver/releases
+description: MazeSolver - Create and solve mazes using DFS or BFS algorithm
