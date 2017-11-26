@@ -1,0 +1,4 @@
+name: jag
+url: https://github.com/seleznevae/jag/releases
+apiurl: https://api.github.com/repos/seleznevae/jag/releases
+description: jag - Simple interactive grapher for 2D plots
