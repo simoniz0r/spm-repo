@@ -152,6 +152,7 @@ langly: AppImages-github
 laserweb: AppImages-github
 ldview: AppImages-other
 lepton: AppImages-github
+libreoffice: AppImages-other
 libreofficedev: AppImages-other
 librepcb-nightly: AppImages-other
 linuxdeployqt: AppImages-github
