@@ -22,12 +22,14 @@ atcore: AppImages-github
 audacity: AppImages-other
 auryo: AppImages-github
 avidemux: AppImages-other
+azpainter: AppImages-github
 baijimangaviewer: AppImages-github
 barnacal: AppImages-github
 barter-dex: AppImages-github
 batchlabs: AppImages-github
 beaker: AppImages-github
 belle: AppImages-github
+bezique: AppImages-github
 billy: AppImages-github
 bitshares: AppImages-github
 black_chocobo: AppImages-github
@@ -53,6 +55,7 @@ ciaa_suite: AppImages-github
 crypter: AppImages-github
 cuarzobrowser: AppImages-github
 cubicsdr: AppImages-github
+cumulonimbus: AppImages-github
 cumulus: AppImages-github
 cura: AppImages-other
 cutepeaks: AppImages-github
@@ -124,6 +127,7 @@ igdm: AppImages-github
 iitmnetworkauthapp: AppImages-github
 imageplay: AppImages-github
 imagine: AppImages-github
+inboxer: AppImages-github
 infinite-electron: AppImages-github
 insomnia: AppImages-github
 inxi: AppImages-github
@@ -132,6 +136,7 @@ iota-wallet: AppImages-github
 ipe: AppImages-other
 irccloud-desktop: AppImages-github
 i-score: AppImages-github
+jag: AppImages-github
 jaxx: AppImages-github
 jimud: AppImages-github
 joplin: AppImages-github
@@ -161,11 +166,13 @@ livezilla: AppImages-other
 lmms: AppImages-github
 magicfountain: AppImages-github
 maim: AppImages-github
+makou_reactor: AppImages-github
 malice: AppImages-github
 mandelbulber2: AppImages-other
 marlin-conf: AppImages-github
 mastervyrn: AppImages-github
 maven: AppImages-github
+mazesolver: AppImages-github
 mead: AppImages-github
 media_mate: AppImages-github
 medium-desktop: AppImages-github
@@ -344,6 +351,7 @@ wire: AppImages-github
 woke: AppImages-github
 workflowy: AppImages-github
 x32-mute-matrix: AppImages-github
+xchat: AppImages-github
 xchat: AppImages-other
 xde: AppImages-github
 xdgfetch: AppImages-github
@@ -352,4 +360,5 @@ xnviewmp: AppImages-other
 yadshot: AppImages-github
 yad-twitch-streamlink: AppImages-github
 yaml: AppImages-github
+zsync2: AppImages-github
 zulip-electron: AppImages-github
