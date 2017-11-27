@@ -191,7 +191,7 @@ movie-monad: AppImages-github
 mrwriter: AppImages-other
 ms-teams-capsule: AppImages-other
 multidir: AppImages-github
-mumble: AppImages-other
+mumble: AppImages-github
 musescore: AppImages-other
 mycard: AppImages-github
 nbb: AppImages-other
