@@ -81,4 +81,6 @@ changelog:
     - Remove ocsstore from tar-other (not working properly)
   date: Tue Nov  7 23:25:59 CST 2017
     - Add nheko to AppImages-github
+  date: Mon Nov 27 21:50:57 CST 2017
+    - Update otter-browser link
     
