@@ -11,6 +11,7 @@ ansiweather: AppImages-github
 ao: AppImages-github
 appimagebuild: AppImages-github
 appimaged: AppImages-github
+appimagehub: AppImages-github
 appimagetool: AppImages-github
 appimageupdate: AppImages-github
 appium-desktop: AppImages-github
