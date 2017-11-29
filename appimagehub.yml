@@ -1,0 +1,4 @@
+name: AppImageHub
+url: https://github.com/simoniz0r/AppImageHub-Electron/releases
+apiurl: https://api.github.com/repos/simoniz0r/AppImageHub-Electron/releases
+description: AppImageHub-Electron - Electron wrapper for downloading AppImages from AppImageHub built using nativefier
