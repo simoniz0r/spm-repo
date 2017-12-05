@@ -14,6 +14,7 @@ appimaged: AppImages-github
 appimagehub: AppImages-github
 appimagetool: AppImages-github
 appimageupdate: AppImages-github
+appimageupdatetool: AppImages-github
 appium-desktop: AppImages-github
 arbore: AppImages-github
 aria2: AppImages-other
