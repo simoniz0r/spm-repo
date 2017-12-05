@@ -1,4 +1,4 @@
 name: appimageupdatetool
-url: https://github.com/AppImage/AppImageKit/releases
-apiurl: https://api.github.com/repos/AppImage/AppImageKit/releases
+url: https://github.com/AppImage/AppImageUpdate/releases
+apiurl: https://api.github.com/repos/AppImage/AppImageUpdate/releases
 description: Update AppImages with embeded zsync information easily.
