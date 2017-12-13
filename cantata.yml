@@ -1,4 +1,4 @@
 name: cantata
-url: https://github.com/simoniz0r/AppImages/releases
-apiurl: https://api.github.com/repos/simoniz0r/AppImages/releases
+url: https://github.com/simoniz0r/cantata/releases
+apiurl: https://api.github.com/repos/simoniz0r/cantata/releases
 description: Qt5 Graphical MPD Client for Linux, Windows, MacOS 

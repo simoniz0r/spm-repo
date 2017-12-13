@@ -1,4 +1,4 @@
 name: ansiweather
-url: https://github.com/simoniz0r/AppImages/releases
-apiurl: https://api.github.com/repos/simoniz0r/AppImages/releases
+url: https://github.com/simoniz0r/ansiweather/releases
+apiurl: https://api.github.com/repos/simoniz0r/ansiweather/releases
 description:  Weather in your terminal, with ANSI colors and Unicode symbols

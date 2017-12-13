@@ -1,4 +1,4 @@
 name: maim
-url: https://github.com/simoniz0r/AppImages/releases
-apiurl: https://api.github.com/repos/simoniz0r/AppImages/releases
-description: Downloads for AppImages built by simoniz0r
+url: https://github.com/simoniz0r/maim/releases
+apiurl: https://api.github.com/repos/simoniz0r/maim/releases
+description: maim (make image) takes screenshots of your desktop. It has options to take only a region, and relies on slop to query for regions. maim is supposed to be an improved scrot.

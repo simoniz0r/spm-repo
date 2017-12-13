@@ -1,4 +1,4 @@
 name: neofetch
-url: https://github.com/simoniz0r/AppImages/releases
-apiurl: https://api.github.com/repos/simoniz0r/AppImages/releases
-description: Downloads for AppImages built by simoniz0r
+url: https://github.com/simoniz0r/neofetch/releases
+apiurl: https://api.github.com/repos/simoniz0r/neofetch/releases
+description: A fast, highly customizable system info script that supports Linux, MacOS, iOS, BSD, Solaris, Android, Haiku, GNU Hurd, MINIX, AIX, IRIX and Windows (Cygwin/MSYS2/MinGW/Windows 10 Linux subsystem) 

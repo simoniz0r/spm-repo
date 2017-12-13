@@ -1,4 +1,4 @@
 name: speedtest-cli
-url: https://github.com/simoniz0r/AppImages/releases
-apiurl: https://api.github.com/repos/simoniz0r/AppImages/releases
+url: https://github.com/simoniz0r/speedtest-cli/releases
+apiurl: https://api.github.com/repos/simoniz0r/speedtest-cli/releases
 description:  Command line interface for testing internet bandwidth using speedtest.net
