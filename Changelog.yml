@@ -89,4 +89,5 @@ changelog:
     - Fix Dragoman URL
   date: Thu Dec  7 08:29:08 CST 2017
     - Fix ocsstore link in AppImages-other
-    
+  date: Tue Dec 12 23:30:28 CST 2017
+    - Change links and descriptions for 6 AppImages in AppImages-github
