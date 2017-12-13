@@ -1,0 +1,4 @@
+name: panini
+url: https://github.com/lazarus-pkgs/panini/releases
+apiurl: https://api.github.com/repos/lazarus-pkgs/panini/releases
+description: panini - visual tool for creating perspective views from panoramic and wide angle photographs
