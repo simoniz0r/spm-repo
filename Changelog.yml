@@ -91,3 +91,6 @@ changelog:
     - Fix ocsstore link in AppImages-other
   date: Tue Dec 12 23:30:28 CST 2017
     - Change links and descriptions for 6 AppImages in AppImages-github
+  date: Wed Dec 13 18:13:45 CST 2017
+    - Change link and description for Discord Canary in AppImages-github
+    
