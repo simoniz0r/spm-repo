@@ -1,0 +1,4 @@
+name: GitHubDesktop
+url: https://github.com/shiftkey/desktop/releases
+apiurl: https://api.github.com/repos/shiftkey/desktop/releases
+description: Simple collaboration from your desktop
