@@ -94,6 +94,7 @@ epl-viz: AppImages-github
 erdesigner: AppImages-github
 evothings-studio: AppImages-other
 eyestalker: AppImages-github
+falcon-sql-client: AppImages-github
 fastqt: AppImages-github
 fifa-autobuyer: AppImages-github
 filmulator: AppImages-github
@@ -111,6 +112,7 @@ gggrotto: AppImages-github
 gifcurry: AppImages-github
 gimp: AppImages-github
 githoard: AppImages-github
+githubdesktop: AppImages-github
 glabels: AppImages-github
 godot: AppImages-other
 gradestats: AppImages-github
@@ -151,6 +153,7 @@ kawanime: AppImages-github
 kdenlive: AppImages-other
 kdevelop: AppImages-other
 keepassxc: AppImages-github
+kettleclient: AppImages-github
 kevedit: AppImages-github
 krita: AppImages-other
 ktube-media-downloader: AppImages-github
