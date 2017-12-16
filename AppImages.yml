@@ -214,6 +214,7 @@ nuclear: AppImages-github
 nvim: AppImages-github
 ocsstore: AppImages-other
 onshape: AppImages-github
+onyx: AppImages-github
 openblok: AppImages-github
 openshot: AppImages-github
 opentodolist: AppImages-other
