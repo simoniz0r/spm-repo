@@ -1,0 +1,4 @@
+name: KettleClient
+url: https://github.com/Arquanite/KettleClient/releases
+apiurl: https://api.github.com/repos/Arquanite/KettleClient/releases
+description: KettleClient - Graphical client for REST KettleService written in Qt
