@@ -1,0 +1,4 @@
+name: Onyx
+url: https://github.com/MainframeHQ/onyx/releases
+apiurl: https://api.github.com/repos/MainframeHQ/onyx/releases
+description: onyx - Decentralized messaging application based on PSS
