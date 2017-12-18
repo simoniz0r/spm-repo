@@ -93,5 +93,7 @@ changelog:
     - Change links and descriptions for 6 AppImages in AppImages-github
   date: Wed Dec 13 18:13:45 CST 2017
     - Change link and description for Discord Canary in AppImages-github
-    - Chagne link and description for Discord PTB in AppImages-github
-    
+    - Change link and description for Discord PTB in AppImages-github
+  date: Mon Dec 18 12:32:45 CST 2017
+    - Change yaml link in AppImages-github
+
