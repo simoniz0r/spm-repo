@@ -1,0 +1,4 @@
+name: twitch-wrapper
+url: https://github.com/simoniz0r/twitch-wrapper/releases
+apiurl: https://api.github.com/repos/simoniz0r/twitch-wrapper/releases
+description: twitch-wrapper - An Electron wrapper for Twitchtv for Linux with FrankerFaceZ and FFZAP added in  Created using nativefier
