@@ -1,0 +1,4 @@
+name: Gpredict
+url: https://github.com/csete/gpredict/releases
+apiurl: https://api.github.com/repos/csete/gpredict/releases
+description: gpredict - Gpredict satellite tracking application
