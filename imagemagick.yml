@@ -1,0 +1,4 @@
+name: ImageMagick
+url: https://github.com/ImageMagick/ImageMagick/releases
+apiurl: https://api.github.com/repos/ImageMagick/ImageMagick/releases
+description: ImageMagick
