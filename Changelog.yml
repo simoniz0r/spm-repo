@@ -96,4 +96,5 @@ changelog:
     - Change link and description for Discord PTB in AppImages-github
   date: Mon Dec 18 12:32:45 CST 2017
     - Change yaml link in AppImages-github
-
+  date: Sat Feb 17 22:53:58 CST 2018
+    - Add and fix lots of links
