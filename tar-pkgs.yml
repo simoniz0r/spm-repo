@@ -3,7 +3,6 @@ atom: tar-github
 discord-canary: tar-other
 discord-ptb: tar-other
 discord-stable: tar-other
-discord-toolbox: tar-github
 fd: tar-github
 firefox-beta: tar-other
 firefox-dev: tar-other

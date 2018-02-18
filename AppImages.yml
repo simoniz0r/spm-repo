@@ -78,6 +78,7 @@ devrantron: AppImages-github
 dexter_dev_env: AppImages-github
 digikam: AppImages-other
 discord-canary: AppImages-github
+discord-css-injection: AppImages-github
 discord-ptb: AppImages-github
 discord-stable: AppImages-github
 discord-toolbox: AppImages-github
@@ -343,6 +344,7 @@ tubcloud: AppImages-other
 tulip: AppImages-github
 tumblr_downloader_gui: AppImages-github
 tusk: AppImages-github
+twitch-wrapper: AppImages-github
 ubports-installer: AppImages-github
 unicode: AppImages-github
 unified-communications: AppImages-github
