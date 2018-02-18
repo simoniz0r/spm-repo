@@ -1,0 +1,4 @@
+name: ksnip
+url: https://github.com/DamirPorobic/ksnip/releases
+apiurl: https://api.github.com/repos/DamirPorobic/ksnip/releases
+description: ksnip - Ksnip is a Qt based Linux screenshot tool that provides many annotation features for your screenshots
