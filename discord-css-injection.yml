@@ -1,0 +1,4 @@
+name: discord-css-injection
+url: https://github.com/simoniz0r/discord-css-injection/releases
+apiurl: https://api.github.com/repos/simoniz0r/discord-css-injection/releases
+description: discord-css-injection - A bash script that uses 39asar39 39grep39 and 39sed39 to add CSS hotloading to Discord on Linux
