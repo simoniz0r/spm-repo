@@ -1,0 +1,4 @@
+name: CozyDrive
+url: https://github.com/cozy-labs/cozy-desktop/releases
+apiurl: https://api.github.com/repos/cozy-labs/cozy-desktop/releases
+description: cozy-desktop - File Synchronisation for Cozy on Desktop and Laptop
