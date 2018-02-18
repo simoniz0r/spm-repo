@@ -1,0 +1,4 @@
+name: poddr
+url: https://github.com/Sn8z/Poddr/releases
+apiurl: https://api.github.com/repos/Sn8z/Poddr/releases
+description: Poddr - Podcast client built with Electron and Angularjs
