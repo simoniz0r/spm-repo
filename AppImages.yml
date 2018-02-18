@@ -6,6 +6,7 @@ akiee: AppImages-github
 alduin: AppImages-github
 alphat: AppImages-github
 amphetype2: AppImages-github
+anavis: AppImages-github
 animationmaker: AppImages-github
 ansiweather: AppImages-github
 ao: AppImages-github
@@ -41,6 +42,7 @@ blink1control2: AppImages-github
 blubvolley: AppImages-other
 bnb: AppImages-github
 botframework-emulator: AppImages-github
+brainverse: AppImages-github
 bscc: AppImages-other
 bunqdesktop: AppImages-github
 buttercup: AppImages-github
@@ -54,6 +56,8 @@ cerebral-debugger: AppImages-github
 cerebro: AppImages-github
 chigraph: AppImages-github
 ciaa_suite: AppImages-github
+cozydrive: AppImages-github
+cryplicity: AppImages-github
 crypter: AppImages-github
 cuarzobrowser: AppImages-github
 cubicsdr: AppImages-github
@@ -91,6 +95,7 @@ emu-player: AppImages-other
 encryptpad: AppImages-github
 envkey: AppImages-github
 epl-viz: AppImages-github
+eqonomize: AppImages-github
 erdesigner: AppImages-github
 evothings-studio: AppImages-other
 eyestalker: AppImages-github
@@ -115,6 +120,7 @@ githoard: AppImages-github
 githubdesktop: AppImages-github
 glabels: AppImages-github
 godot: AppImages-other
+gpredict: AppImages-github
 gradestats: AppImages-github
 grandview: AppImages-github
 gulden: AppImages-github
@@ -129,6 +135,7 @@ icestudio: AppImages-github
 iease-music: AppImages-github
 igdm: AppImages-github
 iitmnetworkauthapp: AppImages-github
+imagemagick: AppImages-github
 imageplay: AppImages-github
 imagine: AppImages-github
 inboxer: AppImages-github
@@ -156,6 +163,7 @@ keepassxc: AppImages-github
 kettleclient: AppImages-github
 kevedit: AppImages-github
 krita: AppImages-other
+ksnip: AppImages-github
 ktube-media-downloader: AppImages-github
 labpowerqt: AppImages-github
 langly: AppImages-github
@@ -163,6 +171,7 @@ laserweb: AppImages-github
 ldview: AppImages-other
 lepton: AppImages-github
 libreoffice: AppImages-other
+libreofficedaily: AppImages-other
 libreofficedev: AppImages-other
 librepcb-nightly: AppImages-other
 linuxdeployqt: AppImages-github
@@ -241,6 +250,7 @@ planetblupi: AppImages-github
 playground: AppImages-github
 plex: AppImages-other
 plover: AppImages-github
+poddr: AppImages-github
 pokenurse: AppImages-github
 pomello: AppImages-other
 popcorn_time: AppImages-github
