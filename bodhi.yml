@@ -1,0 +1,4 @@
+name: bodhi
+url: https://github.com/bodhiproject/bodhi-app/releases
+apiurl: https://api.github.com/repos/bodhiproject/bodhi-app/releases
+description: bodhi-app - Bodhi Prediction Market desktop application

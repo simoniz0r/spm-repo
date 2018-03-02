@@ -1,4 +1,4 @@
-name: yaml_linux_amd64
+name: yq
 url: https://github.com/mikefarah/yq/releases
 apiurl: https://api.github.com/repos/mikefarah/yq/releases
-description: yaml is a portable command-line YAML processor
+description: yq is a portable command-line YAML processor

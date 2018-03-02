@@ -1,0 +1,4 @@
+name: hexoeditor
+url: https://github.com/zhuzhuyule/HexoEditor/releases
+apiurl: https://api.github.com/repos/zhuzhuyule/HexoEditor/releases
+description: HexoEditor - this markdown Editor for hexo blog

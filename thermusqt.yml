@@ -1,0 +1,4 @@
+name: thermusqt
+url: https://github.com/yschutz/ThermusQt/releases
+apiurl: https://api.github.com/repos/yschutz/ThermusQt/releases
+description: ThermusQt - Qt implementation of Thermus the thermal statistical model

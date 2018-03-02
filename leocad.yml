@@ -1,0 +1,4 @@
+name: leocad
+url: https://github.com/leozide/leocad/releases
+apiurl: https://api.github.com/repos/leozide/leocad/releases
+description: leocad - A CAD program for creating virtual LEGO models

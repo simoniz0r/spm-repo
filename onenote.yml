@@ -1,0 +1,4 @@
+name: onenote
+url: https://github.com/patrikx3/onenote/releases
+apiurl: https://api.github.com/repos/patrikx3/onenote/releases
+description: onenote - Linux Electron Onenote

@@ -1,0 +1,4 @@
+name: quentier
+url: https://github.com/d1vanov/quentier/releases
+apiurl: https://api.github.com/repos/d1vanov/quentier/releases
+description: quentier - Cross-platform desktop Evernote client

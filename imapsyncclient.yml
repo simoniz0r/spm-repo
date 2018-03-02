@@ -1,0 +1,4 @@
+name: imapsyncclient
+url: https://github.com/ridaamirini/ImapSyncClient/releases
+apiurl: https://api.github.com/repos/ridaamirini/ImapSyncClient/releases
+description: ImapSyncClient - ImapSync Desktop Client

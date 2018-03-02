@@ -1,0 +1,4 @@
+name: invoice-generator
+url: https://github.com/bhavyaagg/Invoice-Generator-Electron/releases
+apiurl: https://api.github.com/repos/bhavyaagg/Invoice-Generator-Electron/releases
+description: Invoice-Generator-Electron - Invoice Generator For Businesses built using Electron

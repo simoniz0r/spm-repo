@@ -1,0 +1,4 @@
+name: snake.js
+url: https://github.com/aenany/snake.js/releases
+apiurl: https://api.github.com/repos/aenany/snake.js/releases
+description: snakejs - CanvasJavaScript based Snake Game with support for controllers SNESPSXBOX

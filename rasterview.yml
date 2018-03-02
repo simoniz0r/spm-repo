@@ -1,0 +1,4 @@
+name: rasterview
+url: https://github.com/KurtPfeifle/rasterview/releases
+apiurl: https://api.github.com/repos/KurtPfeifle/rasterview/releases
+description: rasterview - A CUPSPWGApple raster file viewer for Linux macOS and Windows

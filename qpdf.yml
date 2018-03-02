@@ -1,0 +1,4 @@
+name: qpdf
+url: https://github.com/qpdf/qpdf/releases
+apiurl: https://api.github.com/repos/qpdf/qpdf/releases
+description: qpdf - Primary QPDF source code and documentation

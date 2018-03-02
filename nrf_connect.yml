@@ -1,0 +1,4 @@
+name: nrf_connect
+url: https://github.com/NordicSemiconductor/pc-nrfconnect-core/releases
+apiurl: https://api.github.com/repos/NordicSemiconductor/pc-nrfconnect-core/releases
+description: Contribute to pc-nrfconnect-core development by creating an account on GitHub

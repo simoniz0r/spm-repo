@@ -1,0 +1,4 @@
+name: lxd-ui
+url: https://github.com/lcherone/lxd-ui/releases
+apiurl: https://api.github.com/repos/lcherone/lxd-ui/releases
+description: lxd-ui - A LXD user interface powered by electron-vue

@@ -1,0 +1,4 @@
+name: synfigstudio
+url: https://github.com/synfig/synfig/releases
+apiurl: https://api.github.com/repos/synfig/synfig/releases
+description: synfig - This is the Official source code repository of the Synfig project

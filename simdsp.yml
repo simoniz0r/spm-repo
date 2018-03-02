@@ -1,0 +1,4 @@
+name: simdsp
+url: https://github.com/lmcapacho/SimDSP/releases
+apiurl: https://api.github.com/repos/lmcapacho/SimDSP/releases
+description: SimDSP - DSP Simulator

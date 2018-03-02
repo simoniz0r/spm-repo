@@ -1,0 +1,4 @@
+name: turntable
+url: https://github.com/radiium/turntable/releases
+apiurl: https://api.github.com/repos/radiium/turntable/releases
+description: turntable - Simple youtube DJ app made with Electron and Angular 5
