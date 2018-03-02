@@ -1,0 +1,4 @@
+name: pathephone
+url: https://github.com/pathephone/pathephone-desktop/releases
+apiurl: https://api.github.com/repos/pathephone/pathephone-desktop/releases
+description: pathephone-desktop - Distributed audio player
