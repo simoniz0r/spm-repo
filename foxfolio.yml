@@ -1,0 +1,4 @@
+name: foxfolio
+url: https://github.com/foxfolio/foxfolio-desktop/releases
+apiurl: https://api.github.com/repos/foxfolio/foxfolio-desktop/releases
+description: GitHub is where people build software More than 28 million people use GitHub to discover fork and contribute to over 79 million projectsfoxfolio-desktop - Cryptocurrency portfolio management application which automatically retrieves balances and trades using exchange APIs
