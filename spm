@@ -122,6 +122,12 @@ tarfunctionsexistfunc || { ssft_display_error "${CLR_RED}Error loading tarfuncti
 
 spmlockfunc # Create "$CONFDIR"/cache/spm.lock file and prevent multiple instances by checking if it exists before running
 
+printf '%s\n' "
+A new version of spm has been released that is not compatible with this version.  This version of spm will no longer be maintained.
+It is advised to remove all applications that are installed with this version of spm and update to the new version from
+https://github.com/simoniz0r/spm/releases
+"
+
 if [ -z "$GITHUB_TOKEN" ]; then # Display github rate limit by using wget to show https://api.github.com/rate_limit
     wget -S --spider "https://api.github.com/rate_limit" -o "$CONFDIR"/cache/rate.limit
     echo "Github API rate limit: $(grep -m 1 '.*X-RateLimit-Remaining:*.' "$CONFDIR"/cache/rate.limit | cut -f4 -d" ")/60 until $(date -d@$(grep -m 1 '.*X-RateLimit-Reset:*.' "$CONFDIR"/cache/rate.limit | cut -f4 -d" ") +"%T, %F")."  || { echo "Github rate limit check failed; exiting..."; rm -rf "$CONFDIR"/cache/*; exit 1; }

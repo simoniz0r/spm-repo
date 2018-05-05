@@ -7,7 +7,7 @@
 # License: GPL v2.0 only
 # Script for building releases of spm
 
-BUILD_DIR="/run/media/simonizor/0d208b29-3b29-4ffc-99be-1043b9f3c258/github/all-releases"
+BUILD_DIR="/run/media/simonizor/USBHDD/github/all-releases"
 VERSION="0.6.4"
 mkdir -p "$BUILD_DIR"/deps/extracted
 mkdir "$BUILD_DIR"/spm.AppDir
@@ -58,17 +58,17 @@ debextractfunc "zlib1g.deb"
 rm -rf "$BUILD_DIR"/deps
 
 mkdir -p "$BUILD_DIR"/spm.AppDir/usr/share/spm
-cp ~/github/spm/spm "$BUILD_DIR"/spm.AppDir/usr/share/spm/
-cp ~/github/spm/spm.1 "$BUILD_DIR"/spm.AppDir/usr/share/spm/
-cp ~/github/spm/spmfunctions.sh "$BUILD_DIR"/spm.AppDir/usr/share/spm/
-cp ~/github/spm/appimgfunctions.sh "$BUILD_DIR"/spm.AppDir/usr/share/spm/
-cp ~/github/spm/tarfunctions.sh "$BUILD_DIR"/spm.AppDir/usr/share/spm/
-cp ~/github/spm/LICENSE "$BUILD_DIR"/spm.AppDir/usr/share/spm/
-cp ~/github/spm/jq "$BUILD_DIR"/spm.AppDir/usr/share/spm/
-cp ~/github/spm/yaml "$BUILD_DIR"/spm.AppDir/usr/share/spm/
-cp ~/github/spm/ssft.sh "$BUILD_DIR"/spm.AppDir/usr/share/spm/
-cp ~/github/spm/spm.desktop "$BUILD_DIR"/spm.AppDir/
-cp ~/github/spm/spm.png "$BUILD_DIR"/spm.AppDir/
+cp ~/github/spm_repo/spm "$BUILD_DIR"/spm.AppDir/usr/share/spm/
+cp ~/github/spm_repo/spm.1 "$BUILD_DIR"/spm.AppDir/usr/share/spm/
+cp ~/github/spm_repo/spmfunctions.sh "$BUILD_DIR"/spm.AppDir/usr/share/spm/
+cp ~/github/spm_repo/appimgfunctions.sh "$BUILD_DIR"/spm.AppDir/usr/share/spm/
+cp ~/github/spm_repo/tarfunctions.sh "$BUILD_DIR"/spm.AppDir/usr/share/spm/
+cp ~/github/spm_repo/LICENSE "$BUILD_DIR"/spm.AppDir/usr/share/spm/
+cp ~/github/spm_repo/jq "$BUILD_DIR"/spm.AppDir/usr/share/spm/
+cp ~/github/spm_repo/yaml "$BUILD_DIR"/spm.AppDir/usr/share/spm/
+cp ~/github/spm_repo/ssft.sh "$BUILD_DIR"/spm.AppDir/usr/share/spm/
+cp ~/github/spm_repo/spm.desktop "$BUILD_DIR"/spm.AppDir/
+cp ~/github/spm_repo/spm.png "$BUILD_DIR"/spm.AppDir/
 
 wget "https://raw.githubusercontent.com/simoniz0r/spm-repo/aibs/resources/AppRun" -O "$BUILD_DIR"/spm.AppDir/AppRun
 chmod a+x "$BUILD_DIR"/spm.AppDir/AppRun
