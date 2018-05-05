@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=spm
+Comment=spm is a simple commandline package manager that installs/manages AppImages and tar archives.
+Exec=./usr/share/spm/spm
+Icon=spm
+Categories=GTK;Utility;
+Terminal=true
